@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-07-15-initial-employee-1" author="Alexey Andrianov">
+
+        <createTable tableName="employee" >
+            <column name="employee_id" autoIncrement="true" type="serial" >
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="access_id" type="int8" />
+            <column name="shop" type="shop" />
+            <column name="employee_first_name" type="varchar(30)" />
+            <column name="employee_last_name" type="varchar(30)" />
+            <column name="email" type="varchar(50)" />
+            <column name="employee_phone" type="varchar(20)" />
+            <column name="job_title" type="varchar(20)" />
+            <column name="job_number" type="varchar(20)" />
+            <column name="login" type="varchar(20)" />
+            <column name="password" type="varchar(20)" />
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
