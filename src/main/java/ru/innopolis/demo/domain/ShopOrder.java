@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -15,21 +14,32 @@ import java.util.List;
 public class ShopOrder {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long orderId;
 
     @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private OffsetDateTime date;
 
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name = "shop_user")
-    private ShopUser shopUser;
-
-    @OneToOne (cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "courier")
     private Courier courier;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
     private List<Product> products;
 
+    @ManyToOne
+    @JoinColumn(name = "shop_user")
+    private ShopUser shopUser;
+
+    @ManyToOne
+    private Shop shop;
+
+    @OneToOne
+    @JoinColumn(name = "order_status")
+    private OrderStatus orderStatus;
+
+    @OneToOne
+    @JoinColumn(name = "delivery_method")
+    private DeliveryMethod deliveryMethod;
 }

@@ -12,9 +12,23 @@ public class Product {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private long productId;
+    private Long productId;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne
+    private Shop shop;
+
+    private String article;
+
+    private String name;
+
+    private String description;
+
+    private Double price;
+
+    private Integer count;
+
+    @ManyToOne
     private ShopOrder shopOrder;
 }

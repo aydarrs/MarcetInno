@@ -3,10 +3,8 @@ package ru.innopolis.demo.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,9 +12,20 @@ import javax.persistence.OneToOne;
 public class Courier {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "courier_id")
     private long courierId;
 
-    @OneToOne(mappedBy = "courier")
-    private ShopOrder shopOrder;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @OneToOne
+    @JoinColumn(name = "courier_status")
+    private CourierStatus courierStatus;
+
+    @OneToMany
+    private List<ShopOrder> shopOrders;
 }
