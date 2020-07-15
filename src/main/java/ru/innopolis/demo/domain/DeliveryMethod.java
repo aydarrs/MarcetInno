@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class DeliveryMethod {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "method_id")
     private long methodId;
 

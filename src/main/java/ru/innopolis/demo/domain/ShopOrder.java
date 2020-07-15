@@ -33,6 +33,7 @@ public class ShopOrder {
     private ShopUser shopUser;
 
     @ManyToOne
+    @JoinColumn(name = "shop")
     private Shop shop;
 
     @OneToOne
