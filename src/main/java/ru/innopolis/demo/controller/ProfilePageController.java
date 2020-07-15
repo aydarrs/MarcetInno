@@ -4,16 +4,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.innopolis.demo.pojo.User;
+import ru.innopolis.demo.domain.ShopUser;
 
 @Controller
 @RequestMapping("/profile")
 public class ProfilePageController {
 
-    private static final User user;
+    private ShopUser user;
 
-    static {
-        user = new User("cobratms", "Nail", "Zinnurov", 22);
+     {
+        user = new ShopUser();
+        user.setUserName("cobratms");
+        user.setFirstName("Nail");
+        user.setLastName("Zinnurov");
+        user.setAge(22);
     }
 
     @GetMapping("/user")
