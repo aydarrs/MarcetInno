@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-07-15-initial-courier-1" author="Alexey Andrianov">
+
+        <createTable tableName="courier" >
+            <column name="courier_id" autoIncrement="true" type="serial" >
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="varchar(30)" />
+            <column name="last_name" type="varchar(30)" />
+            <column name="courier_status" type="courier_status" />
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
