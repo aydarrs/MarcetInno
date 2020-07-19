@@ -19,6 +19,7 @@ public class Shop {
     @Column(name = "address_id")
     private String addressID;
 
+    @Column(name = "name")
     private String name;
 
     @OneToMany
