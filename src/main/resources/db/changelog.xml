@@ -5,14 +5,10 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <include file="db/courier_status.xml"/>
-    <include file="db/courier.xml"/>
-    <include file="db/delivery_method.xml"/>
     <include file="db/shop.xml"/>
-    <include file="db/order_status.xml"/>
-    <include file="db/employee.xml"/>
-    <include file="db/shop_user.xml"/>
     <include file="db/product.xml"/>
-    <include file="db/shop_order.xml"/>
+    <include file="db/courier.xml"/>
+    <include file="db/user_account.xml"/>
+    <include file="db/order_shop.xml"/>
 
 </databaseChangeLog>

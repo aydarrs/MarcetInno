@@ -93,6 +93,8 @@
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Liquibase -->
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>

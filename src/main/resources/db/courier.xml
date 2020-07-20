@@ -14,7 +14,7 @@
             </column>
             <column name="first_name" type="varchar(30)" />
             <column name="last_name" type="varchar(30)" />
-            <column name="courier_status" type="courier_status" />
+            <column name="delivery_method" type="varchar(30)" />
         </createTable>
     </changeSet>
 </databaseChangeLog>

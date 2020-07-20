@@ -12,7 +12,9 @@
             <column name="product_id" autoIncrement="true" type="serial" >
                 <constraints primaryKey="true"/>
             </column>
-            <column name="shop" type="shop" />
+            <column name="shop_id" type="int4">
+                <constraints foreignKeyName="shop_id" references="shop(shop_id)"/>
+            </column>
             <column name="article" type="varchar(30)" />
             <column name="name" type="varchar(30)" />
             <column name="description" type="text" />

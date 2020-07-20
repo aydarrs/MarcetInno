@@ -11,26 +11,19 @@ import java.util.List;
 @Setter
 public class Shop {
 
+    //TODO: Нужны комментарии
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "shop_id")
     private Long shopID;
 
-    @Column(name = "address_id")
-    private String addressID;
+    @Column(name = "address")
+    private String address;
 
+    @Column(name = "name")
     private String name;
 
     @OneToMany
     private List<Product> products;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Employee> employees;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<ShopOrder> orders;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<ShopUser> users;
 
 }

@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
-
+    //TODO: Нужны комментарии
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

@@ -2,7 +2,7 @@ package ru.innopolis.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.innopolis.demo.domain.ShopOrder;
+import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.service.OrderService;
 
 @RestController
@@ -17,23 +17,23 @@ public class OrderController {
     }
 
     @GetMapping("/")
-    public Iterable<ShopOrder> getAllOrders() {
+    public Iterable<OrderShop> getAllOrders() {
         return orderService.getAllOrders();
     }
 
     @GetMapping("/{orderId}")
-    public ShopOrder getOrderById(@PathVariable long orderId) {
+    public OrderShop getOrderById(@PathVariable long orderId) {
         return orderService.getOrderById(orderId);
     }
 
     @PostMapping("/")
-    public ShopOrder addOrder(@RequestParam ShopOrder shopOrder) {
-        return orderService.saveNewOrder(shopOrder);
+    public OrderShop addOrder(@RequestParam OrderShop orderShop) {
+        return orderService.saveNewOrder(orderShop);
     }
 
     @PostMapping("/{orderId}")
-    public ShopOrder changeOrder(@PathVariable long orderId, @RequestParam ShopOrder shopOrder) {
-        return orderService.changeOrderById(orderId, shopOrder);
+    public OrderShop changeOrder(@PathVariable long orderId, @RequestParam OrderShop orderShop) {
+        return orderService.changeOrderById(orderId, orderShop);
     }
 
 }

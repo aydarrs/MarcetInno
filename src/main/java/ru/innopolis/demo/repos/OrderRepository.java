@@ -4,11 +4,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
-import ru.innopolis.demo.domain.ShopOrder;
+import ru.innopolis.demo.domain.OrderShop;
 
 @Repository
 @EnableTransactionManagement
 @Transactional
-public interface OrderRepository extends CrudRepository<ShopOrder, Long> {
-
+//TODO: Нужны комментарии
+public interface OrderRepository extends CrudRepository<OrderShop, Long> {
 }

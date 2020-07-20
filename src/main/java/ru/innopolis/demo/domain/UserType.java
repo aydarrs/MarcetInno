@@ -1,13 +1,15 @@
 package ru.innopolis.demo.domain;
 
-public enum DeliveryMethod {
+public enum UserType {
     //TODO: Нужны комментарии
-    CAR("автомобиль"),
-    FOOT("пеший");
+    ADMIN("Администратор"),
+    SELLER("Продавец"),
+    CUSTOMER("Покупатель"),
+    COURIER("Курьер");
 
     private String title;
 
-    DeliveryMethod(String title) {
+    UserType(String title) {
         this.title = title;
     }
 

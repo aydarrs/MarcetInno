@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-07-15-initial-order_shop-1" author="Alexey Andrianov">
+
+        <createTable tableName="order_shop" >
+            <column name="order_id" autoIncrement="true" type="serial" >
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_status" type="varchar(30)" />
+            <column name="date" type="timestamptz" />
+            <column name="user_id" type="int4">
+                <constraints foreignKeyName="user_id" references="user_account(user_id)"/>
+            </column>
+            <column name="product_id" type="int4">
+                <constraints foreignKeyName="product_id" references="product(product_id)"/>
+            </column>
+            <column name="courier_id" type="int4">
+                <constraints foreignKeyName="courier_id" references="courier(courier_id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

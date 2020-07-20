@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @Entity
 public class Courier {
-
+    //TODO: Нужны комментарии
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "courier_id")
@@ -22,10 +22,6 @@ public class Courier {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToOne
-    @JoinColumn(name = "courier_status")
-    private CourierStatus courierStatus;
-
-    @OneToMany
-    private List<ShopOrder> shopOrders;
+    @Column(name = "delivery_method")
+    private DeliveryMethod deliveryMethod;
 }
