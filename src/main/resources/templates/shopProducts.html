@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf Привет Мир Пример</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th> Название </th>
+        <th> Описание </th>
+        <th> Цена </th>
+        <th> Кол-во </th>
+        <th> Покупка </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td><span th:text="${product.name}"/></td>
+        <td><span th:text="${product.description}"/></td>
+        <td><span th:text="${product.price}"/></td>
+        <td><span th:text="${product.count}"/></td>
+        <td><a href="buyProduct" th:href="@{'/buy/'+${product.productId}}"><span>Купить</span></a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
