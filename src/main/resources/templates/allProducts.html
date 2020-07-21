@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список всех товаров</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Артикул</th>
+        <th>Наименование</th>
+        <th>Описание</th>
+        <th>Цена</th>
+        <th>Количество</th>
+    </tr>
+    <tr th:each ="product : ${products}">
+        <td><a href="oneProduct" th:href="@{'/product/'+${product.productId}}"><span th:text="${product.article}"/></a></td>
+        <td th:utext="${product.name}"></td>
+        <td th:utext="${product.description}"></td>
+        <td th:utext="${product.price}"></td>
+        <td th:utext="${product.count}"></td>
+    </tr>
+</table>
+</body>
+</html>
