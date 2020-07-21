@@ -1,7 +1,11 @@
 package ru.innopolis.demo.domain;
 
 public enum OrderStatus {
-    //TODO: Нужны комментарии
+    //TODO: Добавить статусы заказа (убрать лишние, оставиьт только те,
+    // что нужны на конкретном этапе проекта
+
+    //TODO: ДОбавить аннотации и комментарии
+
     NEW("новый"),
     QUESTION_TO_STORE("вопрос магазину"),
     QUESTION_TO_CUSTOMER("вопрос клиенту"),
