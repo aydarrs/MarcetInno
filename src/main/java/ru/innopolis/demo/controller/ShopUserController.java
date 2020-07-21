@@ -6,36 +6,37 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.innopolis.demo.service.ShopService;
 import ru.innopolis.demo.service.ShopUserService;
 
 
 /**
  * ShopUserController
  *
- * @author Dmitrii_Blazhko 18-Jul-20
+ * @author Dmitrii_Blazhko
  */
 
 @Controller
-@RequestMapping("/shop/")
+@RequestMapping("/shop")
 public class ShopUserController {
 
-    private ShopUserService shopUserService;
+    private ShopService shopService;
 
     @Autowired
-    public ShopUserController(ShopUserService shopUserService) {
-        this.shopUserService = shopUserService;
+    public ShopUserController(ShopService shopService) {
+        this.shopService = shopService;
     }
 
-    @GetMapping("all")
-    public String showAllShop(Model model){
-        model.addAttribute("all",shopUserService.getAllShops());
-        return "shop";
+    @GetMapping("/all")
+    public String getAllShop(Model model){
+        model.addAttribute("allShop",shopService.getAllShops());
+        return "allShop";
     }
 
-    @GetMapping("{shopID}")
+    @GetMapping("/{shopID}")
     public String getShopByID(Model model, @PathVariable long shopID){
-        model.addAttribute("shop", shopUserService.findShopByShopID(shopID));
-        return "shopID";
+        model.addAttribute("shop", shopService.getShopByShopId(shopID));
+        return "shop";
     }
 
 }
