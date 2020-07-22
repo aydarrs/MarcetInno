@@ -16,11 +16,11 @@
         <th>Количество</th>
     </tr>
     <tr th:each ="product : ${products}">
-        <td><a href="oneProduct" th:href="@{'/product/'+${product.productId}}"><span th:text="${product.article}"/></a></td>
+        <td><a href="oneProduct" th:href="@{'/product/'+${product.productID}}"><span th:text="${product.article}"/></a></td>
         <td th:utext="${product.name}"></td>
         <td th:utext="${product.description}"></td>
         <td th:utext="${product.price}"></td>
-        <td th:utext="${product.count}"></td>
+        <td th:utext="${product.productCount}"></td>
     </tr>
 </table>
 </body>
