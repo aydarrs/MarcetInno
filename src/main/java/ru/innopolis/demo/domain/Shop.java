@@ -20,10 +20,7 @@ public class Shop {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "name")
+    @Column(name = "shop_name")
     private String name;
-
-    @OneToMany
-    private List<Product> products;
 
 }

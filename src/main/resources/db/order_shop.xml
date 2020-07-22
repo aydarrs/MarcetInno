@@ -12,7 +12,7 @@
             <column name="order_id" autoIncrement="true" type="serial" >
                 <constraints primaryKey="true"/>
             </column>
-            <column name="order_status" type="varchar(30)" />
+            <column name="order_status" type="varchar(30)"/>
             <column name="date" type="timestamptz" />
             <column name="user_id" type="int4">
                 <constraints foreignKeyName="user_id" references="user_account(user_id)"/>
@@ -20,9 +20,8 @@
             <column name="product_id" type="int4">
                 <constraints foreignKeyName="product_id" references="product(product_id)"/>
             </column>
-            <column name="courier_id" type="int4">
-                <constraints foreignKeyName="courier_id" references="courier(courier_id)"/>
-            </column>
+            <column name="product_count" type="int4" />
+            <column name="payment_status" type="varchar(30)"/>
         </createTable>
     </changeSet>
 

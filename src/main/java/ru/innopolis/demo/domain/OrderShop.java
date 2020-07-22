@@ -30,8 +30,10 @@ public class OrderShop {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @ManyToOne
-    @JoinColumn(name = "courier_id")
-    private Courier courier;
+    @Column(name = "product_count")
+    private int countProduct;
+
+    @Column(name = "payment_status")
+    private PaymentStatus paymentStatus;
 
 }

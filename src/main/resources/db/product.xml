@@ -16,10 +16,10 @@
                 <constraints foreignKeyName="shop_id" references="shop(shop_id)"/>
             </column>
             <column name="article" type="varchar(30)" />
-            <column name="name" type="varchar(30)" />
+            <column name="product_name" type="varchar(30)" />
             <column name="description" type="text" />
-            <column name="price" type="float8" />
-            <column name="count" type="int4" />
+            <column name="price" type="money" />
+            <column name="product_count" type="int4" />
         </createTable>
     </changeSet>
 

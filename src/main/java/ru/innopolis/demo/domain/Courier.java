@@ -24,4 +24,8 @@ public class Courier {
 
     @Column(name = "delivery_method")
     private DeliveryMethod deliveryMethod;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private OrderShop orderShop;
 }

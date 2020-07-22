@@ -13,7 +13,7 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="address" type="varchar(30)" />
-            <column name="name" type="varchar(30)" />
+            <column name="shop_name" type="varchar(30)" />
         </createTable>
     </changeSet>
 </databaseChangeLog>

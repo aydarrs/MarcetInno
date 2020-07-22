@@ -13,7 +13,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private Long productId;
+    private Long productID;
 
     @ManyToOne
     @JoinColumn(name = "shop_id")
@@ -22,7 +22,7 @@ public class Product {
     @Column(name = "article")
     private String article;
 
-    @Column(name = "name")
+    @Column(name = "product_name")
     private String name;
 
     @Column(name = "description")
@@ -31,7 +31,7 @@ public class Product {
     @Column(name = "price")
     private Double price;
 
-    @Column(name = "count")
-    private Integer count;
+    @Column(name = "product_count")
+    private Integer productCount;
 
 }
