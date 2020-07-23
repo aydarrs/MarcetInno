@@ -14,11 +14,13 @@
             <!--/* When using CSRF this needs to be a POST */-->
             <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Выйти"/></form>
         </div>
-        <h1>Главная страница</h1>
+        <h1>Выберите вашу роль</h1>
         <ul>
-            <li>Перейти в <a href="admin/index.html" th:href="@{/admin/index.html}">административную зону</a> (только админы)</li>
-            <li>Перейти в <a href="user/index.html" th:href="@{/user/index.html}">пользовательскую зону</a> (только пользователи)</li>
-            <li>Перейти в <a href="user/index.html" th:href="@{/shared/index.html}">общую зону</a> (пользователи и админы)</li>
+            <li><a href="admin/index.html" th:href="@{/admin/index.html}">Админ</a></li>
+            <li><a href="customer/index.html" th:href="@{/customer/index.html}">Покупатель</a></li>
+            <li><a href="seller/index.html" th:href="@{/seller/index.html}">Продавец</a></li>
+            <li><a href="courier/index.html" th:href="@{/courier/index.html}">Курьер</a></li>
+            <li><a href="shared/index.html" th:href="@{/shared/index.html}">общая зона</a> (для всех)</li>
         </ul>
     </body>
 </html>

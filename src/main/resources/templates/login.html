@@ -8,9 +8,11 @@
 	</head>
     <body>
         <h1>Логин</h1>
-        <p>Администратор: jim / demo</p>
-        <p>Прользователь: bob / demo</p>
-        <p>Пользователь и администратор: ted / demo</p>
+        <p>Администратор: admin / admin</p>
+        <p>Покупатель: customer / customer</p>
+        <p>Продавец: seller / seller</p>
+        <p>Курьер: courier / courier</p>
+        <p>Супервайзер: supervisor / root (доступ ко всем страницам)</p>
         <p th:if="${loginError}" class="error">Неправильный логин либо пароль</p>
         <form th:action="@{/login.html}" method="post">
             <label for="username">Логин</label>:

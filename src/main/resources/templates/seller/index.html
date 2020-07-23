@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Страница продавца</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+    </head>
+    <body>
+        <div th:replace="index::logout"></div>
+        <h1>Страница продавца</h1>
+        <p>Только аутентифицированные пользователи с ролью <b>SELLER</b> могут видеть эту страницу.</p>
+        <p><a href="../index.html" th:href="@{/index.html}">На главную</a></p>
+    </body>
+</html>

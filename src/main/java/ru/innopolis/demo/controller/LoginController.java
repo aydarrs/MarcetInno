@@ -28,13 +28,25 @@ public class LoginController {
         return "index";
     }
 
-    /** Пользовательская зона */
-    @RequestMapping("/user/index.html")
-    public String userIndex() {
-        return "user/index";
+    /** Покупатель */
+    @RequestMapping("/customer/index.html")
+    public String customerIndex() {
+        return "customer/index";
     }
 
-    /** Административная зона */
+    /** Продавец */
+    @RequestMapping("/seller/index.html")
+    public String sellerIndex() {
+        return "seller/index";
+    }
+
+    /** Курьер */
+    @RequestMapping("/courier/index.html")
+    public String courierIndex() {
+        return "courier/index";
+    }
+
+    /** Администратор */
     @RequestMapping("/admin/index.html")
     public String adminIndex() {
         return "admin/index";

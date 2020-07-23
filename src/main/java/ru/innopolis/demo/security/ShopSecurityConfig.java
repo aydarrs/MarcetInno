@@ -26,8 +26,10 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").hasRole("USER")
-                .antMatchers("/shared/**").hasAnyRole("USER","ADMIN")
+                .antMatchers("/customer/**").hasRole("CUSTOMER")
+                .antMatchers("/seller/**").hasRole("SELLER")
+                .antMatchers("/courier/**").hasRole("COURIER")
+                .antMatchers("/shared/**").hasAnyRole("ADMIN","CUSTOMER","SELLER","COURIER")
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/403.html");
@@ -38,9 +40,11 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("jim").password("{noop}demo").roles("ADMIN").and()
-                .withUser("bob").password("{noop}demo").roles("USER").and()
-                .withUser("ted").password("{noop}demo").roles("USER","ADMIN");
+                .withUser("admin").password("{noop}admin").roles("ADMIN").and()
+                .withUser("customer").password("{noop}customer").roles("CUSTOMER").and()
+                .withUser("seller").password("{noop}seller").roles("SELLER").and()
+                .withUser("courier").password("{noop}courier").roles("COURIER").and()
+                .withUser("supervisor").password("{noop}root").roles("ADMIN","CUSTOMER","SELLER","COURIER");
     }
 
 }
