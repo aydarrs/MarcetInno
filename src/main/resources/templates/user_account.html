@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Профиль пользователя</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td th:utext="${user_account.getUserId()}"></td>
+    </tr>
+    <tr>
+        <td>Логин</td>
+        <td th:utext="${user_account.getUserName()}"></td>
+    </tr>
+    <tr>
+        <td>Имя</td>
+        <td th:utext="${user_account.getFirstName()}"></td>
+    </tr>
+    <tr>
+        <td>Фамилия</td>
+        <td th:utext="${user_account.getLastName()}"></td>
+    </tr>
+</table>
+</body>
+</html>

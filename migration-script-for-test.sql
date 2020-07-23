@@ -1,15 +1,13 @@
-drop table if exists user_account;
-drop table if exists shop;
-drop table if exists product;
-drop table if exists order_shop;
-drop table if exists courier;
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
 
 create table if not exists user_account (
                                             user_id serial primary key,
                                             user_type varchar(30),
                                             user_name varchar(30),
                                             first_name varchar(30),
-                                            last_name varchar(30)
+                                            last_name varchar(30),
+                                            password varchar(30)
 );
 
 create table if not exists shop (
@@ -43,3 +41,4 @@ create table if not exists courier (
                                        delivery_method varchar(30),
                                        order_id int4 REFERENCES order_shop (order_id)
 );
+

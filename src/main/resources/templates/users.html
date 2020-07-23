@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список всех пользователей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Логин</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+    </tr>
+    <tr th:each ="user : ${users}">
+        <td>
+            <a th:href="@{'/users/'+${user.getUserId()}}">
+        </td>
+        <td th:utext="${user.getUserName()}"></td>
+        <td th:utext="${user.getFirstName()}"></td>
+        <td th:utext="${user.getLastName()}"></td>
+    </tr>
+</table>
+</body>
+</html>
