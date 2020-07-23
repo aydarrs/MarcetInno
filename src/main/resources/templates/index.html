@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+        <title>Главная страница</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+    </head>
+    <body>
+        <div th:fragment="logout" class="logout"
+             sec:authorize="isAuthenticated()">
+            Пользователь: <span sec:authentication="name">Bob</span> |
+            Роли: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span> |
+            <!--/* When using CSRF this needs to be a POST */-->
+            <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Выйти"/></form>
+        </div>
+        <h1>Главная страница</h1>
+        <ul>
+            <li>Перейти в <a href="admin/index.html" th:href="@{/admin/index.html}">административную зону</a> (только админы)</li>
+            <li>Перейти в <a href="user/index.html" th:href="@{/user/index.html}">пользовательскую зону</a> (только пользователи)</li>
+            <li>Перейти в <a href="user/index.html" th:href="@{/shared/index.html}">общую зону</a> (пользователи и админы)</li>
+        </ul>
+    </body>
+</html>

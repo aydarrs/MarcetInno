@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Общая зона</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+    </head>
+    <body>
+        <div th:replace="index::logout"></div>
+        <h1>Общая зона</h1>
+        <p>Только аутентифицированные пользователи с ролями <b>USER</b> либо <b>ADMIN</b> могут видеть эту страницу.</p>
+        <p>Различное содержание отображается в зависимости от роли аутентифицированного пользователя.</p>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            Это содержимое показывается только для <b>админов</b>.
+        </div>
+        <div sec:authorize="hasRole('ROLE_USER')">
+            Это содержимое показывается только для <b>пользователей</b>.
+        </div>
+        <p><a href="../index.html" th:href="@{/index.html}">На главную</a></p>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Вход в систему</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+	</head>
+    <body>
+        <h1>Логин</h1>
+        <p>Администратор: jim / demo</p>
+        <p>Прользователь: bob / demo</p>
+        <p>Пользователь и администратор: ted / demo</p>
+        <p th:if="${loginError}" class="error">Неправильный логин либо пароль</p>
+        <form th:action="@{/login.html}" method="post">
+            <label for="username">Логин</label>:
+            <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
+            <label for="password">Пароль</label>:
+            <input type="password" id="password" name="password" /> <br />
+            <input type="submit" value="Войти" />
+        </form>
+        <p><a href="../index.html" th:href="@{/index.html}">На главную</a></p>
+    </body>
+</html>
