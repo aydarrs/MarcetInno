@@ -5,11 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.innopolis.demo.domain.Shop;
 import ru.innopolis.demo.repos.ShopRepository;
-import ru.innopolis.demo.repos.ShopRepositoryImpl;
 
-@Service("shopServiceFromManager")
+import java.util.Optional;
+
+@Service
 @Log4j2
-public class ShopServiceManager implements ShopRepositoryImpl {
+public class ShopServiceManager {
 
     private ShopRepository shopRepository;
 
@@ -18,57 +19,32 @@ public class ShopServiceManager implements ShopRepositoryImpl {
         this.shopRepository = shopRepository;
     }
 
-    /**
-     * просмотр всех магазинов
-     *
-     * @param
-     * @return
-     */
-    @Override
-    public Iterable<Shop> getAllShops() {
-        return shopRepository.findAll();
-    }
-
-    /**
-     * добавить магазин
-     *
-     * @param shop
-     */
-    @Override
-    public void addNewShop(Shop shop) {
+    public void saveNewShop(Shop shop) {
         shopRepository.save(shop);
+        Optional<Shop> optionalShop = shopRepository.findById(shop.getShopID());
+        if (optionalShop.isPresent()) {
+            log.info("Shop saved successful id={}", optionalShop.get());
+        } else {
+            log.error("Error saved shop");
+        }
     }
 
-    /**
-     * изменить магазин по ID
-     *
-     * @param shopID
-     * @param shop
-     */
     public void changeShopByShopID(long shopID, Shop shop) {
-        Iterable<Shop> change = getShopByShopId(shopID);
-        //внести изменения change из shop
-        addNewShop(shop);
+        Optional<Shop> optionalShop = shopRepository.findById(shopID);
+        if (optionalShop.isPresent()) {
+            saveNewShop(shop);
+        } else {
+            log.error("Error change shop");
+        }
     }
 
-    /**
-     * просмотр одного магазина
-     *
-     * @param shopID
-     * @return
-     */
-    @Override
-    public Iterable<Shop> getShopByShopId(long shopID) {
-        return shopRepository.findShopByShopShopID(shopID);
-    }
-
-    /**
-     * удалить магазин
-     *
-     * @param shopID
-     */
-    @Override
-    public void deleteShopByShopID(Long shopID) {
+    public void deleteShopByShopID(long shopID) {
         shopRepository.deleteById(shopID);
+        Optional<Shop> optionalShop = shopRepository.findById(shopID);
+        if (!optionalShop.isPresent()) {
+            log.info("Shop deleted successful id={}", shopID);
+        } else {
+            log.error("Error delete shop id={}", shopID);
+        }
     }
 }

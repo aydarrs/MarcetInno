@@ -1,5 +1,6 @@
 package ru.innopolis.demo.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,52 +9,46 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.innopolis.demo.domain.Shop;
+import ru.innopolis.demo.service.ShopService;
 import ru.innopolis.demo.service.ShopServiceManager;
 
-/**
- * ShopController
- *
- * @author Dmitrii_Blazhko 19-Jul-20
- */
-
 @Controller
-@RequestMapping("/shop")
+@RequestMapping("/shop/admin")
 public class ShopManagerController {
 
+    private ShopService shopService;
     private ShopServiceManager shopServiceManager;
 
     @Autowired
-    public ShopManagerController(ShopServiceManager shopService) {
-        this.shopServiceManager = shopService;
+    public ShopManagerController(ShopService shopService, ShopServiceManager shopServiceManager) {
+        this.shopService = shopService;
+        this.shopServiceManager = shopServiceManager;
     }
 
     @GetMapping("/all")
     public String getAllShop(Model model) {
-        model.addAttribute("allShop", shopServiceManager.getAllShops());
-        return "allShop";
+        model.addAttribute("shops", shopService.getAllShops());
+        return "shops";
     }
 
     @GetMapping("/{shopID}")
     public String showShopByShopID(Model model, @PathVariable Long shopID) {
-        model.addAttribute("shop", shopServiceManager.getShopByShopId(shopID));
-        return "shop";
+        model.addAttribute("shop", shopService.findShopByShopID(shopID));
+        return "oneShop";
     }
 
-    @PostMapping("/add/{shopID}")
-    public void addNewShop(Model model, @PathVariable Shop shop) {
-        shopServiceManager.addNewShop(shop);
-        getAllShop(model);
+    @PostMapping("/add")
+    public void addShop(@PathVariable Shop shop) {
+       shopServiceManager.saveNewShop(shop);
     }
 
-    @PostMapping("/change/{shopID}")
-    public void changeShopByShopID(Model model, @PathVariable Long shopID, @PathVariable Shop shop) {
-        shopServiceManager.changeShopByShopID(shopID, shop);
-        getAllShop(model);
+    @GetMapping("/change/{shopID}")
+    public void changeShopByID(@PathVariable Long shopID, @PathVariable Shop shop) {
+       shopServiceManager.changeShopByShopID(shopID, shop);
     }
 
-    @PostMapping("/delete/{shopID}")
-    public void deleteShopByShopID(Model model, @PathVariable Long shopID) {
+    @GetMapping("/delete/{shopID}")
+    public void deleteShopByID(@PathVariable Long shopID) {
         shopServiceManager.deleteShopByShopID(shopID);
-        getAllShop(model);
     }
 }
