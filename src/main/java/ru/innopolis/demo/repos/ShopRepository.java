@@ -10,4 +10,7 @@ import ru.innopolis.demo.domain.Shop;
 @EnableTransactionManagement
 @Transactional
 public interface ShopRepository extends CrudRepository<Shop, Long> {
+
+    Iterable<Shop> findShopByShopShopID(long shopID);
+
 }
