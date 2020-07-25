@@ -9,6 +9,7 @@ import java.time.OffsetDateTime;
 @Getter
 @Setter
 @Entity
+@Table(name = "order_shop")
 public class OrderShop {
     //TODO: Нужны комментарии
     @Id

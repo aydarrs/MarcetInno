@@ -16,7 +16,7 @@
             <column name="last_name" type="varchar(30)" />
             <column name="delivery_method" type="varchar(30)" />
             <column name="order_id" type="int4">
-                <constraints foreignKeyName="order_id" references="order_shop(order_id)"/>
+                <constraints nullable="true" foreignKeyName="order_id" references="order_shop(order_id)"/>
             </column>
         </createTable>
     </changeSet>

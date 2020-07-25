@@ -1,12 +1,14 @@
 package ru.innopolis.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.service.OrderService;
 
-@RestController
-@RequestMapping("/api/v1/orders")
+@Controller
+@RequestMapping("/order")
 public class OrderController {
 
     private OrderService orderService;
@@ -16,9 +18,10 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @GetMapping("/")
-    public Iterable<OrderShop> getAllOrders() {
-        return orderService.getAllOrders();
+    @GetMapping("/all")
+    public String showAllOrders(Model model) {
+        model.addAttribute("orders", orderService.getAllOrders());
+        return "allOrders";
     }
 
     @GetMapping("/{orderId}")
