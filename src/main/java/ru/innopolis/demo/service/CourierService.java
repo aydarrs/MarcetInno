@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import ru.innopolis.demo.domain.Courier;
 import ru.innopolis.demo.repos.CourierRepository;
 
+import java.util.Iterator;
+
 @Service
 @Log4j2
 public class CourierService {
@@ -21,5 +23,21 @@ public class CourierService {
         Iterable<Courier> couriers = courierRepository.findAll();
         log.info(String.format("Found and return %s couriers from DB.", courierRepository.count()));
         return couriers;
+    }
+
+    public Iterable<Courier> getFreeCouriers() {
+        Iterable<Courier> couriers = courierRepository.findByOrderShopIsNull();
+        log.info("Found free couriers. Couriers are " + (couriers.iterator().hasNext() ? "more then 0." : "0."));
+        return couriers;
+    }
+
+    public void saveChanged(Courier courier) {
+        courierRepository.save(courier);
+        log.info("Saved changes for courier: " + courier);
+    }
+
+    public Courier getCourierById(long courier_id) {
+        log.info("Found courier by id: " + courier_id);
+        return courierRepository.findByCourierId(courier_id);
     }
 }

@@ -34,4 +34,15 @@ public class Courier {
             return null;
         return orderShop.getOrderId();
     }
+
+    @Override
+    public String toString() {
+        return "Courier{" +
+                "courierId=" + courierId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", deliveryMethod=" + deliveryMethod +
+                ", orderShop=" + orderShop +
+                '}';
+    }
 }

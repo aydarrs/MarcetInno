@@ -37,4 +37,16 @@ public class OrderShop {
     @Column(name = "payment_status")
     private PaymentStatus paymentStatus;
 
+    @Override
+    public String toString() {
+        return "OrderShop{" +
+                "orderId=" + orderId +
+                ", orderStatus=" + orderStatus +
+                ", date=" + date +
+                ", userAccount=" + userAccount +
+                ", product=" + product +
+                ", countProduct=" + countProduct +
+                ", paymentStatus=" + paymentStatus +
+                '}';
+    }
 }
