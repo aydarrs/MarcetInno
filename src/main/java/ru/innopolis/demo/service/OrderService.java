@@ -4,8 +4,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.innopolis.demo.domain.OrderShop;
+import ru.innopolis.demo.domain.OrderStatus;
 import ru.innopolis.demo.repos.OrderRepository;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Service
@@ -58,5 +60,10 @@ public class OrderService {
             log.error("Problem with changing order");
             return null;
         }
+    }
+
+    public Iterable<OrderShop> getOrdersWithStatus(OrderStatus orderStatus) {
+        log.info("Found orders by status.");
+        return orderRepository.findAllByOrderStatus(orderStatus);
     }
 }

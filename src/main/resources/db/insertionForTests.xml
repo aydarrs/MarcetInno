@@ -51,6 +51,15 @@
             <column name="product_count" value="1"/>
             <column name="payment_status" value="1"/>
         </insert>
+        <insert tableName="order_shop">
+            <column name="order_id" value="3"/>
+            <column name="order_status" value="0"/>
+            <column name="date" value="2020-07-07 20:00:00"/>
+            <column name="user_id" value="1"/>
+            <column name="product_id" value="1"/>
+            <column name="product_count" value="3"/>
+            <column name="payment_status" value="1"/>
+        </insert>
 
         <insert tableName="courier">
             <column name="first_name" value="Alexey"/>
@@ -62,6 +71,11 @@
             <column name="first_name" value="Tom"/>
             <column name="last_name" value="Cruise"/>
             <column name="delivery_method" value="1"/>
+        </insert>
+        <insert tableName="courier">
+            <column name="first_name" value="Johnny"/>
+            <column name="last_name" value="Cage"/>
+            <column name="delivery_method" value="0"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

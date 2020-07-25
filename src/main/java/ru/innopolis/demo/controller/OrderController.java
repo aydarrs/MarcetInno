@@ -34,9 +34,4 @@ public class OrderController {
         return orderService.saveNewOrder(orderShop);
     }
 
-    @PostMapping("/{orderId}")
-    public OrderShop changeOrder(@PathVariable long orderId, @RequestParam OrderShop orderShop) {
-        return orderService.changeOrderById(orderId, orderShop);
-    }
-
 }
