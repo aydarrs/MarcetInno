@@ -25,7 +25,13 @@ public class Courier {
     @Column(name = "delivery_method")
     private DeliveryMethod deliveryMethod;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "order_id")
     private OrderShop orderShop;
+
+    public Long getOrderShop() {
+        if (orderShop == null)
+            return null;
+        return orderShop.getOrderId();
+    }
 }

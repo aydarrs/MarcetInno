@@ -10,5 +10,6 @@
     <include file="db/product.xml"/>
     <include file="db/order_shop.xml"/>
     <include file="db/courier.xml"/>
+    <include file="db/insertionForTests.xml"/>
 
 </databaseChangeLog>
