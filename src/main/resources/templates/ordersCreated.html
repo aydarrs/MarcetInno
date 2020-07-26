@@ -24,8 +24,7 @@
         <td th:utext="${order.product.getArticle()}"></td>
         <td th:utext="${order.countProduct}"></td>
         <td th:utext="${order.paymentStatus.name()}"></td>
-        <td><a href="freeCouriersForAppointment.html"
-               th:href="@{'/courier/free?order_id=' + ${order.getOrderId()}}">Выбрать курьера</a></td>
+        <td><a th:href="@{'/courier/free?order_id=' + ${order.getOrderId()}}">Выбрать курьера</a></td>
     </tr>
 </table>
 </body>

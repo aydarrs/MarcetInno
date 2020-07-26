@@ -8,14 +8,15 @@
 
     <changeSet id="2020-07-15-initial-user_account-1" author="Alexey Andrianov">
 
-        <createTable tableName="user_account" >
-            <column name="user_id" autoIncrement="true" type="serial" >
+        <createTable tableName="user_account">
+            <column name="user_id" autoIncrement="true" type="serial">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="user_type" type="varchar(30)" />
-            <column name="user_name" type="varchar(30)" />
-            <column name="first_name" type="varchar(30)" />
-            <column name="last_name" type="varchar(30)" />
+            <column name="user_type" type="varchar(30)"/>
+            <column name="user_name" type="varchar(30)"/>
+            <column name="first_name" type="varchar(30)"/>
+            <column name="last_name" type="varchar(30)"/>
+            <column name="delivery_address" type="varchar(150)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

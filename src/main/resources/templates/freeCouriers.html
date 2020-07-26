@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Список всех курьеров</title>
+    <title>Список свободных курьеров</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/>
@@ -14,6 +14,7 @@
         <th>Фамилия</th>
         <th>Заказ</th>
         <th>Способ доставки</th>
+        <th></th>
     </tr>
     <tr th:each="courier : ${free_couriers}">
         <td th:utext="${courier.courierId}"></td>
@@ -21,8 +22,7 @@
         <td th:utext="${courier.lastName}"></td>
         <td th:utext="${courier.getOrderShop()}"></td>
         <td th:utext="${courier.deliveryMethod.name()}"></td>
-        <td><a href="ordersCreated.html"
-               th:href="@{'/courier/appoint/courier_id/' + ${courier.getCourierId()} + '/order_id/' + ${order_id}}">Выбрать курьера</a></td>
+        <td><a th:href="@{'/courier/appoint/courier_id/' + ${courier.getCourierId()} + '/order_id/' + ${order_id}}">Выбрать курьера</a></td>
     </tr>
 </table>
 </body>

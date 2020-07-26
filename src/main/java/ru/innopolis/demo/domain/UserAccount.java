@@ -9,6 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "user_account")
 public class UserAccount {
     //TODO: Нужны комментарии
     @Id
@@ -28,5 +29,6 @@ public class UserAccount {
     @Column(name = "last_name")
     private String lastName;
 
-
+    @Column(name = "delivery_address")
+    private String deliveryAddress;
 }
