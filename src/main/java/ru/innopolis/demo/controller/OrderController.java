@@ -34,4 +34,14 @@ public class OrderController {
         return orderService.saveNewOrder(orderShop);
     }
 
+    @GetMapping("/{orderId}/map")
+    public String showMapByUserAddress(@PathVariable long orderId, Model model) {
+        OrderShop order = orderService.getOrderById(orderId);
+        String deliveryAddress = order.getUserAccount().getDeliveryAddress();
+        model.addAttribute("src",
+                "https://www.google.com/maps/embed/v1/place?key=api_key" +
+                        "&q=" + deliveryAddress);
+        model.addAttribute("deliveryAddress", deliveryAddress);
+        return "map";
+    }
 }
