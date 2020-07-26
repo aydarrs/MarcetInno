@@ -1,5 +1,6 @@
 package ru.innopolis.demo.controller;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import ru.innopolis.demo.service.UserService;
  */
 @Controller
 @RequestMapping("/users")
+@Log4j2
 public class UserController {
 
     private final UserService userService;

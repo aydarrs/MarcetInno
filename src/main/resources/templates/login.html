@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Вход в систему</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
-        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
-	</head>
-    <body>
-        <h1>Логин</h1>
-        <p>Администратор: admin / admin</p>
-        <p>Покупатель: customer / customer</p>
-        <p>Продавец: seller / seller</p>
-        <p>Курьер: courier / courier</p>
-        <p>Супервайзер: supervisor / root (доступ ко всем страницам)</p>
-        <p th:if="${loginError}" class="error">Неправильный логин либо пароль</p>
-        <form th:action="@{/login.html}" method="post">
-            <label for="username">Логин</label>:
-            <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
-            <label for="password">Пароль</label>:
-            <input type="password" id="password" name="password" /> <br />
-            <input type="submit" value="Войти" />
-        </form>
-        <p><a href="../index.html" th:href="@{/index.html}">На главную</a></p>
-    </body>
+<head>
+    <title>Вход в систему</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Логин</h1>
+                <div class="alert alert-dismissible alert-primary">
+                    Администратор: admin &#47; admin<br>
+                    Покупатель: customer &#47; customer<br>
+                    Продавец: seller &#47; seller<br>
+                    Курьер: courier &#47; courier<br>
+                    Супервайзер: supervisor &#47; root (доступ ко всем страницам)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p th:if="${loginError}" class="error text-danger" >Неправильный логин либо пароль</p>
+    <form th:action="@{/login.html}" method="post">
+        <label for="username">Логин</label>:
+        <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
+        <label for="password">Пароль</label>:
+        <input type="password" id="password" name="password" /> <br />
+        <input type="submit" value="Войти" />
+    </form>
+
+    <footer id="footer">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-unstyled">
+                    <li><a href="/" th:href="@{/}">На главную</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
 </html>
