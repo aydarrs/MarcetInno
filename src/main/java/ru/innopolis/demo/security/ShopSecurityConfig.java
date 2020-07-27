@@ -17,6 +17,7 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
+                .cors().and().csrf().disable()
                 .formLogin()
                 .loginPage("/login.html")
                 .failureUrl("/login-error.html")
@@ -34,7 +35,6 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/403.html");
-
     }
 
     @Override

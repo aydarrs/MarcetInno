@@ -4,9 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.service.UserService;
 
@@ -39,15 +37,55 @@ public class UserController {
         return "user_account";
     }
 
-    @GetMapping("/add/{userAccount}")
-    public String saveUser(Model model, @PathVariable UserAccount userAccount) {
-        userService.saveNewUser(userAccount);
+    @GetMapping("/add/")
+    public String addUser() {
+        return "/add_user";
+    }
+
+    @PostMapping("/add/")
+    public String saveUser(Model model,
+                           @RequestParam String userType,
+                           @RequestParam String userName,
+                           @RequestParam String firstName,
+                           @RequestParam String lastName,
+                           @RequestParam String password) {
+
+        UserAccount newUser = new UserAccount();
+        newUser.setUserType(userType);
+        newUser.setUserName(userName);
+        newUser.setFirstName(firstName);
+        newUser.setLastName(lastName);
+        newUser.setPassword(password);
+
+        userService.saveNewUser(newUser);
         return showAllUsers(model);
     }
 
-    @GetMapping("/update/{userAccountId}/{userAccount}")
-    public String changeUser(Model model, @PathVariable Long userAccountId, @PathVariable UserAccount userAccount) {
-        userService.changeUserById(userAccountId, userAccount);
+    @GetMapping("/update/{userAccountId}")
+    public String updateUser(Model model, @PathVariable Long userAccountId) {
+        model.addAttribute("user_account", userService.getUserById(userAccountId));
+        return "update_user";
+    }
+
+    @PostMapping("/update/{userAccountId}")
+    public String changeUser(Model model,
+                             @PathVariable Long userAccountId,
+                             @RequestParam String userType,
+                             @RequestParam String userName,
+                             @RequestParam String firstName,
+                             @RequestParam String lastName,
+                             @RequestParam String password) {
+
+        model.addAttribute("user_account", userService.getUserById(userAccountId));
+
+        UserAccount updatedUser = new UserAccount();
+        updatedUser.setUserType(userType);
+        updatedUser.setUserName(userName);
+        updatedUser.setFirstName(firstName);
+        updatedUser.setLastName(lastName);
+        updatedUser.setPassword(password);
+
+        userService.changeUserById(userAccountId, updatedUser);
         return showAllUsers(model);
     }
 

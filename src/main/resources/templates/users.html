@@ -12,8 +12,8 @@
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1>Список всех пользователей</h1>
                 <div th:replace="index::logout"></div>
+                <h1>Список всех пользователей</h1>
                 <br>
             </div>
         </div>
@@ -26,6 +26,8 @@
                 <th>Логин</th>
                 <th>Имя</th>
                 <th>Фамилия</th>
+                <th>Тип пользователя</th>
+                <th>Действие</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +38,11 @@
                 <td th:utext="${user.getUserName()}"></td>
                 <td th:utext="${user.getFirstName()}"></td>
                 <td th:utext="${user.getLastName()}"></td>
+                <td th:utext="${user.getUserType()}"></td>
+                <td>
+                    <a th:href="@{'/users/update/'+${user.getUserId()}}" th:utext="Изменить"></a>&nbsp;|
+                    <a th:href="@{'/users/delete/'+${user.getUserId()}}" th:utext="Удалить"></a>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -45,6 +52,7 @@
             <div class="col-lg-12">
 
                 <ul class="list-unstyled">
+                    <li><a href="/users/add/" th:href="@{/users/add/}">Добавить</a></li>
                     <li><a href="/" th:href="@{/}">На главную</a></li>
                 </ul>
             </div>

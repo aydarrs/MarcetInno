@@ -12,8 +12,8 @@
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1>Профиль пользователя</h1>
                 <div th:replace="index::logout"></div>
+                <h1>Профиль пользователя</h1>
                 <br>
             </div>
         </div>
@@ -22,11 +22,15 @@
     <table class="table table-hover">
         <thead>
         <tr class="table-active">
-            <td>ID</td>
-            <td th:utext="${user_account.getUserId()}"></td>
+            <td>Поле</td>
+            <td>Значение</td>
         </tr>
         </thead>
         <tbody>
+        <tr>
+            <td>ID</td>
+            <td th:utext="${user_account.getUserId()}"></td>
+        </tr>
         <tr>
             <td>Логин</td>
             <td th:utext="${user_account.getUserName()}"></td>
@@ -38,6 +42,10 @@
         <tr>
             <td>Фамилия</td>
             <td th:utext="${user_account.getLastName()}"></td>
+        </tr>
+        <tr>
+            <td>Тип пользователя</td>
+            <td th:utext="${user_account.getUserType()}"></td>
         </tr>
         </tbody>
     </table>

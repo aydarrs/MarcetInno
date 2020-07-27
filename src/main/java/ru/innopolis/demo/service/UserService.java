@@ -47,7 +47,16 @@ public class UserService {
     }
 
     public void changeUserById(long userAccountId, UserAccount userAccount) {
-        saveNewUser(userAccount);
+
+        UserAccount user = new UserAccount();
+        user.setUserId(userAccountId);
+        user.setUserType(userAccount.getUserType());
+        user.setUserName(userAccount.getUserName());
+        user.setFirstName(userAccount.getFirstName());
+        user.setLastName(userAccount.getLastName());
+        user.setPassword(userAccount.getPassword());
+
+        saveNewUser(user);
         if (null != getUserById(userAccountId)) {
             log.info("User {} changed", userAccountId);
         } else log.error("Error while changing user");
