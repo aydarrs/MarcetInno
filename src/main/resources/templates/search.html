@@ -34,28 +34,28 @@
                 <a class="page-link">&laquo;</a>
             </li>
             <li th:if="${pageNo == 1}" class="page-item active">
-                <a class="page-link" href="/product/all/1">1</a>
+                <a class="page-link" href="/product/search/1">1</a>
             </li>
             <li th:unless="${pageNo == 1}" class="page-item">
-                <a class="page-link" href="/product/all/1">1</a>
+                <a class="page-link" href="/product/search/1">1</a>
             </li>
             <li th:if="${pageNo == 2}" class="page-item active">
-                <a class="page-link" href="/product/all/2">2</a>
+                <a class="page-link" href="/product/search/2">2</a>
             </li>
             <li th:unless="${pageNo == 2}" class="page-item">
-                <a class="page-link" href="/product/all/2">2</a>
+                <a class="page-link" href="/product/search/2">2</a>
             </li>
             <li th:if="${pageNo == 3}" class="page-item active">
-                <a class="page-link" href="/product/all/3">3</a>
+                <a class="page-link" href="/product/search/3">3</a>
             </li>
             <li th:unless="${pageNo == 3}" class="page-item">
-                <a class="page-link" href="/product/all/3">3</a>
+                <a class="page-link" href="/product/search/3">3</a>
             </li>
             <li th:if="${pageNo == 4}" class="page-item active">
-                <a class="page-link" href="/product/all/4">4</a>
+                <a class="page-link" href="/product/search/4">4</a>
             </li>
             <li th:unless="${pageNo == 4}" class="page-item">
-                <a class="page-link" href="/product/all/4">4</a>
+                <a class="page-link" href="/product/search/4">4</a>
             </li>
             <li th:if="${pageNo < page.getTotalPages()}" class="page-item">
                 <a class="page-link" th:href="${pageNo + 1}">&raquo;</a>
@@ -66,26 +66,6 @@
         </ul>
     </div>
 
-    <!--<table border="1">-->
-    <!--    <thead>-->
-    <!--    <tr>-->
-    <!--        <th> Артикул </th>-->
-    <!--        <th> Наименование </th>-->
-    <!--        <th> Описание </th>-->
-    <!--        <th> Цена </th>-->
-    <!--        <th> Количество </th>-->
-    <!--    </tr>-->
-    <!--    </thead>-->
-    <!--    <tbody>-->
-    <!--    <tr th:each ="product : ${products}">-->
-    <!--        <td><a href="oneProduct" th:href="@{'/product/'+${product.productID}}"><span th:text="${product.article}"/></a></td>-->
-    <!--        <td><span th:utext="${product.name}" /></td>-->
-    <!--        <td><span th:utext="${product.description}" /></td>-->
-    <!--        <td><span th:utext="${product.price}" /></td>-->
-    <!--        <td><span th:utext="${product.productCount}" /></td>-->
-    <!--    </tr>-->
-    <!--    </tbody>-->
-    <!--</table>-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>

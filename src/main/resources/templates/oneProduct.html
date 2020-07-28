@@ -4,10 +4,11 @@
     <title>Просмотр товара</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
 <body>
 <table border="1">
+    <tbody>
     <tr>
         <td>Артикул</td>
         <td th:utext="${product.article}"></td>
@@ -28,6 +29,7 @@
         <td>Количество</td>
         <td th:utext="${product.productCount}"></td>
     </tr>
+    </tbody>
 </table>
 </body>
 </html>
