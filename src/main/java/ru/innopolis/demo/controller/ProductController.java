@@ -11,6 +11,8 @@ import ru.innopolis.demo.service.IProductService;
 import ru.innopolis.demo.service.ProductService;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/product")
@@ -29,10 +31,16 @@ public class ProductController {
         return "shopProducts";
     }
 
-    @GetMapping("/all/{pageNo}")
-    public String showAllProducts(Model model, @PathVariable Integer pageNo) {
+    @GetMapping("/all")
+    public String showAllProducts(Model model, @RequestParam("pageNo") int pageNo) {
         Page<Product> page = productService.getAllProducts(pageNo, 6);
+        // Это для генерации номеров страниц, для переключения между ними
+        List<Integer> pageNumbers = IntStream.rangeClosed(1, page.getTotalPages())
+                .boxed()
+                .collect(Collectors.toList());
         model.addAttribute("page",page);
+        model.addAttribute("pageNo", pageNo);
+        model.addAttribute("pageNumbers", pageNumbers);
         return "allProducts";
     }
 
@@ -62,14 +70,20 @@ public class ProductController {
         return showAllProducts(model, 1);
     }
 
-    @GetMapping("/search/{pageNo}")
+    @GetMapping("/search")
     public String searchByNameOrArticle(Model model,
-                                        @PathVariable Integer pageNo,
+                                        @RequestParam("pageNo") int pageNo,
                                         @RequestParam("template") String template,
                                         @PageableDefault(size = 6) Pageable pageable) {
         Page<Product> page = productService.getAllProductsByTemplate(template, pageNo, 6);
+        // Это для генерации номеров страниц, для переключения между ними
+        List<Integer> pageNumbers = IntStream.rangeClosed(1, page.getTotalPages())
+                                             .boxed()
+                                             .collect(Collectors.toList());
         model.addAttribute("page", page);
         model.addAttribute("pageNo", pageNo);
+        model.addAttribute("template", template);
+        model.addAttribute("pageNumbers", pageNumbers);
         return "search";
     }
 }

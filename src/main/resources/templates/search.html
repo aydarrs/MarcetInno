@@ -24,56 +24,35 @@
         </div>
             </span>
     </div>
-    <div/>
+
     <div>
         <ul class="pagination">
             <li th:if="${pageNo > 1}" class="page-item">
-                <a class="page-link" th:href="${pageNo - 1}">&laquo;</a>
+                <a class="page-link"
+                   th:href="@{/product/search(pageNo = ${pageNo - 1}, template=${template})}">&laquo;</a>
             </li>
             <li th:unless="${pageNo > 1}" class="page-item disabled">
                 <a class="page-link">&laquo;</a>
             </li>
-            <li th:if="${pageNo == 1}" class="page-item active">
-                <a class="page-link" href="/product/search/1">1</a>
-            </li>
-            <li th:unless="${pageNo == 1}" class="page-item">
-                <a class="page-link" href="/product/search/1">1</a>
-            </li>
-            <li th:if="${pageNo == 2}" class="page-item active">
-                <a class="page-link" href="/product/search/2">2</a>
-            </li>
-            <li th:unless="${pageNo == 2}" class="page-item">
-                <a class="page-link" href="/product/search/2">2</a>
-            </li>
-            <li th:if="${pageNo == 3}" class="page-item active">
-                <a class="page-link" href="/product/search/3">3</a>
-            </li>
-            <li th:unless="${pageNo == 3}" class="page-item">
-                <a class="page-link" href="/product/search/3">3</a>
-            </li>
-            <li th:if="${pageNo == 4}" class="page-item active">
-                <a class="page-link" href="/product/search/4">4</a>
-            </li>
-            <li th:unless="${pageNo == 4}" class="page-item">
-                <a class="page-link" href="/product/search/4">4</a>
-            </li>
+            <span th:each="elem : ${pageNumbers}">
+                <li th:if="${pageNo == elem}" class="page-item active">
+                    <a class="page-link" th:href="@{/product/search(pageNo = ${elem}, template=${template})}"><span
+                            th:text="${elem}"/></a>
+                </li>
+                <li th:unless="${pageNo == elem}" class="page-item"><a class="page-link"
+                                                                       th:href="@{/product/search(pageNo = ${elem}, template=${template})}"><span
+                        th:text="${elem}"/></a>
+                </li>
+            </span>
             <li th:if="${pageNo < page.getTotalPages()}" class="page-item">
-                <a class="page-link" th:href="${pageNo + 1}">&raquo;</a>
+                <a class="page-link"
+                   th:href="@{/product/search(pageNo = ${pageNo + 1}, template=${template})}">&raquo;</a>
             </li>
             <li th:unless="${pageNo < page.getTotalPages()}" class="page-item disabled">
                 <a class="page-link">&raquo;</a>
             </li>
         </ul>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"></script>
+</div>
 </body>
 </html>

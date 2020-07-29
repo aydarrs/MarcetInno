@@ -36,7 +36,7 @@ public class ProductService implements IProductService{
     @Override
     public Page<Product> getAllProductsByTemplate(String template, int pageNo, int pageSize) {
         Pageable paging = PageRequest.of(pageNo - 1, pageSize);
-        Page<Product> page = productRepository.findProductsByNameContainingIgnoreCase(template, paging);
+        Page<Product> page = productRepository.findProductsByNameContainingOrArticleContaining(template, paging);
         return page;
     }
 
