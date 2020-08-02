@@ -18,7 +18,7 @@ public class UserAccount {
     private long userId;
 
     @Column(name = "user_type")
-    private UserType userType;
+    private String userType;
 
     @Column(name = "user_name")
     private String userName;
@@ -31,4 +31,7 @@ public class UserAccount {
 
     @Column(name = "delivery_address")
     private String deliveryAddress;
+
+    @Column(name = "password")
+    private String password;
 }

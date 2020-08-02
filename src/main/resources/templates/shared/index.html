@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Общая зона</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+    </head>
+    <body>
+    <div class="container">
+
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <div th:replace="index::logout"></div>
+                    <h1>Общая зона</h1>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="alert alert-dismissible alert-primary">
+            <p>Различное содержание отображается в зависимости от роли аутентифицированного пользователя.</p>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                Это содержимое показывается только для <b>админов</b>.
+            </div>
+            <div sec:authorize="hasRole('ROLE_CUSTOMER')">
+                Это содержимое показывается только для <b>покупателей</b>.
+            </div>
+            <div sec:authorize="hasRole('ROLE_SELLER')">
+                Это содержимое показывается только для <b>продавцов</b>.
+            </div>
+            <div sec:authorize="hasRole('ROLE_COURIER')">
+                Это содержимое показывается только для <b>курьеров</b>.
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <li><a href="/" th:href="@{/}">На главную</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </body>
+</html>

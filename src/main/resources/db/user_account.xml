@@ -12,11 +12,12 @@
             <column name="user_id" autoIncrement="true" type="serial">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="user_type" type="varchar(30)"/>
-            <column name="user_name" type="varchar(30)"/>
-            <column name="first_name" type="varchar(30)"/>
-            <column name="last_name" type="varchar(30)"/>
+            <column name="user_type" type="varchar(30)" />
+            <column name="user_name" type="varchar(30)" />
+            <column name="first_name" type="varchar(30)" />
+            <column name="last_name" type="varchar(30)" />
             <column name="delivery_address" type="varchar(150)"/>
+            <column name="password" type="varchar(200)" />
         </createTable>
     </changeSet>
 </databaseChangeLog>
