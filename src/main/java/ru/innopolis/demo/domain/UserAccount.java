@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "user_account")
 public class UserAccount {
-    //TODO: Нужны комментарии
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
