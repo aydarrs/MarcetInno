@@ -12,7 +12,7 @@
             <column name="shop_id" autoIncrement="true" type="serial">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="address" type="varchar(30)"/>
+            <column name="address" type="varchar(150)"/>
             <column name="shop_name" type="varchar(30)"/>
         </createTable>
     </changeSet>
