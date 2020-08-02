@@ -7,25 +7,27 @@
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
 </head>
 <body>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
 <div class="container">
-
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
                 <br>
+                <div style="display: none;">
+                    <div th:fragment="logout" class="logout"
+                         sec:authorize="isAuthenticated()">
+                        <span sec:authentication="name">Bob</span> |
+                        <!--/* When using CSRF this needs to be a POST */-->
+                        <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Выйти"/></form>
+                    </div>
+                </div>
                 <div class="jumbotron">
                     <h1 class="display-3">Маркетплейс!</h1>
                     <p class="lead">Вы попали на самый лучший маркетплейс на территории СНГ, обязательно расскажите о нас друзьях. Спасибо!</p>
-                    <a type="button" class="btn btn-primary" href="/login" >Вход</a>
-                    <a type="button" class="btn btn-success" href="/register">Регистрация</a>
-                </div>
-
-                <div th:fragment="logout" class="logout"
-                    sec:authorize="isAuthenticated()">
-                    Вы вошли как: <span sec:authentication="name">Bob</span> |
-                    Роли: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span> |
-                    <!--/* When using CSRF this needs to be a POST */-->
-                    <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Выйти"/></form>
+                    <a type="button" class="btn btn-primary" href="/login.html" >Вход</a>
+                    <a type="button" class="btn btn-success" href="/register.html">Регистрация</a>
                 </div>
                 <h1>Выберите раздел</h1>
             </div>

@@ -54,6 +54,7 @@ public class UserService {
         user.setUserName(userAccount.getUserName());
         user.setFirstName(userAccount.getFirstName());
         user.setLastName(userAccount.getLastName());
+        user.setDeliveryAddress(userAccount.getDeliveryAddress());
         user.setPassword(userAccount.getPassword());
 
         saveNewUser(user);

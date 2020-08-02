@@ -7,12 +7,14 @@
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
 </head>
 <body>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
 <div class="container">
 
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
-                <div th:replace="index::logout"></div>
                 <h1>Список всех пользователей</h1>
                 <br>
             </div>

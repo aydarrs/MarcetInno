@@ -30,7 +30,7 @@ public class RegisterController {
         this.userService = userService;
     }
 
-    @GetMapping("/register")
+    @GetMapping("/register.html")
     public String addUser() {
         return "/register";
     }

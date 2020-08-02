@@ -59,7 +59,7 @@ public class LoginController {
     }
 
     /** Страница входа */
-    @RequestMapping("/login")
+    @RequestMapping("/login.html")
     public String login() {
         return "login";
     }
