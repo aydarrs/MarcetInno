@@ -2,6 +2,7 @@ package ru.innopolis.demo.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -50,12 +51,15 @@ public class UserController {
                            @RequestParam String lastName,
                            @RequestParam String password) {
 
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword  = passwordEncoder.encode(password);
+
         UserAccount newUser = new UserAccount();
         newUser.setUserType(userType);
         newUser.setUserName(userName);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
-        newUser.setPassword(password);
+        newUser.setPassword(encodedPassword);
 
         userService.saveNewUser(newUser);
         return showAllUsers(model);
@@ -78,12 +82,15 @@ public class UserController {
 
         model.addAttribute("user_account", userService.getUserById(userAccountId));
 
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword  = passwordEncoder.encode(password);
+
         UserAccount updatedUser = new UserAccount();
         updatedUser.setUserType(userType);
         updatedUser.setUserName(userName);
         updatedUser.setFirstName(firstName);
         updatedUser.setLastName(lastName);
-        updatedUser.setPassword(password);
+        updatedUser.setPassword(encodedPassword);
 
         userService.changeUserById(userAccountId, updatedUser);
         return showAllUsers(model);
