@@ -49,6 +49,7 @@ public class UserController {
                            @RequestParam String userName,
                            @RequestParam String firstName,
                            @RequestParam String lastName,
+                           @RequestParam String deliveryAddress,
                            @RequestParam String password) {
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -59,6 +60,7 @@ public class UserController {
         newUser.setUserName(userName);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
+        newUser.setDeliveryAddress(deliveryAddress);
         newUser.setPassword(encodedPassword);
 
         userService.saveNewUser(newUser);
@@ -78,6 +80,7 @@ public class UserController {
                              @RequestParam String userName,
                              @RequestParam String firstName,
                              @RequestParam String lastName,
+                             @RequestParam String deliveryAddress,
                              @RequestParam String password) {
 
         model.addAttribute("user_account", userService.getUserById(userAccountId));
@@ -90,6 +93,7 @@ public class UserController {
         updatedUser.setUserName(userName);
         updatedUser.setFirstName(firstName);
         updatedUser.setLastName(lastName);
+        updatedUser.setDeliveryAddress(deliveryAddress);
         updatedUser.setPassword(encodedPassword);
 
         userService.changeUserById(userAccountId, updatedUser);

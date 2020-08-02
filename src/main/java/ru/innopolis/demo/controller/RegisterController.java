@@ -35,6 +35,7 @@ public class RegisterController {
                              @RequestParam String userName,
                              @RequestParam String firstName,
                              @RequestParam String lastName,
+                             @RequestParam String deliveryAddress,
                              @RequestParam String password) {
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -45,6 +46,7 @@ public class RegisterController {
         user.setUserName(userName);
         user.setFirstName(firstName);
         user.setLastName(lastName);
+        user.setDeliveryAddress(deliveryAddress);
         user.setPassword(encodedPassword);
 
         userRepository.save(user);

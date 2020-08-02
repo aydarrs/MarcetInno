@@ -27,6 +27,7 @@
                 <th>Имя</th>
                 <th>Фамилия</th>
                 <th>Тип пользователя</th>
+                <th>Адрес доставки</th>
                 <th>Действие</th>
             </tr>
         </thead>
@@ -39,6 +40,7 @@
                 <td th:utext="${user.getFirstName()}"></td>
                 <td th:utext="${user.getLastName()}"></td>
                 <td th:utext="${user.getUserType()}"></td>
+                <td th:utext="${user.getDeliveryAddress()}"></td>
                 <td>
                     <a th:href="@{'/users/update/'+${user.getUserId()}}" th:utext="Изменить"></a>&nbsp;|
                     <a th:href="@{'/users/delete/'+${user.getUserId()}}" th:utext="Удалить"></a>
