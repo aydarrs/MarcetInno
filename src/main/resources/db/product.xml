@@ -6,20 +6,20 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="2020-07-15-initial-product-1" author="Alexey Andrianov">
+    <changeSet id="2020-08-02-initial-product" author="Alexey Andrianov">
 
-        <createTable tableName="product" >
-            <column name="product_id" autoIncrement="true" type="serial" >
+        <createTable tableName="product">
+            <column name="product_id" autoIncrement="true" type="serial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="shop_id" type="int4">
                 <constraints foreignKeyName="shop_id" references="shop(shop_id)"/>
             </column>
-            <column name="article" type="varchar(30)" />
-            <column name="product_name" type="varchar(30)" />
-            <column name="description" type="text" />
-            <column name="price" type="money" />
-            <column name="product_count" type="int4" />
+            <column name="article" type="varchar(30)"/>
+            <column name="product_name" type="varchar(30)"/>
+            <column name="description" type="text"/>
+            <column name="price" type="money"/>
+            <column name="product_count" type="int4"/>
         </createTable>
     </changeSet>
 

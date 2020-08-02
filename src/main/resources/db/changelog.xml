@@ -5,11 +5,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+<!--    <include file="db/drop_tables.xml"/>-->
     <include file="db/user_account.xml"/>
     <include file="db/shop.xml"/>
     <include file="db/product.xml"/>
-    <include file="db/order_shop.xml"/>
     <include file="db/courier.xml"/>
+    <include file="db/order_shop.xml"/>
     <include file="db/insertionForTests.xml"/>
 
 </databaseChangeLog>

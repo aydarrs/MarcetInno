@@ -11,7 +11,7 @@ import java.time.OffsetDateTime;
 @Entity
 @Table(name = "order_shop")
 public class OrderShop {
-    //TODO: Нужны комментарии
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
@@ -27,7 +27,14 @@ public class OrderShop {
     @JoinColumn(name = "user_id")
     private UserAccount userAccount;
 
-    @ManyToOne
+    @OneToOne
+    @JoinColumn(name = "courier_id")
+    private Courier courier;
+
+    @Column(name = "delivery_address")
+    private String deliveryAddress;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
 
