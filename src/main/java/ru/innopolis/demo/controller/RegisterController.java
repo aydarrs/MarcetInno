@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.repos.UserRepository;
+import ru.innopolis.demo.service.UserService;
 
 /**
  * RegisterController
@@ -21,10 +22,15 @@ import ru.innopolis.demo.repos.UserRepository;
 @Controller
 public class RegisterController {
 
-    @Autowired
+    private final UserService userService;
     private UserRepository userRepository;
 
-    @GetMapping("/register.html")
+    @Autowired
+    public RegisterController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/register")
     public String addUser() {
         return "/register";
     }
@@ -49,7 +55,7 @@ public class RegisterController {
         user.setDeliveryAddress(deliveryAddress);
         user.setPassword(encodedPassword);
 
-        userRepository.save(user);
+        userService.saveNewUser(user);
 
         return "login";
     }

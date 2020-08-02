@@ -27,11 +27,12 @@
 
         <insert tableName="user_account">
             <column name="user_id" value="1"/>
-            <column name="user_type" value="2"/>
-            <column name="user_name" value="Johny"/>
+            <column name="user_type" value="ROLE_ADMIN"/>
+            <column name="user_name" value="admin"/>
             <column name="first_name" value="John"/>
             <column name="last_name" value="Malkovich"/>
             <column name="delivery_address" value="Иннополис, Университет"/>
+            <column name="password" value="$2a$10$4B4gECkPuWSR6tusxgbmCuN937SveAFibJTLCshwgIfWw2iiQrWHe"/>
         </insert>
 
         <insert tableName="order_shop">
