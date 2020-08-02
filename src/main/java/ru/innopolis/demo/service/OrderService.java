@@ -66,4 +66,9 @@ public class OrderService {
         log.info("Found orders by status.");
         return orderRepository.findAllByOrderStatus(orderStatus);
     }
+
+    public void saveChanged(OrderShop order) {
+        orderRepository.save(order);
+        log.info("Saved changes for order: " + order);
+    }
 }

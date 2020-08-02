@@ -26,7 +26,7 @@ public class CourierService {
     }
 
     public Iterable<Courier> getFreeCouriers() {
-        Iterable<Courier> couriers = courierRepository.findByOrderShopIsNull();
+        Iterable<Courier> couriers = courierRepository.findAll();
         log.info("Found free couriers. Couriers are " + (couriers.iterator().hasNext() ? "more then 0." : "0."));
         return couriers;
     }
