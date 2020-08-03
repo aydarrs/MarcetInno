@@ -17,14 +17,13 @@
         <div class="card border-secondary" style="width: 20rem;">
             <div class="card-header">Артикул [[${product.article}]]</div>
             <div class="card-body">
-                <h6 class="card-title"><a href="oneProduct" th:href="@{'/product/'+${product.productID}}"><span
-                        th:text="${product.name}"/></a></h6>
+                <h6 class="card-title"><a href="oneProduct" th:href="@{'/product/'+${product.productID}}"
+                                          th:text="${product.name}"/></h6>
                 <p class="card-text"><span th:utext="${product.description}"/></p>
             </div>
         </div>
-            </span>
+        </span>
     </div>
-    <div/>
     <div>
         <ul class="pagination">
             <li th:if="${pageNo > 1}" class="page-item">
@@ -39,7 +38,8 @@
                     <a class="page-link" th:href="@{/product/all(pageNo = ${elem})}"><span
                             th:text="${elem}"/></a>
                 </li>
-                <li th:unless="${pageNo == elem}" class="page-item"><a class="page-link" th:href="@{/product/all(pageNo = ${elem})}"><span
+                <li th:unless="${pageNo == elem}" class="page-item"><a class="page-link"
+                                                                       th:href="@{/product/all(pageNo = ${elem})}"><span
                         th:text="${elem}"/></a>
                 </li>
             </span>

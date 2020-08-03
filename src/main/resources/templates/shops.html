@@ -1,25 +1,34 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Boot Thymeleaf Привет Мир Пример</title>
+    <title>Список всех магазинов</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
 <body>
-<table border="1">
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
+<div class="container mt-5">
+<table class="table table-hover">
     <thead>
     <tr>
-        <th> City </th>
-        <th> Shops </th>
+        <th scope="col">Магазин</th>
+        <th scope="col">Адрес</th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="shop : ${shops}">
-        <td><span th:text="${shop.address}"/></td>
-        <td><a href="shopProducts" th:href="@{'/shop/'+${shop.shopID}}"><span th:text="${shop.name}"/></a></td>
+    <tr class="table-light" th:each="shop : ${shops}">
+        <th scope="row">
+            <a class="hover" th:href="@{'product/shop/' + ${shop.shopID}}"  th:text="${shop.name}">Перейти </a></th>
+        <td th:text="${shop.address}">Адрес</td>
+        <td scope="row">
+            <a class="badge badge-success" th:href="@{'owner/' + ${shop.shopID}}">Вход для управляющего</a></td>
     </tr>
     </tbody>
 </table>
+</div>
 </body>
 </html>
