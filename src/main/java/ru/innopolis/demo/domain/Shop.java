@@ -11,7 +11,6 @@ import java.util.List;
 @Setter
 public class Shop {
 
-    //TODO: Нужны комментарии
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "shop_id")

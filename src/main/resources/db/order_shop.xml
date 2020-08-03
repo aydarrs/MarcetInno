@@ -6,21 +6,25 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="2020-07-15-initial-order_shop-1" author="Alexey Andrianov">
+    <changeSet id="2020-08-02-initial-order_shop" author="Alexey Andrianov">
 
-        <createTable tableName="order_shop" >
-            <column name="order_id" autoIncrement="true" type="serial" >
+        <createTable tableName="order_shop">
+            <column name="order_id" autoIncrement="true" type="serial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="order_status" type="int4"/>
-            <column name="date" type="timestamptz" />
+            <column name="date" type="timestamptz"/>
             <column name="user_id" type="int4">
                 <constraints foreignKeyName="user_id" references="user_account(user_id)"/>
             </column>
+            <column name="courier_id" type="bigint">
+                <constraints foreignKeyName="courier_id" references="courier(courier_id)"/>
+            </column>
+            <column name="delivery_address" type="varchar(150)"/>
             <column name="product_id" type="int4">
                 <constraints foreignKeyName="product_id" references="product(product_id)"/>
             </column>
-            <column name="product_count" type="int4" />
+            <column name="product_count" type="int4"/>
             <column name="payment_status" type="varchar(30)"/>
         </createTable>
     </changeSet>

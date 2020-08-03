@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @Entity
 public class Courier {
-    //TODO: Нужны комментарии
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "courier_id")
@@ -25,16 +25,6 @@ public class Courier {
     @Column(name = "delivery_method")
     private DeliveryMethod deliveryMethod;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "order_id")
-    private OrderShop orderShop;
-
-    public Long getOrderShop() {
-        if (orderShop == null)
-            return null;
-        return orderShop.getOrderId();
-    }
-
     @Override
     public String toString() {
         return "Courier{" +
@@ -42,7 +32,6 @@ public class Courier {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", deliveryMethod=" + deliveryMethod +
-                ", orderShop=" + orderShop +
                 '}';
     }
 }

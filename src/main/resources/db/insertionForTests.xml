@@ -6,12 +6,12 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="2020-07-15-initial-insertion-1" author="Alexey Andrianov">
+    <changeSet id="2020-08-02-initial-insertion" author="Alexey Andrianov">
 
 
         <insert tableName="shop">
             <column name="shop_id" value="1"/>
-            <column name="address" value="Innopolis, Sportivnaya 1"/>
+            <column name="address" value="Иннополис, Университетская улица 1"/>
             <column name="shop_name" value="The Best Shop"/>
         </insert>
 
@@ -31,7 +31,7 @@
             <column name="user_name" value="admin"/>
             <column name="first_name" value="John"/>
             <column name="last_name" value="Malkovich"/>
-            <column name="delivery_address" value="Иннополис, Университет"/>
+            <column name="delivery_address" value="Иннополис, Университетская улица 1"/>
             <column name="password" value="$2a$10$4B4gECkPuWSR6tusxgbmCuN937SveAFibJTLCshwgIfWw2iiQrWHe"/>
         </insert>
 
@@ -40,6 +40,7 @@
             <column name="order_status" value="0"/>
             <column name="date" value="2020-07-07 20:00:00"/>
             <column name="user_id" value="1"/>
+            <column name="delivery_address" value="Иннополис, Cпортивная улица 140"/>
             <column name="product_id" value="1"/>
             <column name="product_count" value="2"/>
             <column name="payment_status" value="0"/>
@@ -49,6 +50,7 @@
             <column name="order_status" value="0"/>
             <column name="date" value="2020-07-07 20:00:00"/>
             <column name="user_id" value="1"/>
+            <column name="delivery_address" value="Иннополис, Cпортивная улица 150"/>
             <column name="product_id" value="1"/>
             <column name="product_count" value="1"/>
             <column name="payment_status" value="1"/>
@@ -58,6 +60,7 @@
             <column name="order_status" value="0"/>
             <column name="date" value="2020-07-07 20:00:00"/>
             <column name="user_id" value="1"/>
+            <column name="delivery_address" value="Иннополис, Университетская улица 1"/>
             <column name="product_id" value="1"/>
             <column name="product_count" value="3"/>
             <column name="payment_status" value="1"/>
@@ -67,7 +70,6 @@
             <column name="first_name" value="Alexey"/>
             <column name="last_name" value="Andrianov"/>
             <column name="delivery_method" value="0"/>
-            <column name="order_id" value="1"/>
         </insert>
         <insert tableName="courier">
             <column name="first_name" value="Tom"/>

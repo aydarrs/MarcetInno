@@ -45,14 +45,13 @@ public class CourierController {
             @PathVariable("order_id") int order_id,
             Model model
     ){
-        log.info("Before");
         Courier courier = courierService.getCourierById(courier_id);
-        log.info("courier: " + courier);
+        log.info("Selected courier: " + courier);
         OrderShop order = orderService.getOrderById(order_id);
-        log.info("order: " + order);
-
-        courier.setOrderShop(order);
-        courierService.saveChanged(courier);
+        order.setCourier(courier);
+        order.setOrderStatus(OrderStatus.COURIER_APPOINTED);
+        orderService.saveChanged(order);
+        log.info("Changed order status: " + order);
         model.addAttribute("orders", orderService.getOrdersWithStatus(OrderStatus.CREATED));
         return "ordersCreated";
     }
