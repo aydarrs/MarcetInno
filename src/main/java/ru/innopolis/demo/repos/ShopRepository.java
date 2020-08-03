@@ -11,5 +11,7 @@ import ru.innopolis.demo.domain.Shop;
 @Transactional
 public interface ShopRepository extends CrudRepository<Shop, Long> {
 
-    Iterable<Shop> findShopByShopID(long shopID);
+    Shop findShopByShopID(long shopID);
+
+//    Iterable<Shop> findShopByShopID(long shopID);
 }

@@ -21,7 +21,7 @@ public class ProductController {
     private IProductService productService;
 
     @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(IProductService productService) {
         this.productService = productService;
     }
 
@@ -86,4 +86,5 @@ public class ProductController {
         model.addAttribute("pageNumbers", pageNumbers);
         return "search";
     }
+
 }
