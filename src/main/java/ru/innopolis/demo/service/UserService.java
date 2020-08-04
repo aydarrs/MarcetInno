@@ -24,11 +24,6 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserAccount findUserByID(Long userId) {
-        Optional<UserAccount> user = userRepository.findById(userId);
-        return user.orElse(null);
-    }
-
     public Iterable<UserAccount> getAllUsers() {
         return userRepository.findAll();
     }

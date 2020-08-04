@@ -23,11 +23,11 @@
         </tr>
         <tr th:each="order : ${orders}">
             <td th:utext="${order.orderId}"></td>
-            <td th:utext="${order.orderStatus.name()}"></td>
+            <td th:utext="${order.orderStatus.getTitle()}"></td>
             <td th:utext="${order.date}"></td>
             <td th:utext="${order.product.getArticle()}"></td>
             <td th:utext="${order.countProduct}"></td>
-            <td th:utext="${order.paymentStatus.name()}"></td>
+            <td th:utext="${order.paymentStatus.getTitle()}"></td>
             <td><a th:href="@{'/order/' + ${order.orderId} + '/map'}">Перейти на карту</a></td>
         </tr>
     </table>
