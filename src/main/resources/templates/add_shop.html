@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавить новый магазин</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
+</head>
+<body>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
+<div class="container">
+
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Добавить новый магазин</h1>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <form action="/shops/add/" method="POST">
+        <label for="shopAddress">Адрес</label><br>
+        <input type="text" class="form-control" id="shopAddress" name="shopAddress" placeholder="Введите адрес"><br>
+        <label for="shopName">Магазин</label><br>
+        <input type="text" class="form-control" id="shopName" name="shopName" placeholder="Введите магазин"><br>
+        <input type="submit" value="Добавить">
+    </form><br>
+
+    <footer id="footer">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <ul class="list-unstyled">
+                    <li><a class="badge badge-success" href="/shops/all" th:href="@{/users/all}">К списку магазинов</a></li>&nbsp;
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

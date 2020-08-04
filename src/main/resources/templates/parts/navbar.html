@@ -20,7 +20,12 @@
             </div>
             <div sec:authorize="hasRole('ROLE_ADMIN')">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/users/all}">Управление пользователями</a>
+                    <a class="nav-link" th:href="@{/users/all}">Пользователи</a>
+                </li>
+            </div>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/shops/all}">Магазины</a>
                 </li>
             </div>
             <div sec:authorize="hasRole('ROLE_CUSTOMER')">

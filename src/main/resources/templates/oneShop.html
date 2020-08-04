@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Список всех магазинов</title>
+    <title>Магазин</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
@@ -15,7 +15,7 @@
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1>Список всех магазинов</h1>
+                <h1>Магазин</h1>
                 <br>
             </div>
         </div>
@@ -23,32 +23,33 @@
 
     <table>
         <tr>
-            <th>ID</th>
-            <th>Адрес</th>
-            <th>Магазин</th>
-            <th>Действие</th>
+            <td>Поле</td>
+            <td>Значение</td>
         </tr>
-        <tr th:each ="shop:${shops}">
-            <td>
-                <a th:href="@{'/shops/'+${shop.getShopID()}}" th:utext="${shop.getShopID()}"></a>
-            </td>
+        <tr>
+            <td>ID</td>
+            <td th:utext="${shop.getShopID()}"></td>
+        </tr>
+        <tr>
+            <td>Адрес</td>
             <td th:utext="${shop.getAddress()}"></td>
+        </tr>
+        <tr>
+            <td>Магазин</td>
             <td th:utext="${shop.getName()}"></td>
-            <td>
-                <a class="badge badge-success" th:href="@{'/shops/update/'+${shop.getShopID()}}" th:utext="Изменить"></a>&nbsp
-                <a class="badge badge-success" th:href="@{'/shops/delete/'+${shop.getShopID()}}" th:utext="Удалить"></a>
-            </td>
         </tr>
     </table>
 
     <footer id="footer">
         <div class="row">
             <div class="col-lg-12">
-                <br>
-                <a class="badge badge-success"  href="/shops/add/" th:href="@{/shops/add/}">Добавить</a>&nbsp;
+                <ul class="list-unstyled">
+                    <br>
+                    <li><a class="badge badge-success" href="/shops/all" th:href="@{/shops/all}">К списку магазинов</a></li>&nbsp;
+                </ul>
             </div>
         </div>
     </footer>
-</div>
+</table>
 </body>
 </html>

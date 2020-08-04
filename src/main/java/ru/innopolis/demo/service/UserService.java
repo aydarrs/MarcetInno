@@ -34,8 +34,8 @@ public class UserService {
     }
 
     public UserAccount getUserById(long userAccountId) {
-        Optional<UserAccount> productOptional = userRepository.findById(userAccountId);
-        return productOptional.orElse(null);
+        Optional<UserAccount> userOptional = userRepository.findById(userAccountId);
+        return userOptional.orElse(null);
     }
 
     public void saveNewUser(UserAccount userAccount) {
@@ -57,7 +57,7 @@ public class UserService {
         user.setDeliveryAddress(userAccount.getDeliveryAddress());
         user.setPassword(userAccount.getPassword());
 
-        saveNewUser(user);
+        userRepository.save(user);
         if (null != getUserById(userAccountId)) {
             log.info("User {} changed", userAccountId);
         } else log.error("Error while changing user");

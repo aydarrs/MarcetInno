@@ -41,8 +41,8 @@
             <td th:utext="${user.getUserType()}"></td>
             <td th:utext="${user.getDeliveryAddress()}"></td>
             <td>
-                <a th:href="@{'/users/update/'+${user.getUserId()}}" th:utext="Изменить"></a>&nbsp;|
-                <a th:href="@{'/users/delete/'+${user.getUserId()}}" th:utext="Удалить"></a>
+                <a class="badge badge-success" th:href="@{'/users/update/'+${user.getUserId()}}" th:utext="Изменить"></a>&nbsp
+                <a class="badge badge-success" th:href="@{'/users/delete/'+${user.getUserId()}}" th:utext="Удалить"></a>
             </td>
         </tr>
     </table>
@@ -50,11 +50,8 @@
     <footer id="footer">
         <div class="row">
             <div class="col-lg-12">
-
-                <ul class="list-unstyled">
-                    <li><a href="/users/add/" th:href="@{/users/add/}">Добавить</a></li>
-                    <li><a href="/" th:href="@{/}">На главную</a></li>
-                </ul>
+                <br>
+                <a class="badge badge-success"  href="/users/add/" th:href="@{/users/add/}">Добавить</a>&nbsp;
             </div>
         </div>
     </footer>

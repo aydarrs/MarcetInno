@@ -29,7 +29,7 @@ public class ShopOwnerController {
     @GetMapping("/{shopId}")
     public String getShopOwnerPage(Model model, @PathVariable Long shopId) {
         model.addAttribute("products", productService.findProductsByShopID(shopId));
-        model.addAttribute("shop", shopService.findShopByShopID(shopId));
+        model.addAttribute("shop", shopService.getShopById(shopId));
         return "shopOwner";
     }
 }
