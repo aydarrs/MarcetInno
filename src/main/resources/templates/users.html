@@ -21,34 +21,30 @@
         </div>
     </div>
 
-    <table class="table table-hover">
-        <thead>
-            <tr class="table-active">
-                <th>ID</th>
-                <th>Логин</th>
-                <th>Имя</th>
-                <th>Фамилия</th>
-                <th>Тип пользователя</th>
-                <th>Адрес доставки</th>
-                <th>Действие</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each ="user:${users}">
-                <td>
-                    <a th:href="@{'/users/'+${user.getUserId()}}" th:utext="${user.getUserId()}"></a>
-                </td>
-                <td th:utext="${user.getUserName()}"></td>
-                <td th:utext="${user.getFirstName()}"></td>
-                <td th:utext="${user.getLastName()}"></td>
-                <td th:utext="${user.getUserType()}"></td>
-                <td th:utext="${user.getDeliveryAddress()}"></td>
-                <td>
-                    <a th:href="@{'/users/update/'+${user.getUserId()}}" th:utext="Изменить"></a>&nbsp;|
-                    <a th:href="@{'/users/delete/'+${user.getUserId()}}" th:utext="Удалить"></a>
-                </td>
-            </tr>
-        </tbody>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Логин</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Тип пользователя</th>
+            <th>Адрес доставки</th>
+            <th>Действие</th>
+        </tr>
+        <tr th:each ="user:${users}">
+            <td>
+                <a th:href="@{'/users/'+${user.getUserId()}}" th:utext="${user.getUserId()}"></a>
+            </td>
+            <td th:utext="${user.getUserName()}"></td>
+            <td th:utext="${user.getFirstName()}"></td>
+            <td th:utext="${user.getLastName()}"></td>
+            <td th:utext="${user.getUserType()}"></td>
+            <td th:utext="${user.getDeliveryAddress()}"></td>
+            <td>
+                <a th:href="@{'/users/update/'+${user.getUserId()}}" th:utext="Изменить"></a>&nbsp;|
+                <a th:href="@{'/users/delete/'+${user.getUserId()}}" th:utext="Удалить"></a>
+            </td>
+        </tr>
     </table>
 
     <footer id="footer">
