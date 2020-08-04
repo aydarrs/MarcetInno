@@ -16,11 +16,9 @@ public class Courier {
     @Column(name = "courier_id")
     private long courierId;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private UserAccount userID;
 
     @Column(name = "delivery_method")
     private DeliveryMethod deliveryMethod;
@@ -29,8 +27,7 @@ public class Courier {
     public String toString() {
         return "Courier{" +
                 "courierId=" + courierId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", user=" + userID +
                 ", deliveryMethod=" + deliveryMethod +
                 '}';
     }

@@ -55,6 +55,22 @@
             <column name="delivery_address" value="N/A"/>
             <column name="password" value="$2a$10$7Z4I5ZHBrGk3qzCaB4.qUOYezhbgKwjyWAJHOmDNmYkuHtLXz9o4a"/>
         </insert>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_COURIER"/>
+            <column name="user_name" value="лелик"/>
+            <column name="first_name" value="болик"/>
+            <column name="last_name" value="Aflek"/>
+            <column name="delivery_address" value="8867 Santa"/>
+            <column name="password" value="$2a$10$paYy1vJwBThGFPb5kCSZ2OPLTWugGVzLGY2f5EBTYTgO0yZTA/z5K"/>
+        </insert>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_COURIER"/>
+            <column name="user_name" value="пупа"/>
+            <column name="first_name" value="лупа"/>
+            <column name="last_name" value="Aflek"/>
+            <column name="delivery_address" value="8868 Santa"/>
+            <column name="password" value="$2a$10$paYy1vJwBThGFPb5kCSZ2OPLHWugGVzLGY2f5EBTYTgO0yZTA/z5K"/>
+        </insert>
 
         <insert tableName="order_shop">
             <column name="order_status" value="0"/>
@@ -85,18 +101,15 @@
         </insert>
 
         <insert tableName="courier">
-            <column name="first_name" value="Alexey"/>
-            <column name="last_name" value="Andrianov"/>
+            <column name="user_id" value="2"/>
             <column name="delivery_method" value="0"/>
         </insert>
         <insert tableName="courier">
-            <column name="first_name" value="Tom"/>
-            <column name="last_name" value="Cruise"/>
+            <column name="user_id" value="5"/>
             <column name="delivery_method" value="1"/>
         </insert>
         <insert tableName="courier">
-            <column name="first_name" value="Johnny"/>
-            <column name="last_name" value="Cage"/>
+            <column name="user_id" value="6"/>
             <column name="delivery_method" value="0"/>
         </insert>
     </changeSet>

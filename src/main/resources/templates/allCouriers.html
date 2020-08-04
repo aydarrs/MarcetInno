@@ -20,8 +20,8 @@
         </tr>
         <tr th:each="courier : ${couriers}">
             <td th:utext="${courier.courierId}"></td>
-            <td th:utext="${courier.firstName}"></td>
-            <td th:utext="${courier.lastName}"></td>
+            <td th:utext="${courier.userID.firstName}"></td>
+            <td th:utext="${courier.userID.lastName}"></td>
             <td th:utext="${courier.deliveryMethod.name()}"></td>
         </tr>
     </table>

@@ -21,8 +21,8 @@
         </tr>
         <tr th:each="courier : ${free_couriers}">
             <td th:utext="${courier.courierId}"></td>
-            <td th:utext="${courier.firstName}"></td>
-            <td th:utext="${courier.lastName}"></td>
+            <td th:utext="${courier.userID.firstName}"></td>
+            <td th:utext="${courier.userID.lastName}"></td>
             <td th:utext="${courier.deliveryMethod.name()}"></td>
             <td><a th:href="@{'/courier/appoint/courier_id/' + ${courier.getCourierId()} + '/order_id/' + ${order_id}}">Выбрать
                 курьера</a></td>
