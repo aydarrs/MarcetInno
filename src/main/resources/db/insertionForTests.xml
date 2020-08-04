@@ -10,13 +10,11 @@
 
 
         <insert tableName="shop">
-            <column name="shop_id" value="1"/>
             <column name="address" value="Иннополис, Университетская улица 1"/>
             <column name="shop_name" value="The Best Shop"/>
         </insert>
 
         <insert tableName="product">
-            <column name="product_id" value="1"/>
             <column name="shop_id" value="1"/>
             <column name="article" value="STC-123"/>
             <column name="product_name" value="The Best Program"/>
@@ -26,7 +24,6 @@
         </insert>
 
         <insert tableName="user_account">
-            <column name="user_id" value="1"/>
             <column name="user_type" value="ROLE_ADMIN"/>
             <column name="user_name" value="admin"/>
             <column name="first_name" value="John"/>
@@ -35,7 +32,6 @@
             <column name="password" value="$2a$10$4B4gECkPuWSR6tusxgbmCuN937SveAFibJTLCshwgIfWw2iiQrWHe"/>
         </insert>
         <insert tableName="user_account">
-            <column name="user_id" value="2"/>
             <column name="user_type" value="ROLE_COURIER"/>
             <column name="user_name" value="ben"/>
             <column name="first_name" value="Ben"/>
@@ -44,7 +40,6 @@
             <column name="password" value="$2a$10$paYy1vJwBThGFPb5kCSZ2OPLJWugGVzLGY2f5EBTYTgO0yZTA/z5K"/>
         </insert>
         <insert tableName="user_account">
-            <column name="user_id" value="3"/>
             <column name="user_type" value="ROLE_CUSTOMER"/>
             <column name="user_name" value="customer"/>
             <column name="first_name" value="Michael"/>
@@ -53,7 +48,6 @@
             <column name="password" value="$2a$10$P/.cAla/uenQK7mpovE8oe5LobWZ.BQkWY.ldZ4HSaZF1Yi2479Om"/>
         </insert>
         <insert tableName="user_account">
-            <column name="user_id" value="4"/>
             <column name="user_type" value="ROLE_SELLER"/>
             <column name="user_name" value="seller"/>
             <column name="first_name" value="Hollywood"/>
@@ -63,7 +57,6 @@
         </insert>
 
         <insert tableName="order_shop">
-            <column name="order_id" value="1"/>
             <column name="order_status" value="0"/>
             <column name="date" value="2020-07-07 20:00:00"/>
             <column name="user_id" value="1"/>
@@ -73,7 +66,6 @@
             <column name="payment_status" value="0"/>
         </insert>
         <insert tableName="order_shop">
-            <column name="order_id" value="2"/>
             <column name="order_status" value="0"/>
             <column name="date" value="2020-07-07 20:00:00"/>
             <column name="user_id" value="1"/>
@@ -83,7 +75,6 @@
             <column name="payment_status" value="1"/>
         </insert>
         <insert tableName="order_shop">
-            <column name="order_id" value="3"/>
             <column name="order_status" value="0"/>
             <column name="date" value="2020-07-07 20:00:00"/>
             <column name="user_id" value="1"/>
