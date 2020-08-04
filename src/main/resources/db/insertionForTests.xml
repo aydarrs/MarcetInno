@@ -8,21 +8,6 @@
 
     <changeSet id="2020-08-02-initial-insertion" author="Alexey Andrianov">
 
-
-        <insert tableName="shop">
-            <column name="address" value="Иннополис, Университетская улица 1"/>
-            <column name="shop_name" value="The Best Shop"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="1"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
         <insert tableName="user_account">
             <column name="user_type" value="ROLE_ADMIN"/>
             <column name="user_name" value="admin"/>

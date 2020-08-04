@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-08-04-initial-insertion" author="Nail Zinnurov">
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 1"/>
+            <column name="shop_name" value="Магазин №1"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 2"/>
+            <column name="shop_name" value="Магазин №2"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 3"/>
+            <column name="shop_name" value="Магазин №3"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 4"/>
+            <column name="shop_name" value="Магазин №4"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 5"/>
+            <column name="shop_name" value="Магазин №5"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 6"/>
+            <column name="shop_name" value="Магазин №6"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 7"/>
+            <column name="shop_name" value="Магазин №7"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 8"/>
+            <column name="shop_name" value="Магазин №8"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 9"/>
+            <column name="shop_name" value="Магазин №9"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 10"/>
+            <column name="shop_name" value="Магазин №10"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

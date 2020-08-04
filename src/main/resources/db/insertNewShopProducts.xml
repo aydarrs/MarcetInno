@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-08-04-initial-insertion" author="Nail Zinnurov">
+
+        <!-- Магазин №1 -->
+        <insert tableName="product">
+            <column name="shop_id" value="1"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="1"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="1"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="1"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="1"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №2 -->
+        <insert tableName="product">
+            <column name="shop_id" value="2"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="2"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="2"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="2"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="2"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №3 -->
+        <insert tableName="product">
+            <column name="shop_id" value="3"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="3"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="3"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="3"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="3"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №4 -->
+        <insert tableName="product">
+            <column name="shop_id" value="4"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="4"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="4"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="4"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="4"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №5 -->
+        <insert tableName="product">
+            <column name="shop_id" value="5"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="5"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="5"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="5"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="5"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №6 -->
+        <insert tableName="product">
+            <column name="shop_id" value="6"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="6"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="6"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="6"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="6"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №7 -->
+        <insert tableName="product">
+            <column name="shop_id" value="7"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="7"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="7"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="7"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="7"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №8 -->
+        <insert tableName="product">
+            <column name="shop_id" value="8"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="8"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="8"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="8"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="8"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №9 -->
+        <insert tableName="product">
+            <column name="shop_id" value="9"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="9"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="9"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="9"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="9"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <!-- Магазин №10 -->
+        <insert tableName="product">
+            <column name="shop_id" value="10"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="10"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="10"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="10"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="10"/>
+            <column name="article" value="STC-123"/>
+            <column name="product_name" value="The Best Program"/>
+            <column name="description" value="This is the best program actually. It is true."/>
+            <column name="price" value="1000000"/>
+            <column name="product_count" value="4"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
