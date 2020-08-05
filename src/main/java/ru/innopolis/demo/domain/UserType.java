@@ -19,4 +19,9 @@ public enum UserType {
     public String getTitle() {
         return title;
     }
+
+    public String getRole() {
+        return "ROLE_" + this.toString();
+    }
+
 }

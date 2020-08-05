@@ -23,13 +23,13 @@
 
     <form th:action="@{/users/update/{id}(id=${user_account.getUserId()})}" method="POST">
         <label for="userType">Тип пользователя</label><br>
-        <select class="form-control" id="userType" name="userType" th:value="${user_account.getUserId()}">
-            <option>ROLE_ADMIN</option>
-            <option>ROLE_CUSTOMER</option>
-            <option>ROLE_SELLER</option>
-            <option>ROLE_COURIER</option>
-        </select><br>
-        <label for="userName">Логин</label><br>
+        <select class="form-control" id="userType" name="userType" th:value="${user_account.getUserType()}">
+            <option th:each="type : ${user_type}"
+                    th:value="${type.toString()}"
+                    th:text="${type.getRole()}"
+                    th:selected="${user_account.getUserType() == type.getRole()}">
+            </option>
+        </select><br>Логин</label><br>
         <input type="text" class="form-control" id="userName" name="userName" th:value="${user_account.getUserName()}"><br>
         <label for="firstName">Имя</label><br>
         <input type="text" class="form-control" id="firstName" name="firstName" th:value="${user_account.getFirstName()}"><br>
@@ -44,7 +44,7 @@
                 <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
             </div>
         </div><br>
-        <input type="submit" value="Сохранить">
+        <input class="btn btn-success" type="submit" value="Сохранить">
     </form><br>
 
     <footer id="footer">
@@ -52,7 +52,7 @@
             <div class="col-lg-12">
 
                 <ul class="list-unstyled">
-                    <li><a class="badge badge-success"  href="/users/all" th:href="@{/users/all}">К списку пользователей</a></li>
+                    <li><a class="btn btn-primary"  href="/users/all" th:href="@{/users/all}">< К списку пользователей</a></li>
                 </ul>
             </div>
         </div>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.demo.domain.UserAccount;
+import ru.innopolis.demo.domain.UserType;
 import ru.innopolis.demo.service.UserService;
 
 /**
@@ -70,6 +71,7 @@ public class UserController {
     @GetMapping("/update/{userAccountId}")
     public String updateUser(Model model, @PathVariable Long userAccountId) {
         model.addAttribute("user_account", userService.getUserById(userAccountId));
+        model.addAttribute("user_type", UserType.values());
         return "update_user";
     }
 
