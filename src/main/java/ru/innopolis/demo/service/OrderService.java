@@ -3,6 +3,7 @@ package ru.innopolis.demo.service;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.innopolis.demo.domain.Courier;
 import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.OrderStatus;
 import ru.innopolis.demo.repos.OrderRepository;
@@ -64,6 +65,11 @@ public class OrderService {
     public Iterable<OrderShop> getOrdersWithStatus(OrderStatus orderStatus) {
         log.info("Found orders by status.");
         return orderRepository.findAllByOrderStatus(orderStatus);
+    }
+
+    public Iterable<OrderShop> getOrdersForCourier(Courier courier) {
+        log.info("Found orders by courier.");
+        return orderRepository.findAllByCourier(courier);
     }
 
     public void saveChanged(OrderShop order) {

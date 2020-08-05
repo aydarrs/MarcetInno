@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
+import ru.innopolis.demo.domain.Courier;
 import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.OrderStatus;
 
@@ -15,5 +16,7 @@ import ru.innopolis.demo.domain.OrderStatus;
 public interface OrderRepository extends CrudRepository<OrderShop, Long> {
 
     Iterable<OrderShop> findAllByOrderStatus(OrderStatus orderStatus);
+
+    Iterable<OrderShop> findAllByCourier(Courier courier);
 
 }

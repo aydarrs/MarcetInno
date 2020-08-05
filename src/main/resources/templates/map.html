@@ -28,8 +28,13 @@
                 <div class="col-lg-12">
                     <ul class="list-unstyled">
                         <br>
-                        <li><a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">
-                                < К списку заказов</a>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">< К списку заказов</a>
+                        </li>&nbsp;
+                        <li sec:authorize="hasRole('ROLE_COURIER')">
+                            <a class="btn btn-primary" th:href="@{/order/courier/(userName = ${#authentication.getPrincipal().getUsername()})}">
+                                < К списку заказов
+                            </a>
                         </li>&nbsp;
                     </ul>
                 </div>

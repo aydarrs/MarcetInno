@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.innopolis.demo.domain.Courier;
+import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.repos.CourierRepository;
 
 import java.util.Iterator;
@@ -40,4 +41,10 @@ public class CourierService {
         log.info("Found courier by id: " + courier_id);
         return courierRepository.findByCourierId(courier_id);
     }
+
+    public Courier getCourierByUser(UserAccount userAccount) {
+        log.info("Found courier by userAccount: " + userAccount);
+        return courierRepository.findByUserID(userAccount);
+    }
+
 }

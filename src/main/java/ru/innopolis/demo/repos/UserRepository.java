@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import ru.innopolis.demo.domain.UserAccount;
 
+import java.util.Optional;
+
 /**
  * UserRepository
  *
@@ -15,4 +17,7 @@ import ru.innopolis.demo.domain.UserAccount;
 @EnableTransactionManagement
 @Transactional
 public interface UserRepository extends CrudRepository<UserAccount, Long> {
+
+    Optional<UserAccount> findUserByUserName(String userName);
+
 }

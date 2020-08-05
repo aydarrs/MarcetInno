@@ -33,6 +33,11 @@ public class UserService {
         return userOptional.orElse(null);
     }
 
+    public UserAccount getUserByUserName(String userName) {
+        Optional<UserAccount> userOptional = userRepository.findUserByUserName(userName);
+        return userOptional.orElse(null);
+    }
+
     public void saveNewUser(UserAccount userAccount) {
         userRepository.save(userAccount);
     }

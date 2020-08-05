@@ -60,7 +60,7 @@
             </div>
             <div sec:authorize="hasRole('ROLE_COURIER')">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/order/all}">Заказы</a>
+                    <a class="nav-link" th:href="@{/order/courier/(userName = ${#authentication.getPrincipal().getUsername()})}">Заказы</a>
                 </li>
             </div>
         </ul>

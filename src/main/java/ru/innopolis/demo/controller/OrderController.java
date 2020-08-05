@@ -6,21 +6,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.demo.domain.OrderShop;
+import ru.innopolis.demo.service.CourierService;
 import ru.innopolis.demo.service.OrderService;
+import ru.innopolis.demo.service.UserService;
 
 @Controller
 @RequestMapping("/order")
-
 public class OrderController {
 
     private OrderService orderService;
+    private CourierService courierService;
+    private UserService userService;
 
     @Value("${api_key}")
     private String apiKey;
 
     @Autowired
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, CourierService courierService,
+                           UserService userService) {
         this.orderService = orderService;
+        this.courierService = courierService;
+        this.userService = userService;
     }
 
     @GetMapping("/all")
@@ -41,6 +47,26 @@ public class OrderController {
 //    public OrderShop getOrderById(@PathVariable long orderId) {
 //        return orderService.getOrderById(orderId);
 //    }
+
+    @GetMapping("/courier/{courierId}")
+    public String showOrdersForCourier(Model model, @PathVariable long courierId) {
+
+        Iterable<OrderShop> orders =
+                orderService.getOrdersForCourier(courierService.getCourierById(courierId));
+        model.addAttribute("orders", orders);
+        return "allOrders";
+    }
+
+    @GetMapping("/courier/")
+    public String showOrdersForCourier(Model model, @RequestParam("userName") String userName) {
+
+        Iterable<OrderShop> orders =
+                orderService.getOrdersForCourier(
+                        courierService.getCourierByUser(userService.getUserByUserName(userName))
+                );
+        model.addAttribute("orders", orders);
+        return "allOrders";
+    }
 
     @PostMapping("/")
     public OrderShop addOrder(@RequestParam OrderShop orderShop) {
