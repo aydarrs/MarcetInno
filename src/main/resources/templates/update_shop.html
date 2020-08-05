@@ -1,43 +1,48 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Изменить магазин</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
+
 <body>
-<div th:with="frag=~{parts/navbar.html}">
-    <span th:insert="${frag}"/>
-</div>
-<div class="container">
-
-    <div class="page-header" id="banner">
-        <div class="row">
-            <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1>Изменить магазин ID=<span th:utext="${shop.getShopID()}"></span></h1>
-                <br>
-            </div>
-        </div>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
     </div>
+    <div class="container">
 
-    <form th:action="@{/shops/update/{id}(id=${shop.getShopID()})}" method="POST">
-        <label for="shopAddress">Адрес</label><br>
-        <input type="text" class="form-control" id="shopAddress" name="shopAddress" th:value="${shop.getAddress()}"><br>
-        <label for="shopName">Магазин</label><br>
-        <input type="text" class="form-control" id="shopName" name="shopName" th:value="${shop.getName()}"><br>
-        <input class="btn btn-success" type="submit" value="Сохранить">
-    </form><br>
-
-    <footer id="footer">
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="list-unstyled">
-                    <li><a class="btn btn-primary"  href="/shops/all" th:href="@{/shops/all}">< К списку магазинов</a></li>&nbsp;
-                </ul>
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h1>Изменить магазин ID=<span th:utext="${shop.getShopID()}"></span></h1>
+                    <br>
+                </div>
             </div>
         </div>
-    </footer>
-</div>
+
+        <form th:action="@{/shops/update/{id}(id=${shop.getShopID()})}" method="POST">
+            <label for="shopAddress">Адрес</label><br>
+            <input type="text" class="form-control" id="shopAddress" name="shopAddress" th:value="${shop.getAddress()}"><br>
+            <label for="shopName">Магазин</label><br>
+            <input type="text" class="form-control" id="shopName" name="shopName" th:value="${shop.getName()}"><br>
+            <input class="btn btn-success" type="submit" value="Сохранить">
+        </form><br>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <li><a class="btn btn-primary" href="/shops/all" th:href="@{/shops/all}">
+                                < К списку магазинов</a>
+                        </li>&nbsp;
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>

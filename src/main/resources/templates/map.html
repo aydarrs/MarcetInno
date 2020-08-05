@@ -1,41 +1,41 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Карта города</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
+
 <body>
-<div th:with="frag=~{parts/navbar.html}">
-    <span th:insert="${frag}"/>
-</div>
-<div class="container mt-5 border-secondary">
-
-    <h1>Карта города</h1>
-    <div>
-        <p th:utext="'Адрес доставки: ' + ${deliveryAddress}"></p>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
     </div>
-    <div>
-        <iframe
-                width="800"
-                height="500"
-                frameborder="0" style="border:0"
-                th:src="${src}"
-                allowfullscreen>
-        </iframe>
-    </div>
+    <div class="container mt-5 border-secondary">
 
-    <footer id="footer">
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="list-unstyled">
-                    <br>
-                    <li><a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">< К списку заказов</a></li>&nbsp;
-                </ul>
-            </div>
+        <h1>Карта города</h1>
+        <div>
+            <p th:utext="'Адрес доставки: ' + ${deliveryAddress}"></p>
         </div>
-    </footer>
-</div>
+        <div>
+            <iframe width="800" height="500" frameborder="0" style="border:0" th:src="${src}" allowfullscreen>
+            </iframe>
+        </div>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <br>
+                        <li><a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">
+                                < К списку заказов</a>
+                        </li>&nbsp;
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>

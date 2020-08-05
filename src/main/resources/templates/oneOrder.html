@@ -1,79 +1,84 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Заказ</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
+
 <body>
-<div th:with="frag=~{parts/navbar.html}">
-    <span th:insert="${frag}"/>
-</div>
-<div class="container">
-
-    <div class="page-header" id="banner">
-        <div class="row">
-            <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1>Заказ</h1>
-                <br>
-            </div>
-        </div>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
     </div>
+    <div class="container">
 
-    <table>
-        <tr>
-            <td>Поле</td>
-            <td>Значение</td>
-        </tr>
-        <tr>
-            <td>ID</td>
-            <td th:utext="${order.getOrderId()}"></td>
-        </tr>
-        <tr>
-            <td>Статус</td>
-            <td th:utext="${order.getOrderStatus()}"></td>
-        </tr>
-        <tr>
-            <td>Дата</td>
-            <td th:utext="${order.getDate()}"></td>
-        </tr>
-        <tr>
-            <td>Покупатель</td>
-            <td th:utext="${order.getUserAccount().getFullName()}"></td>
-        </tr>
-        <tr>
-            <td>Курьер</td>
-            <td th:if="${order.getCourier() != null}" th:utext="${order.getCourier().getUserID().getFullName()}"></td>
-        </tr>
-        <tr>
-            <td>Адрес доставки</td>
-            <td th:utext="${order.getDeliveryAddress()}"></td>
-        </tr>
-        <tr>
-            <td>Товар</td>
-            <td th:utext="${order.getProduct().getName()}"></td>
-        </tr>
-        <tr>
-            <td>Количество</td>
-            <td th:utext="${order.getCountProduct()}"></td>
-        </tr>
-        <tr>
-            <td>Статус оплаты</td>
-            <td th:utext="${order.getPaymentStatus().toString()}"></td>
-        </tr>
-    </table>
-
-    <footer id="footer">
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="list-unstyled">
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h1>Заказ</h1>
                     <br>
-                    <li><a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">< К списку заказов</a></li>&nbsp;
-                </ul>
+                </div>
             </div>
         </div>
-    </footer>
-</table>
+
+        <table>
+            <tr>
+                <td>Поле</td>
+                <td>Значение</td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td th:utext="${order.getOrderId()}"></td>
+            </tr>
+            <tr>
+                <td>Статус</td>
+                <td th:utext="${order.getOrderStatus()}"></td>
+            </tr>
+            <tr>
+                <td>Дата</td>
+                <td th:utext="${order.getDate()}"></td>
+            </tr>
+            <tr>
+                <td>Покупатель</td>
+                <td th:utext="${order.getUserAccount().getFullName()}"></td>
+            </tr>
+            <tr>
+                <td>Курьер</td>
+                <td th:if="${order.getCourier() != null}" th:utext="${order.getCourier().getUserID().getFullName()}"></td>
+            </tr>
+            <tr>
+                <td>Адрес доставки</td>
+                <td th:utext="${order.getDeliveryAddress()}"></td>
+            </tr>
+            <tr>
+                <td>Товар</td>
+                <td th:utext="${order.getProduct().getName()}"></td>
+            </tr>
+            <tr>
+                <td>Количество</td>
+                <td th:utext="${order.getCountProduct()}"></td>
+            </tr>
+            <tr>
+                <td>Статус оплаты</td>
+                <td th:utext="${order.getPaymentStatus().toString()}"></td>
+            </tr>
+        </table>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <br>
+                        <li><a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">
+                                < К списку заказов</a>
+                        </li>&nbsp;
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        </table>
 </body>
+
 </html>

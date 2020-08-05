@@ -1,36 +1,39 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Список новых заказов</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
+
 <body>
-<div th:with="frag=~{parts/navbar.html}">
-    <span th:insert="${frag}"/>
-</div>
-<div class="container mt-5 border-secondary">
-    <table>
-        <tr>
-            <th>Номер</th>
-            <th>Статус</th>
-            <th>Дата и время</th>
-            <th>Товар</th>
-            <th>Количество</th>
-            <th>Статус оплаты</th>
-            <th>Назначить курьера</th>
-        </tr>
-        <tr th:each="order : ${orders}">
-            <td th:utext="${order.orderId}"></td>
-            <td th:utext="${order.orderStatus.getTitle()}"></td>
-            <td th:utext="${order.date}"></td>
-            <td th:utext="${order.product.getArticle()}"></td>
-            <td th:utext="${order.countProduct}"></td>
-            <td th:utext="${order.paymentStatus.getTitle()}"></td>
-            <td><a th:href="@{'/courier/free?order_id=' + ${order.getOrderId()}}">Выбрать курьера</a></td>
-        </tr>
-    </table>
-</div>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
+    </div>
+    <div class="container mt-5 border-secondary">
+        <table>
+            <tr>
+                <th>Номер</th>
+                <th>Статус</th>
+                <th>Дата и время</th>
+                <th>Товар</th>
+                <th>Количество</th>
+                <th>Статус оплаты</th>
+                <th>Назначить курьера</th>
+            </tr>
+            <tr th:each="order : ${orders}">
+                <td th:utext="${order.orderId}"></td>
+                <td th:utext="${order.orderStatus.getTitle()}"></td>
+                <td th:utext="${order.date}"></td>
+                <td th:utext="${order.product.getArticle()}"></td>
+                <td th:utext="${order.countProduct}"></td>
+                <td th:utext="${order.paymentStatus.getTitle()}"></td>
+                <td><a th:href="@{'/courier/free?order_id=' + ${order.getOrderId()}}">Выбрать курьера</a></td>
+            </tr>
+        </table>
+    </div>
 </body>
+
 </html>

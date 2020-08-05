@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <title>Главная страница</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
+
 <body>
-<div th:with="frag=~{parts/navbar.html}">
-    <span th:insert="${frag}"/>
-</div>
-<div class="container">
-    <div class="page-header" id="banner">
-        <div class="row">
-            <div class="col-lg-8 col-md-7 col-sm-6">
-                <br>
-                <div style="display: none;">
-                    <div th:fragment="logout" class="logout"
-                         sec:authorize="isAuthenticated()">
-                        <span sec:authentication="name">Bob</span>
-                        <span sec:authorize="hasRole('ROLE_ADMIN')">(Админ)</span>
-                        <span sec:authorize="hasRole('ROLE_CUSTOMER')">(Покупатель)</span>
-                        <span sec:authorize="hasRole('ROLE_COURIER')">(Курьер)</span>
-                        <span sec:authorize="hasRole('ROLE_SELLER')">(Продавец)</span> |
-                        <!--/* When using CSRF this needs to be a POST */-->
-                        <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Выйти"/></form>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
+    </div>
+    <div class="container">
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <br>
+                    <div style="display: none;">
+                        <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+                            <span sec:authentication="name">Bob</span>
+                            <span sec:authorize="hasRole('ROLE_ADMIN')">(Админ)</span>
+                            <span sec:authorize="hasRole('ROLE_CUSTOMER')">(Покупатель)</span>
+                            <span sec:authorize="hasRole('ROLE_COURIER')">(Курьер)</span>
+                            <span sec:authorize="hasRole('ROLE_SELLER')">(Продавец)</span> |
+                            <!--/* When using CSRF this needs to be a POST */-->
+                            <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Выйти" /></form>
+                        </div>
                     </div>
+                    <div class="jumbotron">
+                        <h1 class="display-3">Маркетплейс!</h1>
+                        <p class="lead">Вы попали на самый лучший маркетплейс на территории СНГ, обязательно расскажите о нас друзьях. Спасибо!</p>
+                        <a type="button" class="btn btn-primary" href="/login.html">Вход</a>
+                        <a type="button" class="btn btn-success" href="/register.html">Регистрация</a>
+                    </div>
+                    <h1>Выберите раздел</h1>
                 </div>
-                <div class="jumbotron">
-                    <h1 class="display-3">Маркетплейс!</h1>
-                    <p class="lead">Вы попали на самый лучший маркетплейс на территории СНГ, обязательно расскажите о нас друзьях. Спасибо!</p>
-                    <a type="button" class="btn btn-primary" href="/login.html" >Вход</a>
-                    <a type="button" class="btn btn-success" href="/register.html">Регистрация</a>
-                </div>
-                <h1>Выберите раздел</h1>
             </div>
         </div>
-    </div>
 
-    <ul>
-        <li><a href="admin/index.html" th:href="@{/admin/index.html}">Админ</a></li>
-        <li><a href="customer/index.html" th:href="@{/customer/index.html}">Покупатель</a></li>
-        <li><a href="seller/index.html" th:href="@{/seller/index.html}">Продавец</a></li>
-        <li><a href="courier/index.html" th:href="@{/courier/index.html}">Курьер</a></li>
-        <li><a href="shared/index.html" th:href="@{/shared/index.html}">общая зона</a> (для всех)</li>
-        <li><a href="shared/index.html" th:href="@{/users/all}">список пользователей</a> (только ADMIN)</li>
-    </ul>
+        <ul>
+            <li><a href="admin/index.html" th:href="@{/admin/index.html}">Админ</a></li>
+            <li><a href="customer/index.html" th:href="@{/customer/index.html}">Покупатель</a></li>
+            <li><a href="seller/index.html" th:href="@{/seller/index.html}">Продавец</a></li>
+            <li><a href="courier/index.html" th:href="@{/courier/index.html}">Курьер</a></li>
+            <li><a href="shared/index.html" th:href="@{/shared/index.html}">общая зона</a> (для всех)</li>
+            <li><a href="shared/index.html" th:href="@{/users/all}">список пользователей</a> (только ADMIN)</li>
+        </ul>
 </body>
+
 </html>
