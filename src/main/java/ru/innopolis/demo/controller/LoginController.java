@@ -1,9 +1,13 @@
 package ru.innopolis.demo.controller;
 
+import java.io.IOException;
 import java.util.Locale;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,6 +73,22 @@ public class LoginController {
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
         return "login";
+    }
+
+    @RequestMapping("/login-success")
+    public void loginPageRedirect(HttpServletRequest request, HttpServletResponse response, Authentication authResult) throws IOException {
+
+        String role =  authResult.getAuthorities().toString();
+
+        if(role.contains("ROLE_ADMIN")){
+            response.sendRedirect(response.encodeRedirectURL("/admin/index.html"));
+        } else if(role.contains("ROLE_CUSTOMER")) {
+            response.sendRedirect(response.encodeRedirectURL("/customer/index.html"));
+        } else if (role.contains("ROLE_SELLER")) {
+            response.sendRedirect(response.encodeRedirectURL("/seller/index.html"));
+        } else {
+            response.sendRedirect(response.encodeRedirectURL("/courier/index.html"));
+        }
     }
 
     /** Страница ошибки */
