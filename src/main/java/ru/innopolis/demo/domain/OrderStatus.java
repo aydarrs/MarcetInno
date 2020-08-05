@@ -2,10 +2,10 @@ package ru.innopolis.demo.domain;
 
 public enum OrderStatus {
 
-    CREATED("новый", 0),
-    COURIER_APPOINTED("курьер назначен", 1),
-    DELIVERING("передан курьеру", 2),
-    COMPLETED("доставлен", 3);
+    CREATED("Новый", 0),
+    COURIER_APPOINTED("Курьер назначен", 1),
+    DELIVERING("Передан курьеру", 2),
+    COMPLETED("Доставлен", 3);
 
     private String title;
     private int ind;
