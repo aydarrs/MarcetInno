@@ -36,7 +36,7 @@
             <td th:utext="${shop.getName()}"></td>
             <td>
                 <a class="badge badge-success" th:href="@{'/shops/update/'+${shop.getShopID()}}" th:utext="Изменить"></a>&nbsp
-                <a class="badge badge-success" th:href="@{'/shops/delete/'+${shop.getShopID()}}" th:utext="Удалить"></a>
+                <a class="badge badge-danger" th:href="@{'/shops/delete/'+${shop.getShopID()}}" th:utext="Удалить"></a>
             </td>
         </tr>
     </table>
@@ -45,7 +45,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <br>
-                <a class="badge badge-success"  href="/shops/add/" th:href="@{/shops/add/}">Добавить</a>&nbsp;
+                <a class="btn btn-success"  href="/shops/add/" th:href="@{/shops/add/}">Добавить</a>&nbsp;
+                <br><br>
             </div>
         </div>
     </footer>
