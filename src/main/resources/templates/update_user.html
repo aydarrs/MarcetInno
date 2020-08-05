@@ -29,7 +29,7 @@
                     th:text="${type.getRole()}"
                     th:selected="${user_account.getUserType() == type.getRole()}">
             </option>
-        </select><br>огин</label><br>
+        </select><br>Логин</label><br>
         <input type="text" class="form-control" id="userName" name="userName" th:value="${user_account.getUserName()}"><br>
         <label for="firstName">Имя</label><br>
         <input type="text" class="form-control" id="firstName" name="firstName" th:value="${user_account.getFirstName()}"><br>
