@@ -23,12 +23,19 @@
 
     <form th:action="@{/users/update/{id}(id=${user_account.getUserId()})}" method="POST">
         <label for="userType">Тип пользователя</label><br>
-        <select class="form-control" id="userType" name="userType" th:value="${user_account.getUserId()}">
-            <option>ROLE_ADMIN</option>
-            <option>ROLE_CUSTOMER</option>
-            <option>ROLE_SELLER</option>
-            <option>ROLE_COURIER</option>
+        <select class="form-control" id="userType" name="userType" th:value="${user_account.getUserType()}">
+            <option th:each="type : ${user_type}"
+                    th:value="${type.toString()}"
+                    th:text="${type.getRole()}"
+                    th:selected="${user_account.getUserType() == type.getRole()}">
+            </option>
         </select><br>
+<!--        <select class="form-control" id="userType" name="userType" th:value="${user_account.getUserType()}">-->
+<!--            <option>ROLE_ADMIN</option>-->
+<!--            <option>ROLE_CUSTOMER</option>-->
+<!--            <option>ROLE_SELLER</option>-->
+<!--            <option>ROLE_COURIER</option>-->
+<!--        </select><br>-->
         <label for="userName">Логин</label><br>
         <input type="text" class="form-control" id="userName" name="userName" th:value="${user_account.getUserName()}"><br>
         <label for="firstName">Имя</label><br>
