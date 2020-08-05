@@ -7,7 +7,6 @@ import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.OrderStatus;
 import ru.innopolis.demo.repos.OrderRepository;
 
-import java.util.Arrays;
 import java.util.Optional;
 
 @Service

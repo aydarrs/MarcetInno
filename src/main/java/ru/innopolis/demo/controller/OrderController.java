@@ -30,9 +30,17 @@ public class OrderController {
     }
 
     @GetMapping("/{orderId}")
-    public OrderShop getOrderById(@PathVariable long orderId) {
-        return orderService.getOrderById(orderId);
+    public String getOrderById(Model model, @PathVariable long orderId) {
+        model.addAttribute("order", orderService.getOrderById(orderId));
+        return "oneOrder";
     }
+
+//    Commented by Stanislav Klevtsov, see method above
+//
+//    @GetMapping("/{orderId}")
+//    public OrderShop getOrderById(@PathVariable long orderId) {
+//        return orderService.getOrderById(orderId);
+//    }
 
     @PostMapping("/")
     public OrderShop addOrder(@RequestParam OrderShop orderShop) {

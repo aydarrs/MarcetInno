@@ -35,7 +35,8 @@ public class UserAccount {
     @Column(name = "password")
     private String password;
 
-    public String getUserTypeTitle(String userType) {
-        return UserType.valueOf(userType.substring(5)).getTitle();
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
+
 }
