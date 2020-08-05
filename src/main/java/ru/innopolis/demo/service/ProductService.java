@@ -22,8 +22,10 @@ public class ProductService implements IProductService{
         this.productRepository = productRepository;
     }
 
-    public Iterable<Product> findProductsByShopID(Long shopID) {
-        return productRepository.findProductsByShopShopID(shopID);
+    public Page<Product> findProductsByShopID(Long shopID, int pageNo, int pageSize) {
+        Pageable paging = PageRequest.of(pageNo - 1, pageSize);
+        Page<Product> page = productRepository.findProductsByShopShopID(paging, shopID);
+        return page;
     }
 
     @Override
@@ -62,5 +64,10 @@ public class ProductService implements IProductService{
         if (null != getProductById(productId)) {
             log.info("Product {} changed", productId);
         } else log.error("Error by changing product");
+    }
+
+    @Override
+    public Iterable<Product> findProductsByShopID(Long shopId) {
+        return productRepository.findProductsByShopShopID(shopId);
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Список всех магазинов</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -26,17 +26,18 @@
             <th>ID</th>
             <th>Адрес</th>
             <th>Магазин</th>
-            <th>Действие</th>
+            <th sec:authorize="hasRole('ADMIN')">Действие</th>
         </tr>
         <tr th:each ="shop:${shops}">
             <td>
                 <a th:href="@{'/shops/'+${shop.getShopID()}}" th:utext="${shop.getShopID()}"></a>
             </td>
             <td th:utext="${shop.getAddress()}"></td>
-            <td th:utext="${shop.getName()}"></td>
+            <td><a th:href="@{'/product/shop/'+${shop.getShopID()}}" th:utext="${shop.getName()}"/></td>
             <td>
-                <a class="badge badge-success" th:href="@{'/shops/update/'+${shop.getShopID()}}" th:utext="Изменить"></a>&nbsp
-                <a class="badge badge-danger" th:href="@{'/shops/delete/'+${shop.getShopID()}}" th:utext="Удалить"></a>
+                <a sec:authorize="hasRole('ADMIN')" class="badge badge-success" th:href="@{'/shops/update/'+${shop.getShopID()}}" th:utext="Изменить"></a>
+                <a sec:authorize="hasRole('ADMIN')" class="badge badge-danger" th:href="@{'/shops/delete/'+${shop.getShopID()}}" th:utext="Удалить"></a>
+
             </td>
         </tr>
     </table>
@@ -45,7 +46,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <br>
-                <a class="btn btn-success"  href="/shops/add/" th:href="@{/shops/add/}">Добавить</a>&nbsp;
+                <a sec:authorize="hasRole('ADMIN')" class="btn btn-success"  href="/shops/add/" th:href="@{/shops/add/}">Добавить</a>&nbsp;
                 <br><br>
             </div>
         </div>

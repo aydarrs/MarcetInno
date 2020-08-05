@@ -26,9 +26,15 @@ public class ProductController {
     }
 
     @GetMapping("/shop/{shopID}")
-    public String getAllProducts(Model model, @PathVariable Long shopID) {
-        model.addAttribute("shopProducts", productService.findProductsByShopID(shopID));
-        return "shopProducts";
+    public String getAllProducts(Model model, @PathVariable Long shopID, @RequestParam("pageNo") int pageNo) {
+        Page<Product> page = productService.findProductsByShopID(shopID, pageNo, 6);
+        List<Integer> pageNumbers = IntStream.rangeClosed(1, page.getTotalPages())
+                .boxed()
+                .collect(Collectors.toList());
+        model.addAttribute("page",page);
+        model.addAttribute("pageNo", pageNo);
+        model.addAttribute("pageNumbers", pageNumbers);
+        return "allProducts";
     }
 
     @GetMapping("/all")

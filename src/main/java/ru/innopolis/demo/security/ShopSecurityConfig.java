@@ -47,7 +47,7 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/seller/**").hasRole("SELLER")
                 .antMatchers("/shared/**").hasAnyRole("ADMIN","CUSTOMER","SELLER","COURIER")
                 .antMatchers("/users/**").hasAnyRole("ADMIN")
-                .antMatchers("/shops/**").hasAnyRole("ADMIN")
+                .antMatchers("/shops/**").hasAnyRole("ADMIN","CUSTOMER","SELLER","COURIER")
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/403.html");

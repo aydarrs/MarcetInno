@@ -34,5 +34,7 @@ public interface IProductService {
 
     void changeProductById(long productId, Product product);
 
-    Iterable<Product> findProductsByShopID(Long shopID);
+    Iterable<Product> findProductsByShopID(Long shopId);
+
+    Page<Product> findProductsByShopID(Long shopID, int pageNo, int pageSize);
 }

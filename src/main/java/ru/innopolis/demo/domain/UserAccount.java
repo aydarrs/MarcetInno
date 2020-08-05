@@ -38,5 +38,8 @@ public class UserAccount {
     public String getFullName() {
         return firstName + " " + lastName;
     }
+    public String getUserTypeTitle(String userType) {
+        return UserType.valueOf(userType.substring(5)).getTitle();
+    }
 
 }
