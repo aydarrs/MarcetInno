@@ -28,6 +28,11 @@
                     <a class="nav-link" th:href="@{/shops/all}">Магазины</a>
                 </li>
             </div>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/order/all}">Заказы</a>
+                </li>
+            </div>
             <div sec:authorize="hasRole('ROLE_CUSTOMER')">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/customer/index.html}">Кабинет</a>

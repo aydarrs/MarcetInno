@@ -34,4 +34,9 @@ public class UserAccount {
 
     @Column(name = "password")
     private String password;
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
 }

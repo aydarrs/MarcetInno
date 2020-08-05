@@ -22,7 +22,9 @@
             <th>Посмотреть адрес на карте</th>
         </tr>
         <tr th:each="order : ${orders}">
-            <td th:utext="${order.orderId}"></td>
+            <td>
+                <a th:href="@{'/order/'+${order.orderId}}" th:utext="${order.orderId}"></a>
+            </td>
             <td th:utext="${order.orderStatus.name()}"></td>
             <td th:utext="${order.date}"></td>
             <td th:utext="${order.product.getArticle()}"></td>
