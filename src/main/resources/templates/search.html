@@ -12,7 +12,15 @@
     <div th:with="frag=~{parts/navbar.html}">
         <span th:insert="${frag}" />
     </div>
-    <div class="container mt-5">
+    <div class="container mt-2">
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h2>Список найденных товаров</h2>
+                    <br>
+                </div>
+            </div>
+        </div>
         <div class="card-columns">
             <span th:each="product : ${page.toList()}">
                 <div class="card border-secondary" style="width: 20rem;">

@@ -12,12 +12,12 @@
     <div th:with="frag=~{parts/navbar.html}">
         <span th:insert="${frag}" />
     </div>
-    <div class="container">
+    <div class="container mt-2">
 
         <div class="page-header" id="banner">
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-6">
-                    <h1>Магазин</h1>
+                    <h2></h2>
                     <br>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <td th:utext="${shop.getAddress()}"></td>
             </tr>
             <tr>
-                <td>Магазин</td>
+                <td> </td>
                 <td th:utext="${shop.getName()}"></td>
             </tr>
         </table>

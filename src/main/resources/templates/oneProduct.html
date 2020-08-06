@@ -7,8 +7,21 @@
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
 <body>
-<table border="1">
-    <tbody>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
+<div class="container mt-2 ">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <th>
+                    <h2>Параметры товара</h2>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+    <table>
         <tr>
             <td>Артикул</td>
             <td th:utext="${product.article}"></td>
@@ -29,7 +42,19 @@
             <td>Количество</td>
             <td th:utext="${product.productCount}"></td>
         </tr>
-    </tbody>
-</table>
+    </table>
+    <footer id="footer">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-unstyled">
+                    <br>
+                    <li><a class="btn btn-primary" href="/product/all" th:href="@{/shops/all}">
+                        < К списку магазинов</a>
+                    </li>&nbsp;
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

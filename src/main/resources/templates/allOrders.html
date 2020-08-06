@@ -12,12 +12,12 @@
     <div th:with="frag=~{parts/navbar.html}">
         <span th:insert="${frag}" />
     </div>
-    <div class="container">
+    <div class="container mt-2">
         <div th:if="${not #lists.isEmpty(orders)}">
             <div class="page-header" id="banner">
                 <div class="row">
                     <div class="col-lg-8 col-md-7 col-sm-6">
-                        <h1>Список текущих заказов</h1>
+                        <h2>Список текущих заказов</h2>
                         <br>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
             <div class="page-header" id="banner">
                 <div class="row">
                     <div class="col-lg-8 col-md-7 col-sm-6">
-                        <h1>Нет текущих заказов</h1>
+                        <h2>Нет текущих заказов</h2>
                         <br>
                     </div>
                 </div>
