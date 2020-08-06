@@ -6,9 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.demo.domain.OrderShop;
+import ru.innopolis.demo.domain.OrderStatus;
 import ru.innopolis.demo.service.CourierService;
 import ru.innopolis.demo.service.OrderService;
 import ru.innopolis.demo.service.UserService;
+
+import java.util.Iterator;
 
 @Controller
 @RequestMapping("/order")
@@ -41,12 +44,28 @@ public class OrderController {
         return "oneOrder";
     }
 
-//    Commented by Stanislav Klevtsov, see method above
-//
-//    @GetMapping("/{orderId}")
-//    public OrderShop getOrderById(@PathVariable long orderId) {
-//        return orderService.getOrderById(orderId);
-//    }
+    @GetMapping("/status/created")
+    public String ordersForCourierAppointment(Model model) {
+        Iterable<OrderShop> orders = orderService.getOrdersWithStatus(OrderStatus.CREATED);
+        model.addAttribute("orders", orders);
+        return "allOrders";
+    }
+
+    @GetMapping("/status/reset")
+    public String resetStatusForAllOrders(Model model) {
+        Iterable<OrderShop> orders = orderService.getAllOrders();
+
+        Iterator<OrderShop> itr = orders.iterator();
+        while (itr.hasNext()) {
+            OrderShop order = itr.next();
+            order.setOrderStatus(OrderStatus.CREATED);
+            order.setCourier(null);
+            orderService.saveChanged(order);
+        }
+
+        model.addAttribute("orders", orderService.getAllOrders());
+        return "redirect:/order/all";
+    }
 
     @GetMapping("/courier/{courierId}")
     public String showOrdersForCourier(Model model, @PathVariable long courierId) {
@@ -64,6 +83,14 @@ public class OrderController {
                 orderService.getOrdersForCourier(
                         courierService.getCourierByUser(userService.getUserByUserName(userName))
                 );
+
+        Iterator<OrderShop> itr = orders.iterator();
+        while (itr.hasNext()) {
+            OrderShop order = itr.next();
+            if (order.getOrderStatus() == OrderStatus.COMPLETED)
+                itr.remove();
+        }
+
         model.addAttribute("orders", orders);
         return "allOrders";
     }
@@ -80,7 +107,7 @@ public class OrderController {
         model.addAttribute("src",
                 "https://www.google.com/maps/embed/v1/place?key=" + apiKey +
                         "&q=" + deliveryAddress);
-        model.addAttribute("deliveryAddress", deliveryAddress);
+        model.addAttribute("order", order);
         return "map";
     }
 

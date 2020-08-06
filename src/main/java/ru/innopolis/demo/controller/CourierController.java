@@ -10,6 +10,7 @@ import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.OrderStatus;
 import ru.innopolis.demo.service.CourierService;
 import ru.innopolis.demo.service.OrderService;
+import ru.innopolis.demo.service.UserService;
 
 @Controller
 @RequestMapping("/courier")
@@ -18,11 +19,14 @@ public class CourierController {
 
     private CourierService courierService;
     private OrderService orderService;
+    private UserService userService;
 
     @Autowired
-    public CourierController(CourierService courierService, OrderService orderService) {
+    public CourierController(CourierService courierService, OrderService orderService,
+                             UserService userService) {
         this.courierService = courierService;
         this.orderService = orderService;
+        this.userService = userService;
     }
 
     @GetMapping("/all")
@@ -52,7 +56,24 @@ public class CourierController {
         order.setOrderStatus(OrderStatus.COURIER_APPOINTED);
         orderService.saveChanged(order);
         log.info("Changed order status: " + order);
-        model.addAttribute("orders", orderService.getOrdersWithStatus(OrderStatus.CREATED));
-        return "ordersCreated";
+        model.addAttribute("orders", orderService.getAllOrders());
+        return "redirect:/order/all";
     }
+
+    @GetMapping("/deliver/")
+    public String completeOrder(
+            @RequestParam("user_name") String user_name,
+            @RequestParam("order_id") int order_id,
+            Model model
+    ){
+        Courier courier = courierService.getCourierByUser(userService.getUserByUserName(user_name));
+        log.info("Selected courier: " + courier);
+        OrderShop order = orderService.getOrderById(order_id);
+        order.setOrderStatus(OrderStatus.COMPLETED);
+        orderService.saveChanged(order);
+        log.info("Changed order status: " + order);
+        model.addAttribute("orders", orderService.getAllOrders());
+        return "redirect:/order/courier/?userName=" + courier.getUserID().getUserName();
+    }
+
 }
