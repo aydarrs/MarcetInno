@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <title>Магазин</title>
@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div th:with="frag=~{parts/navbarOwner.html}">
+    <div th:with="frag=~{parts/navbar.html}">
         <span th:insert="${frag}" />
     </div>
     </div>
