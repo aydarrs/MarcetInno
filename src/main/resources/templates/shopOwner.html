@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
 </head>
 <body>
-<div th:with="frag=~{parts/navbarOwner.html}">
+<div th:with="frag=~{parts/navbar.html}">
     <span th:insert="${frag}"/>
 </div>
 </div>
@@ -29,10 +29,12 @@
             <td th:text="${product.article}">Артикул</td>
             <td th:text="${product.productCount}">Количество</td>
             <td scope="row">
-                <a class="badge badge-success" th:href="@{'/product/'+${product.productID}}">Изменить </a></td>
+                <a class="badge badge-success" th:href="@{'rupdate/'+${product.productID}}">Изменить</a>
+                <a class="badge badge-danger" th:href="@{delete(productID=${product.productID},shopID=${shop.shopID})}" th:utext="Удалить"></a>
+            </td>
         </tr>
     </table>
-    <a href="/shops" class="badge badge-success">Добавить</a>
+    <a th:href="@{add/(shopID=${shop.shopID})}" class="badge badge-success">Добавить</a>
 </div>
 </body>
 </html>
