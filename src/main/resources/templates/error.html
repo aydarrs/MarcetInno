@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <title>Ошибка</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
 </head>
 
 <body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf((#response != null)? #response.status : 500)}">
-    <h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
-    <p th:utext="${errorMessage}">Страницы которую вы пытаетесь открыть не существует</p>
-    <a href="index.html" th:href="@{/index.html}">На главную</a>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
+<h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
+<h1 th:utext="${errorMessage}">Страницы которую вы пытаетесь открыть не существует</h1>
+<a href="index.html" th:href="@{/index.html}">На главную</a>
 </body>
 
 </html>

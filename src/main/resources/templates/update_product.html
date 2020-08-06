@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">>
 <head>
     <title>Изменение информации о товаре</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,12 +10,11 @@
 <div th:with="frag=~{parts/navbar.html}">
     <span th:insert="${frag}"/>
 </div>
-<div class="container">
-
+<div class="container mt-2">
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1>Измение данных товара артикул <span th:utext="${product.article}"></span></h1>
+                <h2>Измение данных товара артикул <span th:utext="${product.article}"></span></h2>
                 <br>
             </div>
         </div>

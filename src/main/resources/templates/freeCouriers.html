@@ -9,10 +9,19 @@
 </head>
 
 <body>
-    <div th:with="frag=~{parts/navbar.html}">
-        <span th:insert="${frag}" />
-    </div>
-    <div class="container mt-5 border-secondary">
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
+    <div class="container mt-2">
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <th>
+                        <h2>Список свободных курьеров</h2>
+                        <br>
+                </div>
+            </div>
+        </div>
         <table>
             <tr>
                 <th>Номер курьера</th>
