@@ -56,26 +56,6 @@ public class ProductController {
         return "oneProduct";
     }
 
-    @GetMapping("/add/{product}")
-    public String saveProduct(Model model, @PathVariable Product product) {
-        productService.saveNewProduct(product);
-        return showAllProducts(model, 1);
-    }
-
-    @GetMapping("/update/{productId}/{product}")
-    public String changeProduct(Model model,
-                                @PathVariable Long productId,
-                                @PathVariable Product product) {
-        productService.changeProductById(productId, product);
-        return showAllProducts(model, 1);
-    }
-
-    @GetMapping("/delete/{productId}")
-    public String deleteProduct(Model model, @PathVariable Long productId) {
-        productService.deleteProductById(productId);
-        return showAllProducts(model, 1);
-    }
-
     @GetMapping("/search")
     public String searchByNameOrArticle(Model model,
                                         @RequestParam("pageNo") int pageNo,
@@ -84,13 +64,36 @@ public class ProductController {
         Page<Product> page = productService.getAllProductsByTemplate(template, pageNo, 6);
         // Это для генерации номеров страниц, для переключения между ними
         List<Integer> pageNumbers = IntStream.rangeClosed(1, page.getTotalPages())
-                                             .boxed()
-                                             .collect(Collectors.toList());
+                .boxed()
+                .collect(Collectors.toList());
         model.addAttribute("page", page);
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("template", template);
         model.addAttribute("pageNumbers", pageNumbers);
         return "search";
     }
+
+    // Реализовано в SellerController
+//    @GetMapping("/add/{product}")
+//    public String saveProduct(Model model, @PathVariable Product product) {
+//        productService.saveNewProduct(product);
+//        return showAllProducts(model, 1);
+//    }
+
+    // Реализовано в SellerController
+//    @GetMapping("/update/{productId}/{product}")
+//    public String changeProduct(Model model,
+//                                @PathVariable Long productId,
+//                                @PathVariable Product product) {
+//        productService.changeProductById(productId, product);
+//        return showAllProducts(model, 1);
+//    }
+
+    // Реализовано в SellerController
+//    @GetMapping("/delete/{productId}")
+//    public String deleteProduct(Model model, @PathVariable Long productId) {
+//        productService.deleteProductById(productId);
+//        return showAllProducts(model, 1);
+//    }
 
 }

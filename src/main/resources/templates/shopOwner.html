@@ -1,41 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Магазин</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
 </head>
-
 <body>
-    <div th:with="frag=~{parts/navbar.html}">
-        <span th:insert="${frag}" />
-    </div>
-    </div>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
+</div>
 
 
-    <div class="container mt-5">
-        <h2 th:text="'Магазин ' + ${shop.name}">Магазин</h2>
-        <br>
-        <h5>Список товаров</h5>
-        <table>
-            <tr>
-                <th scope="col">Наименование</th>
-                <th scope="col">Артикул</th>
-                <th scope="col">Количество</th>
-                <th scope="col"></th>
-            </tr>
-            <tr class="table-light" th:each="product : ${products}">
-                <th scope="row" th:text="${product.name}">Наименование</th>
-                <td th:text="${product.article}">Артикул</td>
-                <td th:text="${product.productCount}">Количество</td>
-                <td scope="row">
-                    <a class="badge badge-success" th:href="@{'/product/'+${product.productID}}">Изменить </a></td>
-            </tr>
-        </table>
-        <a href="/shops" class="badge badge-success">Добавить</a>
-    </div>
+<div class="container mt-5">
+    <h2 th:text="'Магазин ' + ${shop.name}">Магазин</h2>
+    <br>
+    <h5>Список товаров</h5>
+    <table>
+        <tr>
+            <th scope="col">Наименование</th>
+            <th scope="col">Артикул</th>
+            <th scope="col">Количество</th>
+            <th scope="col"></th>
+        </tr>
+        <tr class="table-light" th:each="product : ${products}">
+            <th scope="row" th:text="${product.name}">Наименование</th>
+            <td th:text="${product.article}">Артикул</td>
+            <td th:text="${product.productCount}">Количество</td>
+            <td scope="row">
+                <a class="badge badge-success" th:href="@{'rupdate/'+${product.productID}}">Изменить</a>
+                <a class="badge badge-danger" th:href="@{delete(productID=${product.productID},shopID=${shop.shopID})}" th:utext="Удалить"></a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{add/(shopID=${shop.shopID})}" class="badge badge-success">Добавить</a>
+</div>
 </body>
-
 </html>
