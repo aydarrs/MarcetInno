@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.innopolis.demo.domain.UserAccount;
+import ru.innopolis.demo.domain.UserType;
 import ru.innopolis.demo.repos.UserRepository;
 import ru.innopolis.demo.service.UserService;
 
@@ -45,7 +46,7 @@ public class RegisterController {
         String encodedPassword  = passwordEncoder.encode(password);
 
         UserAccount user = new UserAccount();
-        user.setUserType(userType);
+        user.setUserType(UserType.fromString(userType).getRole());
         user.setUserName(userName);
         user.setFirstName(firstName);
         user.setLastName(lastName);

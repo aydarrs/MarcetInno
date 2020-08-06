@@ -47,4 +47,10 @@ public class CourierService {
         return courierRepository.findByUserID(userAccount);
     }
 
+    public void deleteCourier(UserAccount userID) {
+        log.info("Delete courier by by id: " + userID);
+        Courier courier = courierRepository.findByUserID(userID);
+        courierRepository.deleteById(courier.getCourierId());
+    }
+
 }

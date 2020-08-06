@@ -24,4 +24,13 @@ public enum UserType {
         return "ROLE_" + this.toString();
     }
 
+    public static UserType fromString(String title) {
+        for (UserType b : UserType.values()) {
+            if (b.title.equalsIgnoreCase(title)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
 }

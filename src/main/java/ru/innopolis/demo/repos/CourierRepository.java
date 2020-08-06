@@ -12,4 +12,6 @@ public interface CourierRepository extends CrudRepository<Courier, Long> {
 
     Courier findByUserID(UserAccount userID);
 
+    void deleteById(Long courierID);
+
 }

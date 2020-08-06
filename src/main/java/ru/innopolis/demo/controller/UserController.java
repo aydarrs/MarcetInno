@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.domain.UserType;
+import ru.innopolis.demo.service.CourierService;
 import ru.innopolis.demo.service.UserService;
 
 /**
@@ -21,10 +22,12 @@ import ru.innopolis.demo.service.UserService;
 public class UserController {
 
     private final UserService userService;
+    private CourierService courierService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, CourierService courierService) {
         this.userService = userService;
+        this.courierService = courierService;
     }
 
     @GetMapping("/all")
@@ -57,7 +60,7 @@ public class UserController {
         String encodedPassword  = passwordEncoder.encode(password);
 
         UserAccount newUser = new UserAccount();
-        newUser.setUserType(userType);
+        newUser.setUserType(UserType.valueOf(userType).name());
         newUser.setUserName(userName);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
@@ -91,7 +94,7 @@ public class UserController {
         String encodedPassword  = passwordEncoder.encode(password);
 
         UserAccount updatedUser = new UserAccount();
-        updatedUser.setUserType(userType);
+        updatedUser.setUserType(UserType.fromString(userType).getRole());
         updatedUser.setUserName(userName);
         updatedUser.setFirstName(firstName);
         updatedUser.setLastName(lastName);
@@ -104,6 +107,10 @@ public class UserController {
 
     @GetMapping("/delete/{userAccountId}")
     public String deleteUser(Model model, @PathVariable Long userAccountId) {
+        UserAccount user = userService.getUserById(userAccountId);
+        if(courierService.getCourierByUser(user) != null) {
+            courierService.deleteCourier(user);
+        }
         userService.deleteUserById(userAccountId);
         return showAllUsers(model);
     }
