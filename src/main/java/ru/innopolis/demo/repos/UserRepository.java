@@ -1,5 +1,6 @@
 package ru.innopolis.demo.repos;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -20,4 +21,6 @@ public interface UserRepository extends CrudRepository<UserAccount, Long> {
 
     Optional<UserAccount> findUserByUserName(String userName);
 
+    @Query("select u from UserAccount u order by u.userId")
+    Iterable<UserAccount> findAllOrdered();
 }

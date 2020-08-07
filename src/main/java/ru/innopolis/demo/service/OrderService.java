@@ -22,7 +22,7 @@ public class OrderService {
     }
 
     public Iterable<OrderShop> getAllOrders() {
-        Iterable<OrderShop> orders = orderRepository.findAll();
+        Iterable<OrderShop> orders = orderRepository.findAllOrdered();
         log.info(String.format("Found and return %s orders from DB.", orderRepository.count()));
         return orders;
     }
@@ -64,12 +64,12 @@ public class OrderService {
 
     public Iterable<OrderShop> getOrdersWithStatus(OrderStatus orderStatus) {
         log.info("Found orders by status.");
-        return orderRepository.findAllByOrderStatus(orderStatus);
+        return orderRepository.findAllByOrderStatusOrderByOrderId(orderStatus);
     }
 
     public Iterable<OrderShop> getOrdersForCourier(Courier courier) {
         log.info("Found orders by courier.");
-        return orderRepository.findAllByCourier(courier);
+        return orderRepository.findAllByCourierOrderByOrderId(courier);
     }
 
     public void saveChanged(OrderShop order) {

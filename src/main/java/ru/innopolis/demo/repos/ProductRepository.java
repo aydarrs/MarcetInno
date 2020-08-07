@@ -16,13 +16,16 @@ import ru.innopolis.demo.domain.Product;
 @Transactional
 public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
 
-    Iterable<Product> findProductsByShopShopID(long shopID);
+    Iterable<Product> findProductsByShopShopIDOrderByProductID(long shopID);
 
-    Page<Product> findProductsByShopShopID(Pageable pageable, long shopID);
+    Page<Product> findProductsByShopShopIDOrderByProductID(Pageable pageable, long shopID);
 
     @Query("SELECT p FROM Product p WHERE LOWER(p.name) " +
             "LIKE CONCAT('%', LOWER(:template), '%') " +
-            "OR p.article LIKE CONCAT('%', LOWER(:template), '%')")
+            "OR p.article LIKE CONCAT('%', LOWER(:template), '%')" +
+            "order by p.productID")
     Page<Product> findProductsByNameContainingOrArticleContaining(@Param("template") String template, Pageable pageable);
 
+    @Query("select p from Product p order by p.productID")
+    Page<Product> findAllOrdered(Pageable paging);
 }

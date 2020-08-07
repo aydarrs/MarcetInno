@@ -1,5 +1,6 @@
 package ru.innopolis.demo.repos;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -11,4 +12,7 @@ import ru.innopolis.demo.domain.UserAccount;
 @EnableTransactionManagement
 @Transactional
 public interface ShopRepository extends CrudRepository<Shop, Long> {
+
+    @Query("select s from Shop s order by s.shopID")
+    Iterable<Shop> findAllOrdered();
 }
