@@ -67,7 +67,7 @@ public class SellerController {
         return getShopOwnerPage(model, shopID);
     }
 
-    @GetMapping("/rupdate/{productID}")
+    @GetMapping("/update/{productID}")
     public String redirectToUpdateProductPage(Model model,
                                               @PathVariable Long productID) {
         Product product = productService.getProductById(productID);
