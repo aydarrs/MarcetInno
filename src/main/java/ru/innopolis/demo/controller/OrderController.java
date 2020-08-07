@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.OrderStatus;
+import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.service.CourierService;
 import ru.innopolis.demo.service.OrderService;
 import ru.innopolis.demo.service.UserService;
@@ -35,6 +36,13 @@ public class OrderController {
     @GetMapping("/all")
     public String showAllOrders(Model model) {
         model.addAttribute("orders", orderService.getAllOrders());
+        return "allOrders";
+    }
+
+    @GetMapping("/customer/list")
+    public String showOrdersByCustomerId(Model model, @RequestParam String userName) {
+        UserAccount userAccount = userService.getUserByUserName(userName);
+        model.addAttribute("orders", orderService.getOrdersByUserAccount(userAccount));
         return "allOrders";
     }
 

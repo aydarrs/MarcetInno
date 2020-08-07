@@ -40,6 +40,11 @@
             </div>
             <div sec:authorize="hasRole('ROLE_CUSTOMER')">
                 <li class="nav-item">
+                    <a class="nav-link" th:href="@{/order/customer/list(userName = ${#authentication.getPrincipal().getUsername()})}">Заказы</a>
+                </li>
+            </div>
+            <div sec:authorize="hasRole('ROLE_CUSTOMER')">
+                <li class="nav-item">
                     <a class="nav-link" href="/product/all?pageNo=1">Товары</a>
                 </li>
             </div>

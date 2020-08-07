@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.innopolis.demo.domain.Courier;
 import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.OrderStatus;
+import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.repos.OrderRepository;
 
 import java.util.Optional;
@@ -75,5 +76,9 @@ public class OrderService {
     public void saveChanged(OrderShop order) {
         orderRepository.save(order);
         log.info("Saved changes for order: " + order);
+    }
+
+    public Iterable<OrderShop> getOrdersByUserAccount(UserAccount userAccount) {
+        return orderRepository.findOrderShopsByUserAccountOrderByOrderId(userAccount);
     }
 }
