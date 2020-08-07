@@ -11,99 +11,99 @@
         <!-- Магазин №1 -->
         <insert tableName="product">
             <column name="shop_id" value="1"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
+            <column name="article" value="929519427"/>
+            <column name="product_name" value="Пельмени с копчёным лососем"/>
+            <column name="description" value="Пельмени с копчёным лососем, приготовленные в ароматном рыбном бульоне"/>
+            <column name="price" value="510"/>
+            <column name="product_count" value="275"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="1"/>
+            <column name="article" value="450782673"/>
+            <column name="product_name" value="Кук си"/>
+            <column name="description" value="Корейский холодный суп с телятиной, рисовой лапшой, омлетом, огурцами, кимчи, спаржей, перцом чили, зеленью и семенами кунжута"/>
+            <column name="price" value="585"/>
+            <column name="product_count" value="410"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="1"/>
+            <column name="article" value="145509871"/>
+            <column name="product_name" value="Утиная грудка с морковным пюре"/>
+            <column name="description" value="Утиная грудка с морковным пюре. Подается с зеленым соусом."/>
+            <column name="price" value="685"/>
+            <column name="product_count" value="200"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="1"/>
+            <column name="article" value="940228616"/>
+            <column name="product_name" value="Спринг роллы с уткой"/>
+            <column name="description" value="Рисовые блинчики с начинкой из утки, маринованной капусты, лука-порея и соуса хойсин, обжаренные во фритюре. Подаются с маринованными огурцами, кунжутом и соусом хойсин"/>
+            <column name="price" value="550"/>
             <column name="product_count" value="4"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="1"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="1"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="1"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="1"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="584758735"/>
+            <column name="product_name" value="Криспи маки"/>
+            <column name="description" value="Острый хрустящий ролл с лососем, авокадо и соусом"/>
+            <column name="price" value="310"/>
+            <column name="product_count" value="190"/>
         </insert>
 
         <!-- Магазин №2 -->
         <insert tableName="product">
             <column name="shop_id" value="2"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
+            <column name="article" value="25403208"/>
+            <column name="product_name" value="С грушей и гарганзолой"/>
+            <column name="description" value="соус «Сливочный», сыр «Моцарелла», сыр «Дорблю», груша"/>
+            <column name="price" value="590"/>
+            <column name="product_count" value="3"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="2"/>
+            <column name="article" value="25406508"/>
+            <column name="product_name" value="Пицца Терияки"/>
+            <column name="description" value="соус «Сити Пицца», соус «Унаги», сыр «Моцарелла», куриные грудки, перец болгарский зеленый и красный, кунжут"/>
+            <column name="price" value="540"/>
             <column name="product_count" value="4"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="2"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
+            <column name="article" value="23983300"/>
+            <column name="product_name" value="Пицца кантри"/>
+            <column name="description" value="соус «Барбекю», сыр «Моцарелла», колбаса «Пепперони», куриные грудки, бекон, петрушка"/>
+            <column name="price" value="540"/>
+            <column name="product_count" value="3"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="2"/>
+            <column name="article" value="88928389"/>
+            <column name="product_name" value="4 Сыра"/>
+            <column name="description" value="соус «Сливочный», сыр «Моцарелла», сыр «Дорблю», груша"/>
+            <column name="price" value="640"/>
             <column name="product_count" value="4"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="2"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="2"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="2"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
+            <column name="article" value="88704376"/>
+            <column name="product_name" value="Пицца бургер"/>
+            <column name="description" value="Соус «Чизбургер», сыр «Моцарелла», сыр «Чеддер», митболы из говядины, огурцы маринованные, лук красный"/>
+            <column name="price" value="640"/>
             <column name="product_count" value="4"/>
         </insert>
 
         <!-- Магазин №3 -->
         <insert tableName="product">
             <column name="shop_id" value="3"/>
-            <column name="article" value="STC-123"/>
+            <column name="article" value="38106129"/>
             <column name="product_name" value="The Best Program"/>
             <column name="description" value="This is the best program actually. It is true."/>
             <column name="price" value="1000000"/>
@@ -112,360 +112,360 @@
 
         <insert tableName="product">
             <column name="shop_id" value="3"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
+            <column name="article" value="42769108"/>
+            <column name="product_name" value="Том-ям пицца"/>
+            <column name="description" value="ананасы, креветки, моцарелла, соус том ям слабоострый, томаты, чернила каракатицы, шампиньоны"/>
+            <column name="price" value="680"/>
+            <column name="product_count" value="2"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="3"/>
+            <column name="article" value="55269619"/>
+            <column name="product_name" value="Русская пицца"/>
+            <column name="description" value="белый соус, ветчина, грудинка, курица*, маринованные огурцы, моцарелла, томаты, укроп"/>
+            <column name="price" value="440"/>
+            <column name="product_count" value="2"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="3"/>
+            <column name="article" value="61634304"/>
+            <column name="product_name" value="Пепперони"/>
+            <column name="description" value="базилик, болгарский перец, красный соус, маслины, моцарелла, острый перец, пепперони (нарезанная соломкой), томаты"/>
+            <column name="price" value="420"/>
             <column name="product_count" value="4"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="3"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="3"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="3"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="62804826"/>
+            <column name="product_name" value="Мясная царская"/>
+            <column name="description" value="грудинка, красный соус, моцарелла, охотничьи колбаски, сырокопченая колбаса, томаты, укроп, шампиньоны"/>
+            <column name="price" value="550"/>
+            <column name="product_count" value="5"/>
         </insert>
 
         <!-- Магазин №4 -->
         <insert tableName="product">
             <column name="shop_id" value="4"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="123"/>
+            <column name="product_name" value="Плетенка с творогом и изюмом"/>
+            <column name="description" value="Пышная сдобная плетенка с творогом и сладким изюмом"/>
+            <column name="price" value="80"/>
+            <column name="product_count" value="15"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="4"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="124"/>
+            <column name="product_name" value="Печеное яблочко"/>
+            <column name="description" value="Яблочная тарталетка из тонкого песочного теста с начинкой из свежих яблок с корицей"/>
+            <column name="price" value="74"/>
+            <column name="product_count" value="25"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="4"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="125"/>
+            <column name="product_name" value="Ватрушка с творогом"/>
+            <column name="description" value="Пышная сдобная ватрушка с начинкой из творога"/>
+            <column name="price" value="65"/>
+            <column name="product_count" value="20"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="4"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="126"/>
+            <column name="product_name" value="Итальянский яблочный штрудель"/>
+            <column name="description" value="Восхитительный итальянский штрудель из нежного песочного теста с садовыми яблоками и тонким бисквитным слоем, покрытым фирменным заварным кремом"/>
+            <column name="price" value="110"/>
+            <column name="product_count" value="10"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="4"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="127"/>
+            <column name="product_name" value="Сочник с творогом"/>
+            <column name="description" value="Румяный сочник - классика русской выпечки - из домашнего песочного теста с настоящим творогом"/>
+            <column name="price" value="85"/>
+            <column name="product_count" value="41"/>
         </insert>
 
         <!-- Магазин №5 -->
         <insert tableName="product">
             <column name="shop_id" value="5"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="VUT-123"/>
+            <column name="product_name" value="Тайский Том Ям"/>
+            <column name="description" value="Острый суп на основе куриного бульона и кокосового молока с рисовой лапшой, курицей, кальмарами и креветкой"/>
+            <column name="price" value="319"/>
+            <column name="product_count" value="1"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="5"/>
+            <column name="article" value="RQP-123"/>
+            <column name="product_name" value="Чука"/>
+            <column name="description" value="Маринованные водоросли с ореховым соусом и лепестками арахиса"/>
+            <column name="price" value="199"/>
+            <column name="product_count" value="2"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="5"/>
+            <column name="article" value="GFE-123"/>
+            <column name="product_name" value="Домбай"/>
+            <column name="description" value="6 шт: Рис, водоросли Нори, филе лосося, угорь, сыр сливочный, огурцы, соус майонез с Масаго"/>
+            <column name="price" value="329"/>
+            <column name="product_count" value="6"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="5"/>
             <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="product_name" value="Фило с красной икрой"/>
+            <column name="description" value="Рис, водоросли Нори, сыр сливочный, икра Масаго, филе лосося, икра лососевых пород"/>
+            <column name="price" value="189"/>
+            <column name="product_count" value="6"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="5"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="5"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="5"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
+            <column name="article" value="DCB-123"/>
+            <column name="product_name" value="Калифорнийский с лососем"/>
+            <column name="description" value="Рис, водоросли Нори, майонез, филе лосося, огурцы, авокадо, икра Масаго"/>
+            <column name="price" value="179"/>
             <column name="product_count" value="4"/>
         </insert>
 
         <!-- Магазин №6 -->
         <insert tableName="product">
             <column name="shop_id" value="6"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
+            <column name="article" value="SDF-13572"/>
+            <column name="product_name" value="Визен Грана"/>
+            <column name="description" value="Экстратвердый выдержанный швейцарский сыр изготовленный из коровьего молока"/>
+            <column name="price" value="2100"/>
+            <column name="product_count" value="5"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="6"/>
+            <column name="article" value="WER-123"/>
+            <column name="product_name" value="Тет де Муан резервный"/>
+            <column name="description" value="Оригинальный швейцарский полутвёрдый сыр, изготовленный из непастеризованного коровьего молока"/>
+            <column name="price" value="1100"/>
+            <column name="product_count" value="3"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="6"/>
+            <column name="article" value="TRE-465456"/>
+            <column name="product_name" value="Камамбер (с белой плесенью)"/>
+            <column name="description" value="Мягкий текучий сыр с благородной белой плесенью"/>
+            <column name="price" value="750"/>
+            <column name="product_count" value="3"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="6"/>
+            <column name="article" value="IUT-789156"/>
+            <column name="product_name" value="Красная ведьма (пикантный сыр)"/>
+            <column name="description" value="Полутвёрдый швейцарский сыр, покрытый сладкой паприкой и изготовленный из пастеризованного коровьего молока"/>
+            <column name="price" value="1700"/>
             <column name="product_count" value="4"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="6"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="6"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="6"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="6"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="ERT-78931"/>
+            <column name="product_name" value="Раклет (сильный аромат)"/>
+            <column name="description" value="Швейцарский полутвёрдый сыр с нежной и маслянистой мякотью"/>
+            <column name="price" value="1500"/>
+            <column name="product_count" value="7"/>
         </insert>
 
         <!-- Магазин №7 -->
         <insert tableName="product">
             <column name="shop_id" value="7"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="579294-456"/>
+            <column name="product_name" value="Русский квас"/>
+            <column name="description" value="Квас традиционный, 2 шт.."/>
+            <column name="price" value="95"/>
+            <column name="product_count" value="15"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="7"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="48146-123"/>
+            <column name="product_name" value="Сыр президент"/>
+            <column name="description" value="Камамбер мягкий с белой плесенью 125гр."/>
+            <column name="price" value="129"/>
+            <column name="product_count" value="125"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="7"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="19530-481"/>
+            <column name="product_name" value="Икра - балтийский берег"/>
+            <column name="description" value="Красная имитированная слабосоленая лососевая"/>
+            <column name="price" value="45"/>
+            <column name="product_count" value="200"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="7"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="659772-467"/>
+            <column name="product_name" value="Палочки"/>
+            <column name="description" value="Крабобвые замороженные, 220 гр."/>
+            <column name="price" value="109"/>
+            <column name="product_count" value="44"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="7"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="740593-111"/>
+            <column name="product_name" value="Колбаса - владимирская"/>
+            <column name="description" value="Крмлевская с грудинкой полукопченная, 350 гр."/>
+            <column name="price" value="89"/>
+            <column name="product_count" value="22"/>
         </insert>
 
         <!-- Магазин №8 -->
         <insert tableName="product">
             <column name="shop_id" value="8"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="59368"/>
+            <column name="product_name" value="Фруктовый микс Киви и виноград"/>
+            <column name="description" value="Микс из двух освежающих и бодрящих фруктов - киви и винограда."/>
+            <column name="price" value="230"/>
+            <column name="product_count" value="2"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="8"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="15028"/>
+            <column name="product_name" value="Фруктовая коробка"/>
+            <column name="description" value="Разнообразие фруктов и витаминов"/>
+            <column name="price" value="1399"/>
+            <column name="product_count" value="2"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="8"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="24206"/>
+            <column name="product_name" value="Лимоны Боливия"/>
+            <column name="description" value="Ароматный цитрус с ярко выраженным кислым вкусом."/>
+            <column name="price" value="57"/>
+            <column name="product_count" value="5"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="8"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
+            <column name="article" value="32439"/>
+            <column name="product_name" value="Нектарины белые Узбекистан"/>
             <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="price" value="149"/>
+            <column name="product_count" value="12"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="8"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="263"/>
+            <column name="product_name" value="Инжир чёрный Армения"/>
+            <column name="description" value="Свежий инжир"/>
+            <column name="price" value="599"/>
+            <column name="product_count" value="32"/>
         </insert>
 
         <!-- Магазин №9 -->
         <insert tableName="product">
             <column name="shop_id" value="9"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
+            <column name="article" value="62009775"/>
+            <column name="product_name" value="Julius Meinl Caffe Crema"/>
+            <column name="description" value="Кафе Крема - смесь отборных высококачественных сортов кофе"/>
+            <column name="price" value="1250"/>
+            <column name="product_count" value="22"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="9"/>
+            <column name="article" value="70193446"/>
+            <column name="product_name" value="Lavazza Crema e Gusto"/>
+            <column name="description" value="Лавацца Крема Густо - молотый кофе, сбалансированная смесь бразильской арабики и индийской робусты"/>
+            <column name="price" value="345"/>
+            <column name="product_count" value="12"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="shop_id" value="9"/>
+            <column name="article" value="22958702"/>
+            <column name="product_name" value="Espresso Bar №82 VINTAGE"/>
+            <column name="description" value="Эспрессо Бар №82 Винтаж - традиционная смесь итальянского эспрессо"/>
+            <column name="price" value="1840"/>
             <column name="product_count" value="4"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="9"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="22958702"/>
+            <column name="product_name" value="Кофе в зернах Danesi Gold"/>
+            <column name="description" value="Смесь зерен 100% арабики из Бразилии"/>
+            <column name="price" value="2700"/>
+            <column name="product_count" value="23"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="9"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
+            <column name="article" value="21404203"/>
+            <column name="product_name" value="Кофе Картэ-Дэ-Оро Книга"/>
             <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="9"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
-        </insert>
-
-        <insert tableName="product">
-            <column name="shop_id" value="9"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="price" value="1500"/>
+            <column name="product_count" value="32"/>
         </insert>
 
         <!-- Магазин №10 -->
         <insert tableName="product">
             <column name="shop_id" value="10"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="BPC1O7W21Y"/>
+            <column name="product_name" value="Чай Бирюзовый - Молочный Улун"/>
+            <column name="description" value="Зеленый чай - Граннулированный молочный улун"/>
+            <column name="price" value="545"/>
+            <column name="product_count" value="2"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="10"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="B4C5LNG77E"/>
+            <column name="product_name" value="Чайный набор №2"/>
+            <column name="description" value="Чайный набор - Жасминовые шарики"/>
+            <column name="price" value="548"/>
+            <column name="product_count" value="1"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="10"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="J4O2OA8O6S"/>
+            <column name="product_name" value="Чайный набор №3"/>
+            <column name="description" value="Чайный набор - Долголетие"/>
+            <column name="price" value="4500"/>
+            <column name="product_count" value="12"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="10"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="RK44P2JG9P"/>
+            <column name="product_name" value="Чайный набор №4"/>
+            <column name="description" value="Чайный набор - Культурные традиции"/>
+            <column name="price" value="2784"/>
+            <column name="product_count" value="14"/>
         </insert>
 
         <insert tableName="product">
             <column name="shop_id" value="10"/>
-            <column name="article" value="STC-123"/>
-            <column name="product_name" value="The Best Program"/>
-            <column name="description" value="This is the best program actually. It is true."/>
-            <column name="price" value="1000000"/>
-            <column name="product_count" value="4"/>
+            <column name="article" value="4OS808MRYV"/>
+            <column name="product_name" value="Чай Ча-Бао"/>
+            <column name="description" value="Чай Зеленый шелк - один из классических сортов китайского зеленого чая"/>
+            <column name="price" value="950"/>
+            <column name="product_count" value="21"/>
         </insert>
     </changeSet>
 </databaseChangeLog>
