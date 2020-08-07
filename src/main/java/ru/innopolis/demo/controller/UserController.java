@@ -43,7 +43,8 @@ public class UserController {
     }
 
     @GetMapping("/add/")
-    public String addUser() {
+    public String addUser(Model model) {
+        model.addAttribute("user_type", UserType.values());
         return "/add_user";
     }
 
@@ -53,18 +54,16 @@ public class UserController {
                            @RequestParam String userName,
                            @RequestParam String firstName,
                            @RequestParam String lastName,
-                           @RequestParam String deliveryAddress,
                            @RequestParam String password) {
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword  = passwordEncoder.encode(password);
 
         UserAccount newUser = new UserAccount();
-        newUser.setUserType(UserType.valueOf(userType).name());
+        newUser.setUserType(userType);
         newUser.setUserName(userName);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
-        newUser.setDeliveryAddress(deliveryAddress);
         newUser.setPassword(encodedPassword);
 
         userService.saveNewUser(newUser);
@@ -85,21 +84,23 @@ public class UserController {
                              @RequestParam String userName,
                              @RequestParam String firstName,
                              @RequestParam String lastName,
-                             @RequestParam String deliveryAddress,
                              @RequestParam String password) {
 
         model.addAttribute("user_account", userService.getUserById(userAccountId));
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword  = passwordEncoder.encode(password);
-
         UserAccount updatedUser = new UserAccount();
-        updatedUser.setUserType(UserType.fromString(userType).getRole());
+        updatedUser.setUserType(userType);
         updatedUser.setUserName(userName);
         updatedUser.setFirstName(firstName);
         updatedUser.setLastName(lastName);
-        updatedUser.setDeliveryAddress(deliveryAddress);
-        updatedUser.setPassword(encodedPassword);
+
+        if (!password.isEmpty()) {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword  = passwordEncoder.encode(password);
+            updatedUser.setPassword(encodedPassword);
+        } else {
+            updatedUser.setPassword(userService.getUserById(userAccountId).getPassword());
+        }
 
         userService.changeUserById(userAccountId, updatedUser);
         return showAllUsers(model);

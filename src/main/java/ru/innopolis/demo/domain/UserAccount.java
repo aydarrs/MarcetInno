@@ -29,9 +29,6 @@ public class UserAccount {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "delivery_address")
-    private String deliveryAddress;
-
     @Column(name = "password")
     private String password;
 

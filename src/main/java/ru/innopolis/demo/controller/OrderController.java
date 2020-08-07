@@ -116,7 +116,7 @@ public class OrderController {
     public String showYandexMapByUserAddress(@PathVariable long orderId, Model model) {
         String mapPoint = "https://yandex.ru/map-widget/v1/?um=constructor%3Aa811a92e1d8b9bb53f1e46615241a42aaa764888139feb491d3a47c01dfd550c&amp;source=constructor";
         OrderShop order = orderService.getOrderById(orderId);
-        String deliveryAddress = order.getUserAccount().getDeliveryAddress();
+        String deliveryAddress = order.getDeliveryAddress();
         model.addAttribute("src", mapPoint);
         model.addAttribute("deliveryAddress", deliveryAddress);
         return "map";

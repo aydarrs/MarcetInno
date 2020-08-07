@@ -26,10 +26,9 @@
         <form action="/users/add/" method="POST">
             <label for="userType">Тип пользователя</label><br>
             <select class="form-control" id="userType" name="userType">
-                <option>ROLE_ADMIN</option>
-                <option>ROLE_CUSTOMER</option>
-                <option>ROLE_SELLER</option>
-                <option>ROLE_COURIER</option>
+                <option th:each="type : ${user_type}" th:value="${type.getRole()}" th:text="${type.getTitle()}"
+                        th:selected="${'ROLE_CUSTOMER' == type.getRole()}">
+                </option>
             </select><br>
             <label for="userName">Логин</label><br>
             <input type="text" class="form-control" id="userName" name="userName" placeholder="Введите логин"><br>
@@ -37,14 +36,12 @@
             <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Введите имя"><br>
             <label for="lastName">Фамилия</label><br>
             <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Введите фамилию"><br>
-            <label for="deliveryAddress">Адрес доставки</label><br>
-            <input type="text" class="form-control" id="deliveryAddress" name="deliveryAddress" placeholder="Введите адрес доставки"><br>
             <label for="password">Пароль</label><br>
             <input type="password" class="form-control" id="password" name="password" placeholder=""><br>
             <input class="btn btn-success" type="submit" value="Добавить">
-        </form><br>
+        </form>
 
-        <footer id="footer">
+        <footer class="mt-2" id="footer">
             <div class="row">
                 <div class="col-lg-12">
 

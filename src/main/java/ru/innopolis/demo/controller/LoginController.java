@@ -81,13 +81,13 @@ public class LoginController {
         String role =  authResult.getAuthorities().toString();
 
         if(role.contains("ROLE_ADMIN")){
-            response.sendRedirect(response.encodeRedirectURL("/admin/index.html"));
+            response.sendRedirect(response.encodeRedirectURL("/users/all"));
         } else if(role.contains("ROLE_CUSTOMER")) {
-            response.sendRedirect(response.encodeRedirectURL("/customer/index.html"));
+            response.sendRedirect(response.encodeRedirectURL("/product/all?pageNo=1"));
         } else if (role.contains("ROLE_SELLER")) {
-            response.sendRedirect(response.encodeRedirectURL("/seller/index.html"));
+            response.sendRedirect(response.encodeRedirectURL("/seller/1"));
         } else {
-            response.sendRedirect(response.encodeRedirectURL("/courier/index.html"));
+            response.sendRedirect(response.encodeRedirectURL("/order/courier/?userName=" + authResult.getName()));
         }
     }
 
