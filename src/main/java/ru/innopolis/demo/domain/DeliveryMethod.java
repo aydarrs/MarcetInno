@@ -5,8 +5,8 @@ public enum DeliveryMethod {
     // что нужны на конкретном этапе проекта
 
     //TODO: ДОбавить аннотации и комментарии
-    CAR("автомобиль"),
-    FOOT("пеший");
+    CAR("Автомобиль"),
+    FOOT("Пеший");
 
     private String title;
 

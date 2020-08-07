@@ -43,8 +43,8 @@
                             <a class="btn btn-success" th:href="@{/courier/deliver/(user_name = ${#authentication.getPrincipal().getUsername()}, order_id = ${order.getOrderId()})}">
                                 &check; Заказ доставлен
                             </a>
-                        </li><br>
-                        <li>
+                        </li>
+                        <li class="mt-2">
                             <a class="btn btn-primary" th:href="@{/order/courier/(userName = ${#authentication.getPrincipal().getUsername()})}">
                                 < К списку заказов
                             </a>

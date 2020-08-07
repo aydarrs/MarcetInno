@@ -15,25 +15,31 @@
         <div class="page-header" id="banner">
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-6">
-                    <h2>Страница курьера</h2>
+                    <h2>Настройки курьера</h2>
                     <br>
                 </div>
             </div>
         </div>
 
-        <div class="alert alert-dismissible alert-primary">
-            <p>Только аутентифицированные пользователи с ролью <b>COURIER</b> могут видеть эту страницу.</p>
-        </div>
+        <form th:action="@{/users/update/{id}(id=${user_account.getUserId()})}" method="POST">
+            <input type="hidden" class="form-control" id="userType" name="userType" th:value="${user_account.getUserType()}">
+            <label for="userName">Логин</label><br>
+            <input type="text" class="form-control" id="userName" name="userName" th:value="${user_account.getUserName()}"><br>
+            <label for="firstName">Имя</label><br>
+            <input type="text" class="form-control" id="firstName" name="firstName" th:value="${user_account.getFirstName()}"><br>
+            <label for="lastName">Фамилия</label><br>
+            <input type="text" class="form-control" id="lastName" name="lastName" th:value="${user_account.getLastName()}"><br>
+            <label for="password">Метод доставки</label><br>
+            <select class="form-control" id="deliveryMethod" name="deliveryMethod">
+                <option th:each="delivery : ${delivery_method}" th:value="${delivery}" th:text="${delivery.getTitle()}"
+                        th:selected="${courier.getDeliveryMethod() == delivery}">
+                </option>
+            </select><br>
+            <label for="password">Пароль</label><br>
+            <input type="password" class="form-control" id="password" name="password"><br>
+            <input class="btn btn-success" type="submit" value="Сохранить">
+        </form>
 
-        <footer id="footer">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-unstyled">
-                        <li><a href="/" th:href="@{/}">На главную</a></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
     </div>
     </body>
 </html>

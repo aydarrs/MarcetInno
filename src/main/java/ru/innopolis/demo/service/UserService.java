@@ -69,6 +69,13 @@ public class UserService {
         user.setPassword(userAccount.getPassword());
 
         userRepository.save(user);
+
+        if (userAccount.getUserType().equals(UserType.COURIER.getRole())) {
+            Courier courier = courierRepository.findByUserID(user);
+            courier.setDeliveryMethod(DeliveryMethod.CAR);
+            courierRepository.save(courier);
+        }
+
         if (null != getUserById(userAccountId)) {
             log.info("User {} changed", userAccountId);
         } else log.error("Error while changing user");

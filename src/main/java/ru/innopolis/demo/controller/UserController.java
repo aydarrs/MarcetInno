@@ -6,10 +6,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.innopolis.demo.domain.Courier;
+import ru.innopolis.demo.domain.DeliveryMethod;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.domain.UserType;
 import ru.innopolis.demo.service.CourierService;
 import ru.innopolis.demo.service.UserService;
+
+import java.util.Optional;
 
 /**
  * UserController
@@ -84,9 +88,11 @@ public class UserController {
                              @RequestParam String userName,
                              @RequestParam String firstName,
                              @RequestParam String lastName,
-                             @RequestParam String password) {
+                             @RequestParam String password,
+                             @RequestParam Optional<DeliveryMethod> deliveryMethod) {
 
-        model.addAttribute("user_account", userService.getUserById(userAccountId));
+        UserAccount user = userService.getUserById(userAccountId);
+        model.addAttribute("user_account", user);
 
         UserAccount updatedUser = new UserAccount();
         updatedUser.setUserType(userType);
@@ -99,11 +105,22 @@ public class UserController {
             String encodedPassword  = passwordEncoder.encode(password);
             updatedUser.setPassword(encodedPassword);
         } else {
-            updatedUser.setPassword(userService.getUserById(userAccountId).getPassword());
+            updatedUser.setPassword(user.getPassword());
         }
 
         userService.changeUserById(userAccountId, updatedUser);
-        return showAllUsers(model);
+
+        if (user.getUserType().equals(UserType.COURIER.getRole())) {
+            Courier courier = courierService.getCourierByUser(user);
+            courier.setDeliveryMethod(deliveryMethod.orElse(courier.getDeliveryMethod()));
+            courierService.saveChanged(courier);
+        }
+
+        if (user.getUserType().equals(UserType.ADMIN.getRole())) {
+            return showAllUsers(model);
+        }
+
+        return "redirect:/" + user.getUserType().replace("ROLE_","").toLowerCase() + "/index.html";
     }
 
     @GetMapping("/delete/{userAccountId}")
