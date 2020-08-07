@@ -24,14 +24,14 @@ public class ProductService implements IProductService{
 
     public Page<Product> findProductsByShopID(Long shopID, int pageNo, int pageSize) {
         Pageable paging = PageRequest.of(pageNo - 1, pageSize);
-        Page<Product> page = productRepository.findProductsByShopShopID(paging, shopID);
+        Page<Product> page = productRepository.findProductsByShopShopIDOrderByProductID(paging, shopID);
         return page;
     }
 
     @Override
     public Page<Product> getAllProducts(int pageNo, int pageSize) {
         Pageable paging = PageRequest.of(pageNo - 1, pageSize);
-        Page<Product> page = productRepository.findAll(paging);
+        Page<Product> page = productRepository.findAllOrdered(paging);
         return page;
     }
 
@@ -68,6 +68,6 @@ public class ProductService implements IProductService{
 
     @Override
     public Iterable<Product> findProductsByShopID(Long shopId) {
-        return productRepository.findProductsByShopShopID(shopId);
+        return productRepository.findProductsByShopShopIDOrderByProductID(shopId);
     }
 }

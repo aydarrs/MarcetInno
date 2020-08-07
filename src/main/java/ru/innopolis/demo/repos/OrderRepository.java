@@ -15,8 +15,10 @@ import ru.innopolis.demo.domain.OrderStatus;
 //TODO: Нужны комментарии
 public interface OrderRepository extends CrudRepository<OrderShop, Long> {
 
-    Iterable<OrderShop> findAllByOrderStatus(OrderStatus orderStatus);
+    Iterable<OrderShop> findAllByOrderStatusOrderByOrderId(OrderStatus orderStatus);
 
-    Iterable<OrderShop> findAllByCourier(Courier courier);
+    Iterable<OrderShop> findAllByCourierOrderByOrderId(Courier courier);
 
+    @Query("select o from OrderShop o order by o.orderId")
+    Iterable<OrderShop> findAllOrdered();
 }
