@@ -31,7 +31,7 @@ public class UserService {
     }
 
     public Iterable<UserAccount> getAllUsers() {
-        return userRepository.findAll();
+        return userRepository.findAllOrdered();
     }
 
     public UserAccount getUserById(long userAccountId) {

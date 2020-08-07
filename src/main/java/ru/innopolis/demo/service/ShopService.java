@@ -21,7 +21,7 @@ public class ShopService {
     }
 
     public Iterable<Shop> getAllShops() {
-        return shopRepository.findAll();
+        return shopRepository.findAllOrdered();
     }
 
     public Shop getShopById(long shopId) {

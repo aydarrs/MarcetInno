@@ -21,13 +21,13 @@ public class CourierService {
     }
 
     public Iterable<Courier> getAllCouriers() {
-        Iterable<Courier> couriers = courierRepository.findAll();
+        Iterable<Courier> couriers = courierRepository.findAllOrdered();
         log.info(String.format("Found and return %s couriers from DB.", courierRepository.count()));
         return couriers;
     }
 
     public Iterable<Courier> getFreeCouriers() {
-        Iterable<Courier> couriers = courierRepository.findAll();
+        Iterable<Courier> couriers = courierRepository.findAllOrdered();
         log.info("Found free couriers. Couriers are " + (couriers.iterator().hasNext() ? "more then 0." : "0."));
         return couriers;
     }

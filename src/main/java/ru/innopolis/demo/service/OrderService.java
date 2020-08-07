@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.innopolis.demo.domain.Courier;
 import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.OrderStatus;
+import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.repos.OrderRepository;
 
 import java.util.Optional;
@@ -22,7 +23,7 @@ public class OrderService {
     }
 
     public Iterable<OrderShop> getAllOrders() {
-        Iterable<OrderShop> orders = orderRepository.findAll();
+        Iterable<OrderShop> orders = orderRepository.findAllOrdered();
         log.info(String.format("Found and return %s orders from DB.", orderRepository.count()));
         return orders;
     }
@@ -64,16 +65,20 @@ public class OrderService {
 
     public Iterable<OrderShop> getOrdersWithStatus(OrderStatus orderStatus) {
         log.info("Found orders by status.");
-        return orderRepository.findAllByOrderStatus(orderStatus);
+        return orderRepository.findAllByOrderStatusOrderByOrderId(orderStatus);
     }
 
     public Iterable<OrderShop> getOrdersForCourier(Courier courier) {
         log.info("Found orders by courier.");
-        return orderRepository.findAllByCourier(courier);
+        return orderRepository.findAllByCourierOrderByOrderId(courier);
     }
 
     public void saveChanged(OrderShop order) {
         orderRepository.save(order);
         log.info("Saved changes for order: " + order);
+    }
+
+    public Iterable<OrderShop> getOrdersByUserAccount(UserAccount userAccount) {
+        return orderRepository.findOrderShopsByUserAccountOrderByOrderId(userAccount);
     }
 }
