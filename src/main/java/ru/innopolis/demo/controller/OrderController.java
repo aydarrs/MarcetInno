@@ -5,14 +5,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.innopolis.demo.domain.OrderShop;
-import ru.innopolis.demo.domain.OrderStatus;
-import ru.innopolis.demo.domain.UserAccount;
+import ru.innopolis.demo.domain.*;
 import ru.innopolis.demo.service.CourierService;
 import ru.innopolis.demo.service.OrderService;
+import ru.innopolis.demo.service.ProductService;
 import ru.innopolis.demo.service.UserService;
 
+import java.security.Principal;
+import java.sql.Timestamp;
+import java.time.OffsetDateTime;
 import java.util.Iterator;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Controller
 @RequestMapping("/order")
@@ -21,16 +24,20 @@ public class OrderController {
     private OrderService orderService;
     private CourierService courierService;
     private UserService userService;
+    private ProductService productService;
 
     @Value("${api_key}")
     private String apiKey;
 
     @Autowired
-    public OrderController(OrderService orderService, CourierService courierService,
-                           UserService userService) {
+    public OrderController(OrderService orderService,
+                           CourierService courierService,
+                           UserService userService,
+                           ProductService productService) {
         this.orderService = orderService;
         this.courierService = courierService;
         this.userService = userService;
+        this.productService = productService;
     }
 
     @GetMapping("/all")
@@ -128,5 +135,30 @@ public class OrderController {
         model.addAttribute("src", mapPoint);
         model.addAttribute("deliveryAddress", deliveryAddress);
         return "map";
+    }
+
+    @GetMapping("/buy/{productID}")
+    public String addOrder(Model model, @PathVariable long productID) {
+        Product product = productService.getProductById(productID);
+        OrderShop order = new OrderShop();
+        order.setProduct(product);
+
+        model.addAttribute("order", order);
+        return "orderForm";
+    }
+
+    @PostMapping("/buy/{productID}")
+    public String addOrder(@ModelAttribute OrderShop order, Model model, @PathVariable long productID, Principal principal) {
+        order.setUserAccount(userService.getUserByUserName(principal.getName()));
+        order.setDate(OffsetDateTime.now());
+        order.setPaymentStatus(PaymentStatus.NOT_PAID);
+        order.setOrderStatus(OrderStatus.CREATED);
+        order.setProduct(productService.getProductById(productID));
+        model.addAttribute("order", order);
+        if(ThreadLocalRandom.current().nextInt(2) == 0) {
+           orderService.saveNewOrder(order);
+           return "successful";
+       }
+        return "failed";
     }
 }
