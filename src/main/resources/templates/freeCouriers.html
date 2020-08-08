@@ -34,7 +34,7 @@
                 <td th:utext="${courier.courierId}"></td>
                 <td th:utext="${courier.userID.firstName}"></td>
                 <td th:utext="${courier.userID.lastName}"></td>
-                <td th:utext="${courier.deliveryMethod.name()}"></td>
+                <td th:utext="${courier.deliveryMethod.getTitle()}"></td>
                 <td><a th:href="@{'/courier/appoint/courier_id/' + ${courier.getCourierId()} + '/order_id/' + ${order_id}}">Выбрать
                         курьера</a></td>
             </tr>

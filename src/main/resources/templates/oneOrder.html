@@ -34,7 +34,7 @@
             </tr>
             <tr>
                 <td>Статус</td>
-                <td th:utext="${order.getOrderStatus()}"></td>
+                <td th:utext="${order.orderStatus.getTitle()}"></td>
             </tr>
             <tr>
                 <td>Дата</td>
@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 <td>Статус оплаты</td>
-                <td th:utext="${order.getPaymentStatus().toString()}"></td>
+                <td th:utext="${order.paymentStatus.getTitle()}"></td>
             </tr>
         </table>
 

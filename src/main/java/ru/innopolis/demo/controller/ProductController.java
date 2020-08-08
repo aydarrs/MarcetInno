@@ -62,6 +62,9 @@ public class ProductController {
                                         @RequestParam("template") String template,
                                         @PageableDefault(size = 6) Pageable pageable) {
         Page<Product> page = productService.getAllProductsByTemplate(template, pageNo, 6);
+        if(page.isEmpty()) {
+            //0return ""
+        }
         // Это для генерации номеров страниц, для переключения между ними
         List<Integer> pageNumbers = IntStream.rangeClosed(1, page.getTotalPages())
                 .boxed()
