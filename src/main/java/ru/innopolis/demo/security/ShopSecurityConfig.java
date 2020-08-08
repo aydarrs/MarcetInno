@@ -53,7 +53,7 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/shared/**").hasAnyRole("ADMIN","CUSTOMER","SELLER","COURIER")
                 .antMatchers("/users/update/**").hasAnyRole("ADMIN","CUSTOMER","SELLER","COURIER")
                 .antMatchers("/users/**").hasAnyRole("ADMIN")
-                .antMatchers("/shops/**").hasRole("ADMIN")
+                //.antMatchers("/shops/**").hasRole("ADMIN")
                 .antMatchers("/shops/all").permitAll()
                 .antMatchers("/product").permitAll()
                 .and()

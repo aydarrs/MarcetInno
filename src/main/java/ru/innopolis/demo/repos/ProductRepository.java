@@ -19,11 +19,7 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, L
     Iterable<Product> findProductsByShopShopIDOrderByProductID(long shopID);
 
     Page<Product> findProductsByShopShopIDOrderByProductID(Pageable pageable, long shopID);
-
-    @Query("SELECT p FROM Product p WHERE LOWER(p.name) " +
-            "LIKE CONCAT('%', LOWER(:template), '%') " +
-            "OR p.article LIKE CONCAT('%', LOWER(:template), '%')" +
-            "order by p.productID")
+    @Query("SELECT p FROM Product p WHERE lower(p.name) like lower(concat('%', :template, '%')) OR lower(p.article) like lower(concat('%', :template, '%'))")
     Page<Product> findProductsByNameContainingOrArticleContaining(@Param("template") String template, Pageable pageable);
 
     @Query("select p from Product p order by p.productID")
