@@ -24,4 +24,6 @@ public interface OrderRepository extends CrudRepository<OrderShop, Long> {
     Iterable<OrderShop> findAllOrdered();
 
     Iterable<OrderShop> findOrderShopsByUserAccountOrderByOrderId(UserAccount userAccount);
+
+    void deleteOrderShopByUserAccountUserId(Long userAccountId);
 }

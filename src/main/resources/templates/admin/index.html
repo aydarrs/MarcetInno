@@ -22,9 +22,6 @@
         </div>
 
         <form th:action="@{/users/update/{id}(id=${user_account.getUserId()})}" method="POST">
-            <input type="hidden" class="form-control" id="userType" name="userType" th:value="${user_account.getUserType()}">
-            <label for="userName">Логин</label><br>
-            <input type="text" class="form-control" id="userName" name="userName" th:value="${user_account.getUserName()}"><br>
             <label for="firstName">Имя</label><br>
             <input type="text" class="form-control" id="firstName" name="firstName" th:value="${user_account.getFirstName()}"><br>
             <label for="lastName">Фамилия</label><br>

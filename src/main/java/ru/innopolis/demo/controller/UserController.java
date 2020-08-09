@@ -11,6 +11,7 @@ import ru.innopolis.demo.domain.DeliveryMethod;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.domain.UserType;
 import ru.innopolis.demo.service.CourierService;
+import ru.innopolis.demo.service.OrderService;
 import ru.innopolis.demo.service.UserService;
 
 import java.util.Optional;
@@ -27,11 +28,13 @@ public class UserController {
 
     private final UserService userService;
     private CourierService courierService;
+    private OrderService orderService;
 
     @Autowired
-    public UserController(UserService userService, CourierService courierService) {
+    public UserController(UserService userService, CourierService courierService, OrderService orderService) {
         this.userService = userService;
         this.courierService = courierService;
+        this.orderService = orderService;
     }
 
     @GetMapping("/all")
@@ -71,7 +74,7 @@ public class UserController {
         newUser.setPassword(encodedPassword);
 
         userService.saveNewUser(newUser);
-        return showAllUsers(model);
+        return "redirect:/" + "users/all";
     }
 
     @GetMapping("/update/{userAccountId}")
@@ -83,7 +86,6 @@ public class UserController {
     @PostMapping("/update/{userAccountId}")
     public String changeUser(Model model,
                              @PathVariable Long userAccountId,
-                             @RequestParam String userName,
                              @RequestParam String firstName,
                              @RequestParam String lastName,
                              @RequestParam String password) {
@@ -93,7 +95,7 @@ public class UserController {
 
         UserAccount updatedUser = new UserAccount();
         updatedUser.setUserType(user.getUserType());
-        updatedUser.setUserName(userName);
+        updatedUser.setUserName(user.getUserName());
         updatedUser.setFirstName(firstName);
         updatedUser.setLastName(lastName);
 
@@ -108,16 +110,25 @@ public class UserController {
         userService.changeUserById(userAccountId, updatedUser);
 
         if (user.getUserType().equals(UserType.ADMIN.getRole())) {
-            return showAllUsers(model);
+            return "redirect:/" + "users/all";
         }
-
-        return "redirect:/" + "users/all";
+        if(user.getUserType().equals(UserType.COURIER.getRole())) {
+           return  "redirect:/" + "/order/courier/" + userAccountId;
+        }
+        if(user.getUserType().equals(UserType.SELLER.getRole())) {
+            return "перебрасывает на магазин продавца";
+        }
+        return "redirect:/" + "shops/all";
     }
 
     @GetMapping("/delete/{userAccountId}")
     public String deleteUser(Model model, @PathVariable Long userAccountId) {
         UserAccount user = userService.getUserById(userAccountId);
-        if(courierService.getCourierByUser(user) != null) {
+
+        if(orderService.getOrdersByUserAccount(userService.getUserById(userAccountId)) != null) {
+            orderService.deleteOrderByUserID(userAccountId);
+        }
+        else if(courierService.getCourierByUser(user) != null) {
             courierService.deleteCourier(user);
         }
         userService.deleteUserById(userAccountId);

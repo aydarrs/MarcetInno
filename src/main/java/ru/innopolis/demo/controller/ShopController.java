@@ -51,7 +51,7 @@ public class ShopController {
         newShop.setName(shopName);
 
         shopService.saveNewShop(newShop);
-        return showAllShops(model);
+        return "redirect:/" + "shops/all";
     }
 
     @GetMapping("/update/{shopId}")
@@ -73,13 +73,12 @@ public class ShopController {
         updatedShop.setName(shopName);
 
         shopService.changeShopById(shopId, updatedShop);
-        return showAllShops(model);
+        return "redirect:/" + "shops/all";
     }
 
-    @GetMapping("/delete/{shopId}")
+    /*@GetMapping("/delete/{shopId}")
     public String deleteShop(Model model, @PathVariable Long shopId) {
-        shopService.deleteShopById(shopId);
-        return showAllShops(model);
-    }
+        return "redirect:/" + "shops/all";
+    }*/
 
 }
