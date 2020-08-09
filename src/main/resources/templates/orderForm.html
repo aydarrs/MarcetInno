@@ -12,9 +12,9 @@
 <div th:with="frag=~{parts/navbar.html}">
     <span th:insert="${frag}" />
 </div>
-<div class="row offset-2 mt-5 pt-5">
+<div class="row offset-2 mt-4 pt-5">
     <div class="col-lg-5">
-        <h4 class="text-center mb-5">Офомрление заказа</h4>
+        <h3>Оформление заказа</h3>
         <form action="#" th:action="@{'/order/buy/' +${order.product.productID}}" method="post" class="form-group">
            <label class="col-form-label col-form-label-sm" for="inputSmall">Количество</label>
             <input th:field="*{order.countProduct}" class="form-control form-control-sm" type="number" id="inputSmall">
