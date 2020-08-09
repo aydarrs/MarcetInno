@@ -4,7 +4,7 @@
 <head>
     <title>Изменить пользователя</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
 
@@ -24,11 +24,6 @@
         </div>
 
         <form th:action="@{/users/update/{id}(id=${user_account.getUserId()})}" method="POST">
-            <label for="userType">Тип пользователя</label><br>
-            <select class="form-control" id="userType" name="userType" th:value="${user_account.getUserType()}">
-                <option th:each="type : ${user_type}" th:value="${type.getRole()}" th:text="${type.getTitle()}" th:selected="${user_account.getUserType() == type.getRole()}">
-                </option>
-            </select><br>
             <label for="userName">Логин</label><br>
             <input type="text" class="form-control" id="userName" name="userName" th:value="${user_account.getUserName()}"><br>
             <label for="firstName">Имя</label><br>

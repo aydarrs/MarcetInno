@@ -4,7 +4,7 @@
 <head>
     <title>Заказ</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
 
@@ -14,76 +14,73 @@
     </div>
     <div class="container mt-2">
 
-        <div class="page-header" id="banner">
-            <div class="row">
-                <div class="col-lg-8 col-md-7 col-sm-6">
-                    <h2>Заказ</h2>
-                    <br>
-                </div>
-            </div>
+        <div class="text-center mt-3 pt-3">
+            <h2>Заказ</h2>
         </div>
 
-        <table>
-            <tr>
-                <td>Поле</td>
-                <td>Значение</td>
-            </tr>
-            <tr>
-                <td>ID</td>
-                <td th:utext="${order.getOrderId()}"></td>
-            </tr>
-            <tr>
-                <td>Статус</td>
-                <td th:utext="${order.orderStatus.getTitle()}"></td>
-            </tr>
-            <tr>
-                <td>Дата</td>
-                <td th:utext="${order.getDate()}"></td>
-            </tr>
-            <tr>
-                <td>Покупатель</td>
-                <td th:utext="${order.getUserAccount().getFullName()}"></td>
-            </tr>
-            <tr>
-                <td>Курьер</td>
-                <td th:if="${order.getCourier() != null}" th:utext="${order.getCourier().getUserID().getFullName()}"></td>
-            </tr>
-            <tr>
-                <td>Адрес доставки</td>
-                <td th:utext="${order.getDeliveryAddress()}"></td>
-            </tr>
-            <tr>
-                <td>Товар</td>
-                <td th:utext="${order.getProduct().getName()}"></td>
-            </tr>
-            <tr>
-                <td>Количество</td>
-                <td th:utext="${order.getCountProduct()}"></td>
-            </tr>
-            <tr>
-                <td>Статус оплаты</td>
-                <td th:utext="${order.paymentStatus.getTitle()}"></td>
-            </tr>
-        </table>
-
+        <div class="row offset-4">
+            <table class="table table-borderless w-50">
+                <tbody>
+                    <tr>
+                        <td class="font-weight-bold">ID</td>
+                        <td th:utext="${order.getOrderId()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Статус</td>
+                        <td th:utext="${order.orderStatus.getTitle()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Дата</td>
+                        <td th:utext="${order.getDate()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Покупатель</td>
+                        <td th:utext="${order.getUserAccount().getFullName()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Курьер</td>
+                        <td th:if="${order.getCourier() != null}" th:utext="${order.getCourier().getUserID().getFullName()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Адрес доставки</td>
+                        <td th:utext="${order.getDeliveryAddress()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Товар</td>
+                        <td th:utext="${order.getProduct().getName()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Количество</td>
+                        <td th:utext="${order.getCountProduct()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Статус оплаты</td>
+                        <td th:utext="${order.paymentStatus.getTitle()}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <footer id="footer">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-unstyled">
-                        <br>
-                        <li sec:authorize="hasRole('ROLE_ADMIN')">
-                            <a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">< К списку заказов</a>
-                        </li>&nbsp;
-                        <li sec:authorize="hasRole('ROLE_COURIER')">
-                            <a class="btn btn-primary" th:href="@{/order/courier/(userName = ${#authentication.getPrincipal().getUsername()})}">
-                                < К списку заказов
+            <div class="row offset-5">
+                <ul class="list-unstyled">
+                    <br>
+                    <li sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">
+                            К списку заказов
+                        </a>
+                    </li>&nbsp;
+                    <li sec:authorize="hasRole('ROLE_COURIER')">
+                        <a class="btn btn-primary" th:href="@{/order/courier/(userName = ${#authentication.getPrincipal().getUsername()})}">
+                                К списку заказов
                             </a>
-                        </li>&nbsp;
+                        </li>
+                        <li sec:authorize="hasRole('ROLE_CUSTOMER')">
+                            <a class="btn btn-primary" th:href="@{/order/customer/list(userName = ${#authentication.getPrincipal().getUsername()})}">
+                                К списку заказов
+                            </a>
+                        </li>
                     </ul>
                 </div>
-            </div>
         </footer>
     </div>
-</body>
-
-</html>
+</body></html>

@@ -81,4 +81,8 @@ public class OrderService {
     public Iterable<OrderShop> getOrdersByUserAccount(UserAccount userAccount) {
         return orderRepository.findOrderShopsByUserAccountOrderByOrderId(userAccount);
     }
+
+    public void deleteOrderByUserID(Long userAccountId) {
+        orderRepository.deleteOrderShopByUserAccountUserId(userAccountId);
+    }
 }

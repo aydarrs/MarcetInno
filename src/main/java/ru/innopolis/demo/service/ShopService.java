@@ -1,6 +1,7 @@
 package ru.innopolis.demo.service;
 
 import lombok.extern.log4j.Log4j2;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.innopolis.demo.domain.Shop;
@@ -14,10 +15,12 @@ import java.util.Optional;
 public class ShopService {
 
     private ShopRepository shopRepository;
+    private OrderService orderService;
 
     @Autowired
-    public ShopService(ShopRepository shopRepository) {
+    public ShopService(ShopRepository shopRepository, OrderService orderService) {
         this.shopRepository = shopRepository;
+        this.orderService = orderService;
     }
 
     public Iterable<Shop> getAllShops() {
@@ -33,9 +36,9 @@ public class ShopService {
         shopRepository.save(shop);
     }
 
-    public void deleteShopById(long shopId) {
+    /*public void deleteShopById(long shopId) {
         shopRepository.deleteById(shopId);
-    }
+    }*/
 
     public void changeShopById(long shopId, Shop shop) {
 
@@ -43,7 +46,6 @@ public class ShopService {
         changedShop.setShopID(shopId);
         changedShop.setAddress(shop.getAddress());
         changedShop.setName(shop.getName());
-
         shopRepository.save(changedShop);
         if (null != getShopById(shopId)) {
             log.info("User {} changed", shopId);

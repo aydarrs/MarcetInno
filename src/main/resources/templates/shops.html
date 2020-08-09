@@ -4,7 +4,7 @@
 <head>
     <title>Список всех магазинов</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
 </head>
 
@@ -38,7 +38,7 @@
                 <td><a th:href="@{'/product/shop/'+${shop.getShopID()} + ' ?pageNo=1'}" th:utext="${shop.getName()}" /></td>
                 <td>
                     <a sec:authorize="hasRole('ADMIN')" class="badge badge-success" th:href="@{'/shops/update/'+${shop.getShopID()}}" th:utext="Изменить"></a>
-                    <a sec:authorize="hasRole('ADMIN')" class="badge badge-danger" th:href="@{'/shops/delete/'+${shop.getShopID()}}" th:utext="Удалить"></a>
+<!--                    <a sec:authorize="hasRole('ADMIN')" class="badge badge-danger" th:href="@{'/shops/delete/'+${shop.getShopID()}}" th:utext="Удалить"></a>-->
 
                 </td>
             </tr>

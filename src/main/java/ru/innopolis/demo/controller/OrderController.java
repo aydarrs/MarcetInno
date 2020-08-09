@@ -110,11 +110,6 @@ public class OrderController {
         return "allOrders";
     }
 
-    @PostMapping("/")
-    public OrderShop addOrder(@RequestParam OrderShop orderShop) {
-        return orderService.saveNewOrder(orderShop);
-    }
-
     @GetMapping("/{orderId}/map")
     public String showMapByUserAddress(@PathVariable long orderId, Model model) {
         OrderShop order = orderService.getOrderById(orderId);
@@ -151,7 +146,7 @@ public class OrderController {
     public String addOrder(@ModelAttribute OrderShop order, Model model, @PathVariable long productID, Principal principal) {
         order.setUserAccount(userService.getUserByUserName(principal.getName()));
         order.setDate(OffsetDateTime.now());
-        order.setPaymentStatus(PaymentStatus.NOT_PAID);
+        order.setPaymentStatus(PaymentStatus.PAID);
         order.setOrderStatus(OrderStatus.CREATED);
         order.setProduct(productService.getProductById(productID));
         model.addAttribute("order", order);
