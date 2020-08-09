@@ -77,25 +77,22 @@ public class UserController {
     @GetMapping("/update/{userAccountId}")
     public String updateUser(Model model, @PathVariable Long userAccountId) {
         model.addAttribute("user_account", userService.getUserById(userAccountId));
-        model.addAttribute("user_type", UserType.values());
         return "update_user";
     }
 
     @PostMapping("/update/{userAccountId}")
     public String changeUser(Model model,
                              @PathVariable Long userAccountId,
-                             @RequestParam String userType,
                              @RequestParam String userName,
                              @RequestParam String firstName,
                              @RequestParam String lastName,
-                             @RequestParam String password,
-                             @RequestParam Optional<DeliveryMethod> deliveryMethod) {
+                             @RequestParam String password) {
 
         UserAccount user = userService.getUserById(userAccountId);
         model.addAttribute("user_account", user);
 
         UserAccount updatedUser = new UserAccount();
-        updatedUser.setUserType(userType);
+        updatedUser.setUserType(user.getUserType());
         updatedUser.setUserName(userName);
         updatedUser.setFirstName(firstName);
         updatedUser.setLastName(lastName);
@@ -110,17 +107,11 @@ public class UserController {
 
         userService.changeUserById(userAccountId, updatedUser);
 
-        if (user.getUserType().equals(UserType.COURIER.getRole())) {
-            Courier courier = courierService.getCourierByUser(user);
-            courier.setDeliveryMethod(deliveryMethod.orElse(courier.getDeliveryMethod()));
-            courierService.saveChanged(courier);
-        }
-
         if (user.getUserType().equals(UserType.ADMIN.getRole())) {
             return showAllUsers(model);
         }
 
-        return "redirect:/" + user.getUserType().replace("ROLE_","").toLowerCase() + "/index.html";
+        return "redirect:/" + "users/all";
     }
 
     @GetMapping("/delete/{userAccountId}")
@@ -130,6 +121,6 @@ public class UserController {
             courierService.deleteCourier(user);
         }
         userService.deleteUserById(userAccountId);
-        return showAllUsers(model);
+        return "redirect:/" + "users/all";
     }
 }
