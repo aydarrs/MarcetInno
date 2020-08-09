@@ -58,6 +58,11 @@
                     <a class="nav-link" th:href="@{/seller/1}">Мой магазин</a>
                 </li>
             </div>
+            <div sec:authorize="hasRole('ROLE_SELLER')">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/order/all}">Заказы</a>
+                </li>
+            </div>
             <div sec:authorize="hasRole('ROLE_COURIER')">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/courier/index.html}">Кабинет</a>
