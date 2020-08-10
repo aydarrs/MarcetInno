@@ -50,12 +50,12 @@ public class SellerController {
 
     @PostMapping("/add")
     public String addNewProduct(Model model,
-                                      @RequestParam Long shopID,
+                                      @RequestParam long shopID,
                                       @RequestParam String article,
                                       @RequestParam String name,
                                       @RequestParam String description,
-                                      @RequestParam Double price,
-                                      @RequestParam Integer count) {
+                                      @RequestParam double price,
+                                      @RequestParam double count) {
         Product product = new Product();
         configureProduct(shopID,
                          article,
@@ -78,26 +78,32 @@ public class SellerController {
 
     @PostMapping("/update")
     public String updateProduct(Model model,
-                                @RequestParam Long productID,
-                                @RequestParam Long shopID,
+                                @RequestParam long productID,
+                                @RequestParam long shopID,
                                 @RequestParam String article,
                                 @RequestParam String name,
                                 @RequestParam String description,
-                                @RequestParam Double price,
-                                @RequestParam Integer count) {
+                                @RequestParam double price,
+                                @RequestParam double count) {
         Product product = new Product();
         product.setProductID(productID);
         configureProduct(shopID, article, name, description, price, count, product);
         return getShopOwnerPage(model, shopID);
     }
 
-    private void configureProduct(@RequestParam Long shopID, @RequestParam String article, @RequestParam String name, @RequestParam String description, @RequestParam Double price, @RequestParam Integer count, Product product) {
+    private void configureProduct(@RequestParam long shopID,
+                                  @RequestParam String article,
+                                  @RequestParam String name,
+                                  @RequestParam String description,
+                                  @RequestParam double price,
+                                  @RequestParam double count,
+                                  Product product) {
         product.setShop(shopService.getShopById(shopID));
         product.setArticle(article);
         product.setName(name);
         product.setDescription(description);
         product.setPrice(price);
-        product.setProductCount(count);
+        product.setProductCount((int) count);
         productService.saveNewProduct(product);
     }
 

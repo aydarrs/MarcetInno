@@ -13,10 +13,21 @@
         <span th:insert="${frag}" />
     </div>
     <div class="container mt-2">
-        <div class="page-header" id="banner">
+        <span th:if="${#lists.isEmpty(page.toList())}">
+           <div class="page-header" id="banner">
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-6">
-                    <h2 th:text="${#lists.isEmpty(product)} ? 'Список найденных товаров' : 'Товары не найдены'"></h2>
+                    <h2>Товары не найдены</h2>
+                    <br>
+                </div>
+            </div>
+        </div>
+        </span>
+        <span th:unless="${#lists.isEmpty(page.toList())}">
+            <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h2>Список найденных товаров</h2>
                     <br>
                 </div>
             </div>
@@ -56,6 +67,7 @@
                 </li>
             </ul>
         </div>
+        </span>
     </div>
 </body>
 
