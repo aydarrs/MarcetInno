@@ -88,7 +88,8 @@ public class UserController {
                              @PathVariable Long userAccountId,
                              @RequestParam String firstName,
                              @RequestParam String lastName,
-                             @RequestParam String password) {
+                             @RequestParam String password,
+                             @RequestParam(required=false) String deliveryMethod) {
 
         UserAccount user = userService.getUserById(userAccountId);
         model.addAttribute("user_account", user);
@@ -110,15 +111,19 @@ public class UserController {
         userService.changeUserById(userAccountId, updatedUser);
 
         if (user.getUserType().equals(UserType.ADMIN.getRole())) {
-            return "redirect:/" + "users/all";
+            return "redirect:/users/all";
         }
         if(user.getUserType().equals(UserType.COURIER.getRole())) {
-           return  "redirect:/" + "/order/courier/" + userAccountId;
+            Courier courier = courierService.getCourierByUser(user);
+            courier.setDeliveryMethod(DeliveryMethod.valueOf(deliveryMethod));
+            courierService.saveChanged(courier);
+
+           return  "redirect:/courier/index.html?success";
         }
         if(user.getUserType().equals(UserType.SELLER.getRole())) {
-            return "перебрасывает на магазин продавца";
+            return "redirect:/seller/index.html?success";
         }
-        return "redirect:/" + "shops/all";
+        return "redirect:/customer/index.html?success";
     }
 
     @GetMapping("/delete/{userAccountId}")

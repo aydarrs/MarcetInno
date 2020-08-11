@@ -21,6 +21,20 @@
             </div>
         </div>
 
+        <div th:if="${param.success != null}">
+            <script>
+                $(document).ready(function() {
+                    $("#success-alert").fadeTo(1500, 500).slideUp(500, function() {
+                        history.pushState(null, '', '/seller/index.html'); $("#success-alert").slideUp(500);
+                    });
+                });
+            </script>
+            <div class="alert alert-success" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                Настройки сохранены
+            </div>
+        </div>
+
         <form th:action="@{/users/update/{id}(id=${user_account.getUserId()})}" method="POST">
             <label for="firstName">Имя</label><br>
             <input type="text" class="form-control" id="firstName" name="firstName" th:value="${user_account.getFirstName()}"><br>
