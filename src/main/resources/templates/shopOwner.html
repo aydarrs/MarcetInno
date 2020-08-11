@@ -34,13 +34,13 @@
             <th>Действие</th>
         </tr>
         <tr th:each="product : ${products}">
-            <th scope="row" th:text="${product.name}">Наименование</th>
+            <td th:text="${product.name}">Наименование</td>
             <td th:text="${product.article}">Артикул</td>
             <td th:text="${product.description}">Описание</td>
             <td th:text="${product.price}">Цена</td>
             <td th:text="${product.productCount}">Количество</td>
             <td>
-                <a class="badge badge-success" th:href="@{'update/'+${product.productID}}">Изменить</a>
+                <a class="badge badge-success" th:href="@{'update/'+${product.productID}}" th:utext="Изменить"></a>&nbsp;
                 <a class="badge badge-danger" th:href="@{delete(productID=${product.productID},shopID=${shop.shopID})}" th:utext="Удалить"></a>
             </td>
         </tr>
