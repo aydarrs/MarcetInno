@@ -88,8 +88,7 @@ public class UserController {
                              @PathVariable Long userAccountId,
                              @RequestParam String firstName,
                              @RequestParam String lastName,
-                             @RequestParam String password,
-                             @RequestParam(required=false) String deliveryMethod) {
+                             @RequestParam String password) {
 
         UserAccount user = userService.getUserById(userAccountId);
         model.addAttribute("user_account", user);
@@ -110,15 +109,40 @@ public class UserController {
 
         userService.changeUserById(userAccountId, updatedUser);
 
-        if (user.getUserType().equals(UserType.ADMIN.getRole())) {
-            return "redirect:/users/all";
-        }
-        if(user.getUserType().equals(UserType.COURIER.getRole())) {
-            Courier courier = courierService.getCourierByUser(user);
-            courier.setDeliveryMethod(DeliveryMethod.valueOf(deliveryMethod));
-            courierService.saveChanged(courier);
+        return "redirect:/users/all";
+    }
 
-           return  "redirect:/courier/index.html?success";
+    @PostMapping("/update/{userAccountId}/cabinet")
+    public String changeUserFromCabinet(Model model,
+                             @PathVariable Long userAccountId,
+                             @RequestParam String firstName,
+                             @RequestParam String lastName,
+                             @RequestParam String password,
+                             @RequestParam(required=false) String deliveryMethod) {
+
+        UserAccount user = userService.getUserById(userAccountId);
+        model.addAttribute("user_account", user);
+
+        UserAccount updatedUser = new UserAccount();
+        updatedUser.setUserType(user.getUserType());
+        updatedUser.setUserName(user.getUserName());
+        updatedUser.setFirstName(firstName);
+        updatedUser.setLastName(lastName);
+
+        userService.changeUserById(userAccountId, updatedUser);
+
+        if (user.getUserType().equals(UserType.ADMIN.getRole())) {
+            return "redirect:/admin/index.html?success";
+        }
+        if (user.getUserType().equals(UserType.COURIER.getRole())) {
+
+            if (deliveryMethod != null) {
+                Courier courier = courierService.getCourierByUser(user);
+                courier.setDeliveryMethod(DeliveryMethod.valueOf(deliveryMethod));
+                courierService.saveChanged(courier);
+            }
+
+            return  "redirect:/courier/index.html?success";
         }
         if(user.getUserType().equals(UserType.SELLER.getRole())) {
             return "redirect:/seller/index.html?success";

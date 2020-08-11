@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <form th:action="@{/users/update/{id}(id=${user_account.getUserId()})}" method="POST">
+        <form th:action="@{/users/update/{id}/cabinet(id=${user_account.getUserId()})}" method="POST">
             <label for="firstName">Имя</label><br>
             <input type="text" class="form-control" id="firstName" name="firstName" th:value="${user_account.getFirstName()}"><br>
             <label for="lastName">Фамилия</label><br>
