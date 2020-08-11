@@ -129,6 +129,14 @@ public class UserController {
         updatedUser.setFirstName(firstName);
         updatedUser.setLastName(lastName);
 
+        if (!password.isEmpty()) {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword  = passwordEncoder.encode(password);
+            updatedUser.setPassword(encodedPassword);
+        } else {
+            updatedUser.setPassword(user.getPassword());
+        }
+
         userService.changeUserById(userAccountId, updatedUser);
 
         if (user.getUserType().equals(UserType.ADMIN.getRole())) {
