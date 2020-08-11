@@ -36,8 +36,8 @@
                 </td>
                 <td th:utext="${shop.getAddress()}"></td>
                 <td><a th:href="@{'/product/shop/'+${shop.getShopID()} + ' ?pageNo=1'}" th:utext="${shop.getName()}" /></td>
-                <td>
-                    <a sec:authorize="hasRole('ADMIN')" class="badge badge-success" th:href="@{'/shops/update/'+${shop.getShopID()}}" th:utext="Изменить"></a>
+                <td sec:authorize="hasRole('ADMIN')">
+                    <a class="badge badge-success" th:href="@{'/shops/update/'+${shop.getShopID()}}" th:utext="Изменить"></a>
 <!--                    <a sec:authorize="hasRole('ADMIN')" class="badge badge-danger" th:href="@{'/shops/delete/'+${shop.getShopID()}}" th:utext="Удалить"></a>-->
 
                 </td>

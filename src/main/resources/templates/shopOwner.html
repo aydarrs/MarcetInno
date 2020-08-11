@@ -26,20 +26,20 @@
     </div>
     <table>
         <tr>
-            <th scope="col">Наименование</th>
-            <th scope="col">Артикул</th>
-            <th scope="col">Описание</th>
-            <th scope="col">Цена</th>
-            <th scope="col">Количество</th>
-            <th scope="col"></th>
+            <th>Наименование</th>
+            <th>Артикул</th>
+            <th >Описание</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Действие</th>
         </tr>
-        <tr class="table-light" th:each="product : ${products}">
+        <tr th:each="product : ${products}">
             <th scope="row" th:text="${product.name}">Наименование</th>
             <td th:text="${product.article}">Артикул</td>
             <td th:text="${product.description}">Описание</td>
             <td th:text="${product.price}">Цена</td>
             <td th:text="${product.productCount}">Количество</td>
-            <td scope="row">
+            <td>
                 <a class="badge badge-success" th:href="@{'update/'+${product.productID}}">Изменить</a>
                 <a class="badge badge-danger" th:href="@{delete(productID=${product.productID},shopID=${shop.shopID})}" th:utext="Удалить"></a>
             </td>

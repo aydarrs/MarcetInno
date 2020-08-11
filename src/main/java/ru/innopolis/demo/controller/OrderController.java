@@ -144,12 +144,18 @@ public class OrderController {
 
     @PostMapping("/buy/{productID}")
     public String addOrder(@ModelAttribute OrderShop order, Model model, @PathVariable long productID, Principal principal) {
+        Product product = productService.getProductById(productID);
+
         order.setUserAccount(userService.getUserByUserName(principal.getName()));
         order.setDate(OffsetDateTime.now());
         order.setPaymentStatus(PaymentStatus.PAID);
         order.setOrderStatus(OrderStatus.CREATED);
-        order.setProduct(productService.getProductById(productID));
+        order.setProduct(product);
         model.addAttribute("order", order);
+
+        product.setProductCount(product.getProductCount() - order.getCountProduct());
+        productService.changeProductById(productID, product);
+
         if(ThreadLocalRandom.current().nextInt(2) == 0) {
            orderService.saveNewOrder(order);
            return "successful";
