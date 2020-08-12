@@ -1,11 +1,13 @@
 package ru.innopolis.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.innopolis.demo.domain.Product;
+import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.service.*;
 
 /**
@@ -18,12 +20,28 @@ import ru.innopolis.demo.service.*;
 public class SellerController {
     private IProductService productService;
     private ShopService shopService;
+    private UserService userService;
+    private OrderService orderService;
 
     @Autowired
     public SellerController(IProductService productService,
-                            ShopService shopService) {
+                            ShopService shopService,
+                            UserService userService,
+                            OrderService orderService) {
         this.productService = productService;
         this.shopService = shopService;
+        this.userService = userService;
+        this.orderService = orderService;
+    }
+
+    @GetMapping("/")
+    public RedirectView selectShop(Model model) {
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        UserAccount user = userService.getUserByUserName(userName);
+        long userId = user.getUserId();
+        System.out.println(userId);
+        System.out.println(1);
+        return new RedirectView("/seller/" + userId);
     }
 
     @GetMapping("/{shopId}")

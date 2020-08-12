@@ -112,7 +112,7 @@ public class LoginController {
         } else if(role.contains("ROLE_CUSTOMER")) {
             response.sendRedirect(response.encodeRedirectURL("/shops/all"));
         } else if (role.contains("ROLE_SELLER")) {
-            response.sendRedirect(response.encodeRedirectURL("/seller/1"));
+            response.sendRedirect(response.encodeRedirectURL("/seller/"));
         } else {
             response.sendRedirect(response.encodeRedirectURL("/order/courier/?userName=" + authResult.getName()));
         }
