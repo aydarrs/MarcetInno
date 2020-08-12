@@ -33,6 +33,11 @@
                     <a class="nav-link" th:href="@{/order/all}">Заказы</a>
                 </li>
             </div>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/order/stats}">Статистика</a>
+                </li>
+            </div>
             <div sec:authorize="hasRole('ROLE_CUSTOMER')">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/customer/index.html}">Кабинет</a>
@@ -50,7 +55,7 @@
             </div>
             <div sec:authorize="hasRole('ROLE_CUSTOMER')">
                 <li class="nav-item">
-                    <a class="nav-link" href="/product/all?pageNo=1">Товары</a>
+                    <a class="nav-link" href="/product/all?pageNo=1">Все товары</a>
                 </li>
             </div>
             <div sec:authorize="hasRole('ROLE_SELLER')">
@@ -66,6 +71,11 @@
             <div sec:authorize="hasRole('ROLE_SELLER')">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/order/all}">Заказы</a>
+                </li>
+            </div>
+            <div sec:authorize="hasRole('ROLE_SELLER')">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/order/stats}">Статистика</a>
                 </li>
             </div>
             <div sec:authorize="hasRole('ROLE_COURIER')">

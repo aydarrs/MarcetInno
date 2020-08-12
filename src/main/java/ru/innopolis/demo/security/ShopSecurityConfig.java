@@ -46,6 +46,7 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/customer/**").hasRole("CUSTOMER")
                 .antMatchers("/seller/**").hasRole("SELLER")
                 .antMatchers("/courier/**").hasAnyRole("ADMIN","SELLER","COURIER")
+                .antMatchers("/order/stats").hasAnyRole("ADMIN","SELLER")
                 .antMatchers("/order/courier/**").hasRole("COURIER")
                 .antMatchers("/order/customer/**").hasRole("CUSTOMER")
                 .antMatchers("/order/all").hasAnyRole("ADMIN","SELLER","COURIER")
@@ -53,7 +54,6 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/shared/**").hasAnyRole("ADMIN","CUSTOMER","SELLER","COURIER")
                 .antMatchers("/users/update/**").hasAnyRole("ADMIN","CUSTOMER","SELLER","COURIER")
                 .antMatchers("/users/**").hasAnyRole("ADMIN")
-                //.antMatchers("/shops/**").hasRole("ADMIN")
                 .antMatchers("/shops/all").permitAll()
                 .antMatchers("/product").permitAll()
                 .and()
@@ -73,16 +73,5 @@ public class ShopSecurityConfig extends WebSecurityConfigurerAdapter {
                         "SELECT user_name, user_type FROM user_account WHERE user_name = ?"
                 );
     }
-
-//    @Override
-//    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser("admin").password("{noop}admin").roles("ADMIN").and()
-//                .withUser("customer").password("{noop}customer").roles("CUSTOMER").and()
-//                .withUser("seller").password("{noop}seller").roles("SELLER").and()
-//                .withUser("courier").password("{noop}courier").roles("COURIER").and()
-//                .withUser("supervisor").password("{noop}root").roles("ADMIN","CUSTOMER","SELLER","COURIER");
-//    }
 
 }

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Статистика заказов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../static/css/litera.css" />
+
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+</head>
+
+<body>
+
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
+    </div>
+    <div class="container mt-2">
+
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h2>Статистика заказов</h2>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div id="container">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+
+            let x = [];
+            let y = [];
+
+            let dateOrderCount = /*[[${dateOrderCount}]]*/ null;
+            console.log(dateOrderCount);
+
+            for (let key in dateOrderCount) {
+                if (dateOrderCount.hasOwnProperty(key)) {
+                    x.push(key);
+                    y.push(dateOrderCount[key]);
+                }
+            }
+
+            var color = Chart.helpers.color;
+            var barChartData = {
+                labels: x,
+                datasets: [{
+                    label: 'Количество заказов',
+                    backgroundColor: color(window.chartColors.blue).alpha(0.8).rgbString(),
+                    borderColor: window.chartColors.blue,
+                    borderWidth: 1,
+                    data: y
+                }]
+
+            };
+
+            window.onload = function() {
+                var ctx = document.getElementById('canvas').getContext('2d');
+                window.myBar = new Chart(ctx, {
+                    type: 'bar',
+                    data: barChartData,
+                    options: {
+                        responsive: true,
+                        labels: {
+                            defaultFontSize: 42,
+                        },
+                        legend: {
+                            display: false,
+                            position: 'right',
+                        },
+                        title: {
+                            display: false,
+                            text: 'Chart.js Bar Chart'
+                        },
+                        scales: {
+                            yAxes:[{ ticks:{beginAtZero:true}}]
+                        }
+                    }
+                });
+
+            };
+
+            /*]]>*/
+        </script>
+
+    </div>
+</body>
+
+</html>

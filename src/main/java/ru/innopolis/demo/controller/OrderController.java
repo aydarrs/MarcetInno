@@ -12,9 +12,11 @@ import ru.innopolis.demo.service.ProductService;
 import ru.innopolis.demo.service.UserService;
 
 import java.security.Principal;
-import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Controller
@@ -156,10 +158,37 @@ public class OrderController {
         product.setProductCount(product.getProductCount() - order.getCountProduct());
         productService.changeProductById(productID, product);
 
-        if(ThreadLocalRandom.current().nextInt(2) == 0) {
-           orderService.saveNewOrder(order);
-           return "successful";
-       }
+        if (ThreadLocalRandom.current().nextInt(2) == 0) {
+            orderService.saveNewOrder(order);
+            return "successful";
+        }
         return "failed";
     }
+
+    @GetMapping("/stats")
+    public String showOrderStats(Model model) {
+        Iterable<OrderShop> orders = orderService.getAllOrders();
+
+        Map<LocalDate, Integer> dateOrderCount = new LinkedHashMap<>();
+
+        for (OrderShop order : orders) {
+
+            LocalDate orderDate = order.getDate().toLocalDate();
+
+            if (dateOrderCount.containsKey(orderDate)) {
+                Integer orderCount = dateOrderCount.get(orderDate);
+
+                dateOrderCount.replace(
+                        orderDate,
+                        orderCount + order.getCountProduct()
+                );
+            } else {
+                dateOrderCount.put(orderDate, order.getCountProduct());
+            }
+        }
+
+        model.addAttribute("dateOrderCount", dateOrderCount);
+        return "orderStats";
+    }
+
 }
