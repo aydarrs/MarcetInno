@@ -156,10 +156,10 @@ public class OrderController {
         model.addAttribute("order", order);
 
         product.setProductCount(product.getProductCount() - order.getCountProduct());
-        productService.changeProductById(productID, product);
 
         if (ThreadLocalRandom.current().nextInt(2) == 0) {
             orderService.saveNewOrder(order);
+            productService.changeProductById(productID, product);
             return "successful";
         }
         return "failed";
