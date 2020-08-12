@@ -50,6 +50,13 @@
             <column name="last_name" value="лупа"/>
             <column name="password" value="$2a$10$paYy1vJwBThGFPb5kCSZ2OPLHWugGVzLGY2f5EBTYTgO0yZTA/z5K"/>
         </insert>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_SELLER"/>
+            <column name="user_name" value="seller2"/>
+            <column name="first_name" value="Hollywood"/>
+            <column name="last_name" value="Pizza"/>
+            <column name="password" value="$2a$10$7Z4I5ZHBrGk3qzCaB4.qUOYezhbgKwjyWAJHOmDNmYkuHtLXz9o4a"/>
+        </insert>
 
         <insert tableName="order_shop">
             <column name="order_status" value="0"/>
@@ -91,5 +98,15 @@
             <column name="user_id" value="6"/>
             <column name="delivery_method" value="0"/>
         </insert>
+
+        <update tableName="shop">
+            <column name="user_id" value="4"/>
+            <where>shop_id=2</where>
+        </update>
+        <update tableName="shop">
+            <column name="user_id" value="7"/>
+            <where>shop_id=5</where>
+        </update>
+
     </changeSet>
 </databaseChangeLog>

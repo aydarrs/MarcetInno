@@ -36,12 +36,13 @@ public class SellerController {
 
     @GetMapping("/")
     public RedirectView selectShop(Model model) {
-        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        String userName = SecurityContextHolder.getContext()
+                                               .getAuthentication()
+                                               .getName();
         UserAccount user = userService.getUserByUserName(userName);
         long userId = user.getUserId();
-        System.out.println(userId);
-        System.out.println(1);
-        return new RedirectView("/seller/" + userId);
+        long shopId = shopService.getShopBySellerId(userId).getShopID();
+        return new RedirectView("/seller/" + shopId);
     }
 
     @GetMapping("/{shopId}")

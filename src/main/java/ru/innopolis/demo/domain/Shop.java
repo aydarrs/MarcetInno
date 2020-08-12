@@ -16,6 +16,10 @@ public class Shop {
     @Column(name = "shop_id")
     private Long shopID;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private UserAccount userId;
+
     @Column(name = "address")
     private String address;
 

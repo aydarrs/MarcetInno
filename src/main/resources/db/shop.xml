@@ -12,6 +12,9 @@
             <column name="shop_id" autoIncrement="true" type="serial">
                 <constraints primaryKey="true"/>
             </column>
+            <column name="user_id" type="int4">
+                <constraints foreignKeyName="user_id" references="user_account(user_id)"/>
+            </column>
             <column name="address" type="varchar(150)"/>
             <column name="shop_name" type="varchar(30)"/>
         </createTable>

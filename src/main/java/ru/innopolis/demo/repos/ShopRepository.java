@@ -15,4 +15,6 @@ public interface ShopRepository extends CrudRepository<Shop, Long> {
 
     @Query("select s from Shop s order by s.shopID")
     Iterable<Shop> findAllOrdered();
+
+    Shop getByUserId_UserId(long userId);
 }

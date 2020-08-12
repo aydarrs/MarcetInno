@@ -52,4 +52,8 @@ public class ShopService {
         } else log.error("Error while changing user");
     }
 
+    public Shop getShopBySellerId(long id) {
+        return shopRepository.getByUserId_UserId(id);
+    }
+
 }
