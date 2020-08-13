@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Просмотр товара</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
+</head>
+
+<body>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
+    </div>
+    <div class="text-center mt-5 pt-5">
+    <h2>Товар</h2>
+    </div>
+    <div class="row offset-4">
+        <table class="table table-borderless w-50">
+            <tbody>
+                <tr>
+                    <td class="font-weight-bold">Артикул</td>
+                    <td th:utext="${product.article}"></td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Наименование</td>
+                    <td th:utext="${product.name}"></td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Описание</td>
+                    <td th:utext="${product.description}"></td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Цена</td>
+                    <td th:utext="${product.price}"></td>
+                </tr>
+<!--                <tr>-->
+<!--                    <td class="font-weight-bold">Вес, гр.</td>-->
+<!--                    <td th:utext="${product.productCount}"></td>-->
+<!--                </tr>-->
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a href="/product/all" th:href="@{/shops/all}" class="btn btn-primary row offset-4" role="button" type="submit" aria-pressed="true">
+           К списку магазинов
+        </a>
+        <a th:href="@{'/order/buy/'+${product.productID}}" class="btn btn-success row offset-2" role="button" type="submit" aria-pressed="true">
+           Купить
+        </a>
+    </div>
+</body></html>

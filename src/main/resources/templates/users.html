@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Список всех пользователей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
+</head>
+
+<body>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
+    </div>
+    <div class="container mt-2">
+
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h2>Список всех пользователей</h2>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Логин</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Тип пользователя</th>
+                <th>Действие</th>
+            </tr>
+            <tr th:each="user:${users}">
+                <td>
+                    <a th:href="@{'/users/'+${user.getUserId()}}" th:utext="${user.getUserId()}"></a>
+                </td>
+                <td th:utext="${user.getUserName()}"></td>
+                <td th:utext="${user.getFirstName()}"></td>
+                <td th:utext="${user.getLastName()}"></td>
+                <td th:utext="${user.getUserTypeTitle(user.getUserType())}"></td>
+                <td>
+                    <a class="badge badge-success" th:href="@{'/users/update/'+${user.getUserId()}}" th:utext="Изменить"></a>&nbsp;
+                    <a class="badge badge-danger" th:href="@{'/users/delete/'+${user.getUserId()}}" th:utext="Удалить"></a>
+                </td>
+            </tr>
+        </table>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br>
+                    <a class="btn btn-success" href="/users/add/" th:href="@{/users/add/}">Добавить</a>&nbsp;
+                    <br><br>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-08-04-initial-insertion" author="Nail Zinnurov">
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Киевская улица, 55"/>
+            <column name="shop_name" value="Чайхона №1"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Солнечная улица, 22"/>
+            <column name="shop_name" value="Пицца"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Заводской переулок, 4"/>
+            <column name="shop_name" value="Пицца мастер"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Гончарова улица, 14"/>
+            <column name="shop_name" value="Домашняя выпечка"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Энгельса улица, 3"/>
+            <column name="shop_name" value="Суши и Роллы"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Квартальный 13-й проезд, 5"/>
+            <column name="shop_name" value="Сырный сомелье"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Университетская улица 3"/>
+            <column name="shop_name" value="Маркет"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Дачная улица, 8"/>
+            <column name="shop_name" value="Фрэш Маркет"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Мало-Почтовая улица, 12"/>
+            <column name="shop_name" value="Кофе-хаус"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="address" value="Иннополис, Артиллерийский 18-й переулок, 15"/>
+            <column name="shop_name" value="Китайский чай"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

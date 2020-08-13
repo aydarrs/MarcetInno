@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">>
+<head>
+    <title>Изменение информации о товаре</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css"/>
+</head>
+<body>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
+<div class="container mt-2">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h2>Измение данных товара артикул <span th:utext="${product.article}"></span></h2>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <form action="/seller/update" method="POST">
+        <input type="hidden" class="form-control" id="productID" name="productID"th:value="${product.productID}"><br>
+        <input type="hidden" class="form-control" id="shopID" name="shopID"th:value="${shopID}"><br>
+        <label for="article">Артикул</label><br>
+        <input type="text" class="form-control" id="article" name="article" th:value="${product.article}"><br>
+        <label for="name">Наименование</label><br>
+        <input type="text" class="form-control" id="name" name="name" th:value="${product.name}"><br>
+        <label for="description">Описание</label><br>
+        <input type="text" class="form-control" id="description" name="description" th:value="${product.description}"><br>
+        <label for="price">Цена</label><br>
+        <input type="number" min="0.00" step="0.01" class="form-control" id="price" name="price" th:value="${product.price}"><br>
+        <label for="count">Количество</label><br>
+        <input type="number"  class="form-control" id="count" name="count" th:value="${product.productCount}"><br>
+        <input class="btn btn-success" type="submit" value="Сохранить">
+    </form><br>
+
+    <footer id="footer">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <ul class="list-unstyled">
+                    <li><a class="btn btn-primary" href="/seller/1" th:href="@{'/seller/' + ${shopID}}">< Отменить</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

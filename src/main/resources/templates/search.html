@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Список всех товаров</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
+</head>
+
+<body>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
+    </div>
+    <div class="container mt-2">
+        <span th:if="${#lists.isEmpty(page.toList())}">
+           <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h2>Товары не найдены</h2>
+                    <br>
+                </div>
+            </div>
+        </div>
+        </span>
+        <span th:unless="${#lists.isEmpty(page.toList())}">
+            <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h2>Список найденных товаров</h2>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="card-columns" >
+            <span  th:each="product : ${page.toList()}">
+                <div class="card border-secondary" style="width: 20rem;">
+                    <div class="card-header">Артикул [[${product.article}]]</div>
+                    <div class="card-body">
+                        <h6 class="card-title"><a href="oneProduct" th:href="@{'/product/'+${product.productID}}" th:text="${product.name}" /></h6>
+                        <p class="card-text"><span th:utext="${product.description}" /></p>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+        <div>
+            <ul class="pagination">
+                <li th:if="${pageNo > 1}" class="page-item">
+                    <a class="page-link" th:href="@{/product/search(pageNo = ${pageNo - 1}, template=${template})}">&laquo;</a>
+                </li>
+                <li th:unless="${pageNo > 1}" class="page-item disabled">
+                    <a class="page-link">&laquo;</a>
+                </li>
+                <span th:each="elem : ${pageNumbers}">
+                    <li th:if="${pageNo == elem}" class="page-item active">
+                        <a class="page-link" th:href="@{/product/search(pageNo = ${elem}, template=${template})}"><span th:text="${elem}" /></a>
+                    </li>
+                    <li th:unless="${pageNo == elem}" class="page-item"><a class="page-link" th:href="@{/product/search(pageNo = ${elem}, template=${template})}"><span th:text="${elem}" /></a>
+                    </li>
+                </span>
+                <li th:if="${pageNo < page.getTotalPages()}" class="page-item">
+                    <a class="page-link" th:href="@{/product/search(pageNo = ${pageNo + 1}, template=${template})}">&raquo;</a>
+                </li>
+                <li th:unless="${pageNo < page.getTotalPages()}" class="page-item disabled">
+                    <a class="page-link">&raquo;</a>
+                </li>
+            </ul>
+        </div>
+        </span>
+    </div>
+</body>
+
+</html>

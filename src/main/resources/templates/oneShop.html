@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Магазин</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
+</head>
+
+<body>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
+    </div>
+    <div class="container mt-2">
+
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h2>Описание магазина</h2>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <td>Поле</td>
+                <td>Значение</td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td th:utext="${shop.getShopID()}"></td>
+            </tr>
+            <tr>
+                <td>Адрес</td>
+                <td th:utext="${shop.getAddress()}"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td th:utext="${shop.getName()}"></td>
+            </tr>
+        </table>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <br>
+                        <li><a class="btn btn-primary" href="/shops/all" th:href="@{/shops/all}">
+                                < К списку магазинов</a>
+                        </li>&nbsp;
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

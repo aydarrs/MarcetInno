@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Главная страница</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
+    <style>
+        body { background-image: url("https://dye1fo42o13sl.cloudfront.net/home/webp/hero-50.webp"); background-color: #fff; }
+        article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }* { box-sizing: border-box; }.main-page-padding { padding: 100px 0px; }.container-fluid { margin-right: auto; margin-left: auto; padding-left: 15px; padding-right: 15px; }.clearfix::before, .clearfix::after, .dl-horizontal dd::before, .dl-horizontal dd::after, .container::before, .container::after, .container-fluid::before, .container-fluid::after, .row::before, .row::after, .form-horizontal .form-group::before, .form-horizontal .form-group::after, .btn-toolbar::before, .btn-toolbar::after, .btn-group-vertical > .btn-group::before, .btn-group-vertical > .btn-group::after, .nav::before, .nav::after, .pager::before, .pager::after, .modal-header::before, .modal-header::after, .modal-footer::before, .modal-footer::after { content: " "; display: table; }.clearfix::after, .dl-horizontal dd::after, .container::after, .container-fluid::after, .row::after, .form-horizontal .form-group::after, .btn-toolbar::after, .btn-group-vertical > .btn-group::after, .nav::after, .pager::after, .modal-header::after, .modal-footer::after { clear: both; }.page-main-wrapper .container-fluid-md { max-width: 1440px; }.main-content-wrapper .container-fluid-md { max-width: 1440px; }.main-page-how-block .container-fluid-md { max-width: 1440px; }.container-fluid-md { max-width: 1850px; }.title-main-page { padding: 0px 0px; position: relative; }.title-bg-main-page { position: absolute; top: -20px; left: 0px; width: 100%; font-size: 120px; color: rgb(255, 255, 255); z-index: 0; opacity: 0.5; font-weight: 700; text-align: left; }.title-howto-block .title-bg-main-page { text-align: center; }.text-bold { font-weight: 700; }h1 { font-size: 2em; margin: 0em 0px; }h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: inherit; font-weight: 700; line-height: 1.1; color: inherit; }h1, .h1, h2, .h2, h3, .h3 { margin-top: 22px; margin-bottom: 11px; }h1, .h1 { font-size: 44px; }.text-center { text-align: center; }.title-main-page h1 { position: relative; z-index: 3; }.main-content-wrapper h1 { font-size: 54px; }.text-narrow { font-weight: 300; }.flex-wrapper { display: flex; flex: 1 1 100%; flex-flow: row wrap; justify-content: flex-start; width: 100%; }.main-page-how-block .flex-wrapper { z-index: 3; position: relative; }img { border: 0px; }img { vertical-align: middle; }.main-content-wrapper img { max-width: 100%; }.main-page-how-block .laptop-img { margin: 80px auto 30px; display: block; max-width: 100%; }.box-how-wrapper.box-content { padding: 30px 20px; border-radius: 3px; font-size: 18px; }.box-content { background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px 0px; border-radius: 6px; margin: 20px 0px; overflow: hidden; }.inline-wrapper { vertical-align: top; letter-spacing: -0.3em; font-size: 0px; }.inline-wrapper > * { display: inline-block; vertical-align: top; letter-spacing: normal; font-size: 16px; }.box-how-wrapper.box-content .inline-wrapper > * { vertical-align: middle; }.box-how-wrapper.box-content .box-how-icon-wrapper { width: 105px; white-space: nowrap; }.text-primary { color: rgb(239, 99, 37); }.box-how-wrapper.box-content span.text-primary { font-size: 26px; padding-right: 20px; }.box-how-wrapper.box-content img { width: 40px; height: auto; }p { margin: 0px 0px 11px; }.box-how-wrapper.box-content p { padding: 0px 20px; max-width: calc(100% - 105px); margin-bottom: 0px; }@media (max-width: 767.9px){.main-page-padding { padding: 60px 0px; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{.container-fluid, .content-main-part { break-inside: auto; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media (max-width: 991.9px){.title-bg-main-page { font-size: 70px; }}@media (max-width: 767.9px){.title-bg-main-page { font-size: 50px; }}@media (max-width: 440px){.title-howto-block h1, .title-howto-block .title-bg-main-page { text-align: left; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media (max-width: 991.9px){h1, .h1 { font-size: 32px; }}@media (max-width: 991.9px){.main-content-wrapper h1 { font-size: 50px; }}@media (max-width: 767.9px){.main-content-wrapper h1 { font-size: 40px; }}@media (max-width: 575px){.main-content-wrapper h1 { font-size: 32px; }}@media (max-width: 440px){.title-howto-block h1, .title-howto-block .title-bg-main-page { text-align: left; }}@media (max-width: 440px){.main-content-wrapper h1 { font-size: 24px; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media (max-width: 575px){.sort-order-xs-2 { order: 2; }}@media (min-width: 576px){.flex-sm-12 { width: 100%; }}@media (min-width: 576px){.sort-order-sm-2 { order: 2; }}@media (min-width: 768px){.flex-md-6 { width: 50%; }}@media (min-width: 768px){.sort-order-md-1 { order: 1; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media (max-width: 991.9px){.main-page-how-block .laptop-img { margin: 35px auto; max-width: 80%; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{tr, img { break-inside: avoid; }}@media print{img { max-width: 100% !important; }}@media (max-width: 575px){.sort-order-xs-1 { order: 1; }}@media (min-width: 576px){.flex-sm-12 { width: 100%; }}@media (min-width: 576px){.sort-order-sm-1 { order: 1; }}@media (min-width: 768px){.flex-md-6 { width: 50%; }}@media (min-width: 768px){.sort-order-md-2 { order: 2; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media (max-width: 991.9px){.box-how-wrapper.box-content { padding: 25px 20px; }}@media (max-width: 767.9px){.box-how-wrapper.box-content { font-size: 16px; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{.box-content { margin: 10px 0px; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{tr, img { break-inside: avoid; }}@media print{img { max-width: 100% !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{p, h2, h3 { orphans: 3; widows: 3; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media (max-width: 991.9px){.box-how-wrapper.box-content { padding: 25px 20px; }}@media (max-width: 767.9px){.box-how-wrapper.box-content { font-size: 16px; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{.box-content { margin: 10px 0px; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{tr, img { break-inside: avoid; }}@media print{img { max-width: 100% !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{p, h2, h3 { orphans: 3; widows: 3; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media (max-width: 991.9px){.box-how-wrapper.box-content { padding: 25px 20px; }}@media (max-width: 767.9px){.box-how-wrapper.box-content { font-size: 16px; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{.box-content { margin: 10px 0px; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{tr, img { break-inside: avoid; }}@media print{img { max-width: 100% !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{p, h2, h3 { orphans: 3; widows: 3; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media (max-width: 991.9px){.box-how-wrapper.box-content { padding: 25px 20px; }}@media (max-width: 767.9px){.box-how-wrapper.box-content { font-size: 16px; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{.box-content { margin: 10px 0px; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{tr, img { break-inside: avoid; }}@media print{img { max-width: 100% !important; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}@media print{p, h2, h3 { orphans: 3; widows: 3; }}@media print{* { -webkit-print-color-adjust: exact; }}@media print{*, ::before, ::after { background: transparent !important; color: rgb(0, 0, 0) !important; box-shadow: none !important; text-shadow: none !important; }}
+    </style>
+</head>
+
+<body>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}" />
+</div>
+<div class="container mt-2">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <br>
+                <div style="display: none;">
+                    <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+                        <span sec:authentication="name">Bob</span>
+                        <span sec:authorize="hasRole('ROLE_ADMIN')">(Админ)</span>
+                        <span sec:authorize="hasRole('ROLE_CUSTOMER')">(Покупатель)</span>
+                        <span sec:authorize="hasRole('ROLE_COURIER')">(Курьер)</span>
+                        <span sec:authorize="hasRole('ROLE_SELLER')">(Продавец)</span> |
+                        <!--/* When using CSRF this needs to be a POST */-->
+                        <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Выйти" /></form>
+                    </div>
+                </div>
+                <div class="jumbotron">
+                    <h2 class="display-3">Маркетплейс!</h2>
+                    <p class="lead">Свежие продукты, доставленные к вашей двери, находятся всего в нескольких кликах от вас!</p>
+                    <a type="button" class="btn btn-primary" href="/login.html">Вход</a>
+                    <a type="button" class="btn btn-success" href="/register.html">Регистрация</a>
+                </div>
+                    <section class="main-page-how-block">
+                        <div class="container-fluid container-fluid-md">
+                            <div class="title-howto-block title-main-page">
+                                <h1 class="text-bold text-center">Как <span class="text-narrow">это работает?</span></h1>
+                            </div>
+                            <div class="flex-wrapper">
+                                <div class="flex-md-6 flex-sm-12 sort-order-xs-2 sort-order-sm-2 sort-order-md-1">
+                                    <img class="laptop-img" src="https://local.express/img/laptop-img.png">
+                                </div>
+                                <div class="flex-md-6 flex-sm-12 sort-order-xs-1 sort-order-sm-1 sort-order-md-2">
+                                    <div class="box-content box-how-wrapper">
+                                        <div class="inline-wrapper">
+                                            <div class="box-how-icon-wrapper">
+                            <span class="text-primary">
+                                01.
+                            </span>
+                                                <img src="https://local.express/img/main-page/icon-search-purple.svg">
+                                            </div>
+                                            <p>
+                                                <span class="text-bold">Выберите</span> магазин
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="box-content box-how-wrapper">
+                                        <div class="inline-wrapper">
+                                            <div class="box-how-icon-wrapper">
+                            <span class="text-primary">
+                                02.
+                            </span>
+                                                <img src="https://local.express/img/main-page/icon-click-purple.svg">
+                                            </div>
+                                            <p>
+                                                <span class="text-bold">Выберите нужные Вам продукты</span>  и оформите заказ
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="box-content box-how-wrapper">
+                                        <div class="inline-wrapper">
+                                            <div class="box-how-icon-wrapper">
+                            <span class="text-primary">
+                                03.
+                            </span>
+                                                <img src="https://local.express/img/main-page/icon-cart-purple.svg">
+                                            </div>
+                                            <p>
+                                                Магазин <span class="text-bold">приготовит ваш заказ</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="box-content box-how-wrapper">
+                                        <div class="inline-wrapper">
+                                            <div class="box-how-icon-wrapper">
+                            <span class="text-primary">
+                                04.
+                            </span>
+                                                <img src="https://local.express/img/main-page/icon-truck-purple.svg">
+                                            </div>
+                                            <p>
+                                                <span class="text-bold">Наш водитель доставит его</span> прямо к Вам
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+
+</html>

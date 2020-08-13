@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Карта города</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../../css/main.css" />
+</head>
+
+<body>
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}"/>
+</div>
+<div class="container mt-2">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <th>
+                    <h2>Карта города</h2>
+                    <br>
+            </div>
+        </div>
+    </div>
+    <div>
+        <p th:utext="'Адрес доставки: ' + ${order.getDeliveryAddress()}"></p>
+    </div>
+    <div>
+        <iframe width="800" height="500" frameborder="0" style="border:0" th:src="${src}" allowfullscreen>
+        </iframe>
+    </div>
+
+    <footer id="footer">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-unstyled">
+                    <br>
+                    <li sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a class="btn btn-primary" href="/order/all" th:href="@{/order/all}">< К списку заказов</a>
+                    </li>&nbsp;
+                    <div sec:authorize="hasRole('ROLE_COURIER')">
+                        <li>
+                            <a class="btn btn-success" th:href="@{/courier/deliver/(user_name = ${#authentication.getPrincipal().getUsername()}, order_id = ${order.getOrderId()})}">
+                                &check; Заказ доставлен
+                            </a>
+                        </li>
+                        <li class="mt-2">
+                            <a class="btn btn-primary" th:href="@{/order/courier/(userName = ${#authentication.getPrincipal().getUsername()})}">
+                                < К списку заказов
+                            </a>
+                        </li><br>
+                    </div>&nbsp;
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+
+</html>

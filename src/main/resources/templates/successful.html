@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Продукты магазина</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/litera.css}" href="../static/css/litera.css" />
+</head>
+
+<body>
+<div>
+    <div th:with="frag=~{parts/navbar.html}">
+        <span th:insert="${frag}" />
+    </div>
+</div>
+<div class="text-center mt-2 pt-5">
+    <h2>Спасибо за покупку!</h2>
+    <a href="/product/all" th:href="@{'/product/all?pageNo=1'}" class="mt-5 btn btn-primary" role="button" type="submit" aria-pressed="true">
+    К списку товаров
+</a>
+</div>
+</body>
+
+</html>
