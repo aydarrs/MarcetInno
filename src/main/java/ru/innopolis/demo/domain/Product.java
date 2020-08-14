@@ -34,4 +34,6 @@ public class Product {
     @Column(name = "product_count")
     private Integer productCount;
 
+    private String image;
+
 }

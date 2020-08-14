@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-08-14-add-images-2" author="Alexey Andrianov">
+
+        <addColumn tableName="product">
+            <column name="image" type="varchar(150)"/>
+        </addColumn>
+
+        <!--        shop-id-1-->
+        <update tableName="product">
+            <column name="image" value="shop-id-1/145509871.jpg"/>
+            <where>article='145509871'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-1/450782673.jpg"/>
+            <where>article='450782673'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-1/584758735.jpg"/>
+            <where>article='584758735'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-1/929519427.jpg"/>
+            <where>article='929519427'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-1/940228616.jpg"/>
+            <where>article='940228616'</where>
+        </update>
+
+<!--        shop-id-2-->
+        <update tableName="product">
+            <column name="image" value="shop-id-2/23983300.jpg"/>
+            <where>article='23983300'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-2/25403208.jpg"/>
+            <where>article='25403208'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-2/25406508.jpg"/>
+            <where>article='25406508'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-2/88704376.jpg"/>
+            <where>article='88704376'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-2/88928389.jpg"/>
+            <where>article='88928389'</where>
+        </update>
+
+        <!--        shop-id-3-->
+        <update tableName="product">
+            <column name="image" value="shop-id-3/42769108.jpg"/>
+            <where>article='42769108'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-3/55269619.jpg"/>
+            <where>article='55269619'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-3/61634304.jpg"/>
+            <where>article='61634304'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-3/62804826.jpg"/>
+            <where>article='62804826'</where>
+        </update>
+
+
+        <!--        shop-id-4-->
+        <update tableName="product">
+            <column name="image" value="shop-id-4/123.jpg"/>
+            <where>article='123'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-4/124.jpg"/>
+            <where>article='124'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-4/125.jpg"/>
+            <where>article='125'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-4/126.jpg"/>
+            <where>article='126'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-4/127.jpg"/>
+            <where>article='127'</where>
+        </update>
+
+
+        <!--        shop-id-5-->
+        <update tableName="product">
+            <column name="image" value="shop-id-5/DCB-123.jpg"/>
+            <where>article='DCB-123'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-5/GFE-123.jpg"/>
+            <where>article='GFE-123'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-5/RQP-123.jpg"/>
+            <where>article='RQP-123'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-5/STC-123.jpg"/>
+            <where>article='STC-123'</where>
+        </update>
+
+        <update tableName="product">
+            <column name="image" value="shop-id-5/VUT-123.jpg"/>
+            <where>article='VUT-123'</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

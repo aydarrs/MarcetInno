@@ -1,15 +1,19 @@
 package ru.innopolis.demo.controller;
 
+import liquibase.pro.packaged.B;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.Product;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.service.*;
+
+import java.io.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -42,8 +46,8 @@ public class SellerController {
     @GetMapping("/")
     public RedirectView selectShop(Model model) {
         String userName = SecurityContextHolder.getContext()
-                                               .getAuthentication()
-                                               .getName();
+                .getAuthentication()
+                .getName();
         UserAccount user = userService.getUserByUserName(userName);
         long userId = user.getUserId();
         long shopId = shopService.getShopBySellerId(userId).getShopID();
@@ -59,8 +63,8 @@ public class SellerController {
 
     @GetMapping("/delete")
     public RedirectView deleteSelectedProduct(Model model,
-                                        @RequestParam Long productID,
-                                        @RequestParam Long shopID) {
+                                              @RequestParam Long productID,
+                                              @RequestParam Long shopID) {
         productService.deleteProductById(productID);
         return new RedirectView("/seller/" + shopID);
     }
@@ -74,20 +78,23 @@ public class SellerController {
 
     @PostMapping("/add")
     public String addNewProduct(Model model,
-                                      @RequestParam long shopID,
-                                      @RequestParam String article,
-                                      @RequestParam String name,
-                                      @RequestParam String description,
-                                      @RequestParam double price,
-                                      @RequestParam double count) {
+                                @RequestParam long shopID,
+                                @RequestParam String article,
+                                @RequestParam String name,
+                                @RequestParam String description,
+                                @RequestParam double price,
+                                @RequestParam double count,
+                                @RequestParam MultipartFile file) {
+        String image = productService.copyImage(file, shopID, article);
         Product product = new Product();
         configureProduct(shopID,
-                         article,
-                         name,
-                         description,
-                         price,
-                         count,
-                         product);
+                article,
+                name,
+                description,
+                price,
+                count,
+                image,
+                product);
         return getShopOwnerPage(model, shopID);
     }
 
@@ -108,10 +115,13 @@ public class SellerController {
                                 @RequestParam String name,
                                 @RequestParam String description,
                                 @RequestParam double price,
-                                @RequestParam double count) {
+                                @RequestParam double count,
+                                @RequestParam MultipartFile file) {
+
+        String image = productService.copyImage(file, shopID, article);
         Product product = new Product();
         product.setProductID(productID);
-        configureProduct(shopID, article, name, description, price, count, product);
+        configureProduct(shopID, article, name, description, price, count, image, product);
         return getShopOwnerPage(model, shopID);
     }
 
@@ -142,6 +152,7 @@ public class SellerController {
                                   @RequestParam String description,
                                   @RequestParam double price,
                                   @RequestParam double count,
+                                  @RequestParam String image,
                                   Product product) {
         product.setShop(shopService.getShopById(shopID));
         product.setArticle(article);
@@ -149,6 +160,7 @@ public class SellerController {
         product.setDescription(description);
         product.setPrice(price);
         product.setProductCount((int) count);
+        product.setImage(image);
         productService.saveNewProduct(product);
     }
 
