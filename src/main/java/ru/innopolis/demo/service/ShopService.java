@@ -46,6 +46,7 @@ public class ShopService {
         changedShop.setShopID(shopId);
         changedShop.setAddress(shop.getAddress());
         changedShop.setName(shop.getName());
+        changedShop.setUserId(shop.getUserId());
         shopRepository.save(changedShop);
         if (null != getShopById(shopId)) {
             log.info("User {} changed", shopId);

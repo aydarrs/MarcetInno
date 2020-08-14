@@ -34,6 +34,10 @@ public class UserService {
         return userRepository.findAllOrdered();
     }
 
+    public Iterable<UserAccount> getAllUsersByUserType(String userType) {
+        return userRepository.findAllByUserType(userType);
+    }
+
     public UserAccount getUserById(long userAccountId) {
         Optional<UserAccount> userOptional = userRepository.findById(userAccountId);
         return userOptional.orElse(null);
