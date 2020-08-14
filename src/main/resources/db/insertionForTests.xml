@@ -57,33 +57,54 @@
             <column name="last_name" value="Pizza"/>
             <column name="password" value="$2a$10$7Z4I5ZHBrGk3qzCaB4.qUOYezhbgKwjyWAJHOmDNmYkuHtLXz9o4a"/>
         </insert>
-
-        <insert tableName="order_shop">
-            <column name="order_status" value="0"/>
-            <column name="date" value="2020-07-07 20:00:00"/>
-            <column name="user_id" value="1"/>
-            <column name="delivery_address" value="Иннополис, Cпортивная улица 140"/>
-            <column name="product_id" value="1"/>
-            <column name="product_count" value="2"/>
-            <column name="payment_status" value="0"/>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_CUSTOMER"/>
+            <column name="user_name" value="customer1"/>
+            <column name="first_name" value="Oleg"/>
+            <column name="last_name" value="Petrov"/>
+            <column name="password" value="$2a$10$R/IRZshQCecRDq03YCT0rOukpamZN2kZKf/n2rHIr/f/0gHHnKzcG"/>
         </insert>
-        <insert tableName="order_shop">
-            <column name="order_status" value="0"/>
-            <column name="date" value="2020-07-07 20:00:00"/>
-            <column name="user_id" value="1"/>
-            <column name="delivery_address" value="Иннополис, Cпортивная улица 150"/>
-            <column name="product_id" value="1"/>
-            <column name="product_count" value="1"/>
-            <column name="payment_status" value="1"/>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_CUSTOMER"/>
+            <column name="user_name" value="customer3"/>
+            <column name="first_name" value="Anna"/>
+            <column name="last_name" value="Ivanova"/>
+            <column name="password" value="$2a$10$Eh4UK94VHVDgrWCEzYU46eOdwNAuNrS6yAveqH451/yR1bOmFgFFG"/>
         </insert>
-        <insert tableName="order_shop">
-            <column name="order_status" value="0"/>
-            <column name="date" value="2020-07-07 20:00:00"/>
-            <column name="user_id" value="1"/>
-            <column name="delivery_address" value="Иннополис, Университетская улица 1"/>
-            <column name="product_id" value="1"/>
-            <column name="product_count" value="3"/>
-            <column name="payment_status" value="1"/>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_COURIER"/>
+            <column name="user_name" value="yuri"/>
+            <column name="first_name" value="Юрий"/>
+            <column name="last_name" value="Афанасьев"/>
+            <column name="password" value="$2a$10$uD2JfgOtWnyBEKNOgvw8/.DwnK81Rrz4PtYPHjdCZ2MzXYYt0zeRC"/>
+        </insert>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_CUSTOMER"/>
+            <column name="user_name" value="nikita"/>
+            <column name="first_name" value="Никита"/>
+            <column name="last_name" value="Ситников"/>
+            <column name="password" value="$2a$10$QwNKnbEKy1VOkH6Bu1xdwuGHmemtVQ9B1ySSu5t.gE4dDpQdEO9y."/>
+        </insert>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_CUSTOMER"/>
+            <column name="user_name" value="evgeniy"/>
+            <column name="first_name" value="Евгений"/>
+            <column name="last_name" value="Уваров"/>
+            <column name="password" value="$2a$10$he/hKhOvwgLoRFsjMEws3e.sQh0tIIOtFS7.98y6newFxXRGASMga"/>
+        </insert>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_CUSTOMER"/>
+            <column name="user_name" value="dmitri"/>
+            <column name="first_name" value="Дмитрий"/>
+            <column name="last_name" value="Блажко"/>
+            <column name="password" value="$2a$10$lblCsKl7veiCzyO5mwnHsuzaVyU.P6RzjOG6Wokh8S9szkAm3KdI."/>
+        </insert>
+        <insert tableName="user_account">
+            <column name="user_type" value="ROLE_COURIER"/>
+            <column name="user_name" value="sergey"/>
+            <column name="first_name" value="Сергей"/>
+            <column name="last_name" value="Матвеев"/>
+            <column name="password" value="$2a$10$9C.F8ybUMcYieMvNXTXzqurTVXx9tGyDSdH9aAVBcxk8ADCgnZctm"/>
         </insert>
 
         <insert tableName="courier">
@@ -98,6 +119,168 @@
             <column name="user_id" value="6"/>
             <column name="delivery_method" value="0"/>
         </insert>
+        <insert tableName="courier">
+            <column name="user_id" value="10"/>
+            <column name="delivery_method" value="0"/>
+        </insert>
+        <insert tableName="courier">
+            <column name="user_id" value="14"/>
+            <column name="delivery_method" value="0"/>
+        </insert>
+
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-01 20:00:00"/>
+            <column name="user_id" value="1"/>
+            <column name="courier_id" value="1"/>
+            <column name="delivery_address" value="Иннополис, Cпортивная улица 140"/>
+            <column name="product_id" value="1"/>
+            <column name="product_count" value="2"/>
+            <column name="payment_status" value="0"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-01 20:00:00"/>
+            <column name="user_id" value="3"/>
+            <column name="courier_id" value="1"/>
+            <column name="delivery_address" value="Иннополис, Cпортивная улица 150"/>
+            <column name="product_id" value="4"/>
+            <column name="product_count" value="1"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-01 20:00:00"/>
+            <column name="user_id" value="1"/>
+            <column name="courier_id" value="1"/>
+            <column name="delivery_address" value="Иннополис, Университетская улица 1"/>
+            <column name="product_id" value="1"/>
+            <column name="product_count" value="3"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+
+        <insert tableName="order_shop">
+            <column name="order_status" value="0"/>
+            <column name="date" value="2020-07-05 08:28:15"/>
+            <column name="user_id" value="3"/>
+            <column name="delivery_address" value="Иннополис, Университетская улица 2"/>
+            <column name="product_id" value="42"/>
+            <column name="product_count" value="3"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="0"/>
+            <column name="date" value="2020-07-08 17:43:00"/>
+            <column name="user_id" value="3"/>
+            <column name="courier_id" value="4"/>
+            <column name="delivery_address" value="Иннополис, Университетская улица 5"/>
+            <column name="product_id" value="6"/>
+            <column name="product_count" value="3"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-09 12:21:00"/>
+            <column name="user_id" value="8"/>
+            <column name="courier_id" value="4"/>
+            <column name="delivery_address" value="Иннополис, Университетская улица 3"/>
+            <column name="product_id" value="46"/>
+            <column name="product_count" value="1"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-09 12:21:00"/>
+            <column name="user_id" value="8"/>
+            <column name="courier_id" value="1"/>
+            <column name="delivery_address" value="Иннополис, Университетская улица 3"/>
+            <column name="product_id" value="45"/>
+            <column name="product_count" value="1"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-10 13:00:00"/>
+            <column name="user_id" value="9"/>
+            <column name="courier_id" value="2"/>
+            <column name="delivery_address" value="Казань,  ул. Степана Халтурина, 2/24"/>
+            <column name="product_id" value="20"/>
+            <column name="product_count" value="2"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-10 13:00:00"/>
+            <column name="user_id" value="9"/>
+            <column name="courier_id" value="2"/>
+            <column name="delivery_address" value="Казань,  ул. Степана Халтурина, 2/24"/>
+            <column name="product_id" value="21"/>
+            <column name="product_count" value="2"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-10 13:00:00"/>
+            <column name="user_id" value="9"/>
+            <column name="courier_id" value="2"/>
+            <column name="delivery_address" value="Казань,  ул. Степана Халтурина, 2/24"/>
+            <column name="product_id" value="24"/>
+            <column name="product_count" value="1"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-10 13:00:00"/>
+            <column name="user_id" value="9"/>
+            <column name="courier_id" value="2"/>
+            <column name="delivery_address" value="Казань,  ул. Степана Халтурина, 2/24"/>
+            <column name="product_id" value="22"/>
+            <column name="product_count" value="1"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-12 10:55:00"/>
+            <column name="user_id" value="11"/>
+            <column name="courier_id" value="2"/>
+            <column name="delivery_address" value="Казань,  ул. Шмидта, 6"/>
+            <column name="product_id" value="25"/>
+            <column name="product_count" value="1"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-13 22:00:00"/>
+            <column name="user_id" value="12"/>
+            <column name="courier_id" value="1"/>
+            <column name="delivery_address" value="Казань, Октябрьская ул., 17А"/>
+            <column name="product_id" value="31"/>
+            <column name="product_count" value="2"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-13 22:00:00"/>
+            <column name="user_id" value="12"/>
+            <column name="courier_id" value="1"/>
+            <column name="delivery_address" value="Казань, Октябрьская ул., 17А"/>
+            <column name="product_id" value="34"/>
+            <column name="product_count" value="1"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+        <insert tableName="order_shop">
+            <column name="order_status" value="1"/>
+            <column name="date" value="2020-07-13 11:30:00"/>
+            <column name="user_id" value="13"/>
+            <column name="courier_id" value="5"/>
+            <column name="delivery_address" value="Казань,  просп. Победы, 80"/>
+            <column name="product_id" value="8"/>
+            <column name="product_count" value="5"/>
+            <column name="payment_status" value="1"/>
+        </insert>
+
+
+
 
         <update tableName="shop">
             <column name="user_id" value="4"/>
