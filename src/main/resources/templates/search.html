@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <div th:with="frag=~{parts/navbar.html}">
-        <span th:insert="${frag}" />
-    </div>
-    <div class="container mt-2">
+<div th:with="frag=~{parts/navbar.html}">
+    <span th:insert="${frag}" />
+</div>
+<div class="container mt-2">
         <span th:if="${#lists.isEmpty(page.toList())}">
            <div class="page-header" id="banner">
             <div class="row">
@@ -23,7 +23,7 @@
             </div>
         </div>
         </span>
-        <span th:unless="${#lists.isEmpty(page.toList())}">
+    <span th:unless="${#lists.isEmpty(page.toList())}">
             <div class="page-header" id="banner">
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-6">
@@ -32,17 +32,27 @@
                 </div>
             </div>
         </div>
-        <div class="card-columns" >
-            <span  th:each="product : ${page.toList()}">
+        <div class="card-columns">
+            <span th:each="product : ${page.toList()}">
                 <div class="card border-secondary" style="width: 20rem;">
                     <div class="card-header">Артикул [[${product.article}]]</div>
                     <div class="card-body">
-                        <h6 class="card-title"><a href="oneProduct" th:href="@{'/product/'+${product.productID}}" th:text="${product.name}" /></h6>
-                        <p class="card-text"><span th:utext="${product.description}" /></p>
+                        <div class="img-list-container table-cell">
+                            <a th:href="@{'/product/'+${product.productID}}">
+                                <img th:if="${product.getImage() == null}" th:src="@{/images/product/default-image.jpg}">
+                                <img th:unless="${product.getImage() == null}"
+                                     th:src="@{'/images/product/' + ${product.getImage()}}">
+                            </a>
+                        </div>
+                        <div class="text-container">
+                            <h6 class="card-title"><a href="oneProduct" th:href="@{'/product/'+${product.productID}}"
+                                                      th:text="${product.name}"/></h6>
+                            <p class="card-text"><span th:utext="${product.description}"/></p>
+                        </div>
                     </div>
                 </div>
             </span>
-        </div>
+    </div>
 
         <div>
             <ul class="pagination">
@@ -68,7 +78,7 @@
             </ul>
         </div>
         </span>
-    </div>
+</div>
 </body>
 
 </html>

@@ -13,6 +13,8 @@ import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.domain.UserType;
 import ru.innopolis.demo.service.*;
 
+import java.util.*;
+
 @Controller
 @RequestMapping("/shops")
 @Log4j2
@@ -68,7 +70,25 @@ public class ShopController {
 
     @GetMapping("/update/{shopId}")
     public String updateShop(Model model, @PathVariable Long shopId) {
-        model.addAttribute("users", userService.getAllUsersByUserType(UserType.SELLER.getRole()));
+        // Здесь мы формируем список владельцев не назначенных на магазины
+        // ПОлучаем списки занятых магазинов и владельцев
+        List<UserAccount> users = (ArrayList<UserAccount>) userService.getAllUsersByUserType(UserType.SELLER.getRole());
+        List<Shop> shops = (ArrayList<Shop>) shopService.getBusyShops();
+        Set<Long> userIds = new HashSet<>();
+        for (Shop shop : shops) {
+            userIds.add(shop.getUserId().getUserId());
+        }
+        // Удаляем занятых владельцев из списка для передачи на View
+        Iterator iterator = users.iterator();
+        while (iterator.hasNext()) {
+            UserAccount user = (UserAccount) iterator.next();
+            Long userId = user.getUserId();
+            if (userIds.contains(userId)) {
+                iterator.remove();
+            }
+        }
+
+        model.addAttribute("users", users);
         model.addAttribute("shop", shopService.getShopById(shopId));
         return "update_shop";
     }

@@ -78,4 +78,8 @@ public class ShopService {
         }
         return image;
     }
+
+    public Iterable<Shop> getBusyShops() {
+        return shopRepository.findAllWhereUserIdIsExist();
+    }
 }

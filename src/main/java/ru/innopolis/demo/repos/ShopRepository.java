@@ -16,5 +16,10 @@ public interface ShopRepository extends CrudRepository<Shop, Long> {
     @Query("select s from Shop s order by s.shopID")
     Iterable<Shop> findAllOrdered();
 
+    // Возвращает магазин для конкретного владельца
     Shop getByUserId_UserId(long userId);
+
+    // Возвращает все магазины, где назначен продавец
+    @Query("select s from Shop  s where s.userId is not null")
+    Iterable<Shop> findAllWhereUserIdIsExist();
 }
