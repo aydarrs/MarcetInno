@@ -1,13 +1,17 @@
 package ru.innopolis.demo.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -16,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.unbescape.html.HtmlEscape;
 import ru.innopolis.demo.domain.Courier;
 import ru.innopolis.demo.domain.DeliveryMethod;
+import ru.innopolis.demo.domain.Product;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.service.CourierService;
+import ru.innopolis.demo.service.ProductService;
 import ru.innopolis.demo.service.UserService;
 
 /**
@@ -30,11 +36,13 @@ public class LoginController {
 
     private final UserService userService;
     private final CourierService courierService;
+    private final ProductService productService;
 
     @Autowired
-    public LoginController(UserService userService, CourierService courierService) {
+    public LoginController(UserService userService, CourierService courierService, ProductService productService) {
         this.userService = userService;
         this.courierService = courierService;
+        this.productService = productService;
     }
 
     @RequestMapping("/")
@@ -44,7 +52,13 @@ public class LoginController {
 
     /** Главная станица */
     @RequestMapping("/index.html")
-    public String index() {
+    public String index(Model model) {
+        Page<Product> page = productService.getAllProducts(1, 6);
+        // Это для генерации номеров страниц, для переключения между ними
+        List<Integer> pageNumbers = IntStream.rangeClosed(1, page.getTotalPages())
+                .boxed()
+                .collect(Collectors.toList());
+        model.addAttribute("page",page);
         return "index";
     }
 
