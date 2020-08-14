@@ -403,6 +403,7 @@ h6, .h6 {
 .lead {
   font-size: 1.32875rem;
   font-weight: 300;
+
 }
 
 .display-1 {
@@ -5637,15 +5638,24 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .jumbotron {
-  padding: 2rem 1rem;
+  padding: 0 1rem;
   margin-bottom: 2rem;
-  background-color: #e9ecef;
+  background-color: transparent;
   border-radius: 0.3rem;
+}
+
+.logo {
+  width: 250px;
+  padding: 0 20px;
+}
+
+.index-img {
+  margin: 10px;
 }
 
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 4rem 2rem;
+    padding: 0 2rem;
   }
 }
 
@@ -10870,6 +10880,23 @@ footer {
 .lead {
   color: #868e96;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  position: absolute;
+  font-size: 30px;
+  top: -160px;
+  font-weight: bold;
+  background-color: #ffffff52;
+  color: white;
+}
+
+.input {
+  font-size: 20px;
+  margin: 0 10px;
+  border-radius: unset;
+}
+
+.regs {
+  font-size: 20px;
+  border-radius: unset;
 }
 
 table,
