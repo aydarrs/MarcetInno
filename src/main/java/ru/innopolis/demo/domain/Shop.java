@@ -26,4 +26,6 @@ public class Shop {
     @Column(name = "shop_name")
     private String name;
 
+    private String image;
+
 }

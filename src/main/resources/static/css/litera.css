@@ -11050,8 +11050,6 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 
 .img-list-container {
   height: 300px;
-  display: table-cell;
-  vertical-align: middle;
 }
 
 .text-container {
@@ -11062,4 +11060,8 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 .table-cell {
   display: table-cell;
   vertical-align: middle;
+}
+
+.img-shop {
+  max-width: 300px;
 }
