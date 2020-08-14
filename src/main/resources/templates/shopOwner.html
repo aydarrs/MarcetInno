@@ -14,18 +14,19 @@
 
 
 <div class="container mt-2">
-    <h2 th:text="' ' + ${shop.name}">Магазин</h2>
+    <h2 th:text="'Магазин - ' + ${shop.name}"></h2>
     <br>
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
-                <h2>Список товаров</h2>
+                <h3>Список товаров</h3>
                 <br>
             </div>
         </div>
     </div>
     <table>
         <tr>
+            <th></th>
             <th>Наименование</th>
             <th>Артикул</th>
             <th >Описание</th>
@@ -34,11 +35,16 @@
             <th>Действие</th>
         </tr>
         <tr th:each="product : ${products}">
-            <td th:text="${product.name}">Наименование</td>
-            <td th:text="${product.article}">Артикул</td>
-            <td th:text="${product.description}">Описание</td>
-            <td th:text="${product.price}">Цена</td>
-            <td th:text="${product.productCount}">Количество</td>
+            <td class="img-shop table-cell">
+                    <img th:if="${product.getImage() == null}" th:src="@{/images/product/default-image.jpg}">
+                    <img th:unless="${product.getImage() == null}"
+                         th:src="@{'/images/product/' + ${product.getImage()}}">
+            </td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.article}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.productCount}"></td>
             <td>
                 <a class="badge badge-success" th:href="@{'update/'+${product.productID}}" th:utext="Изменить"></a>&nbsp;
                 <a class="badge badge-danger" th:href="@{delete(productID=${product.productID},shopID=${shop.shopID})}" th:utext="Удалить"></a>

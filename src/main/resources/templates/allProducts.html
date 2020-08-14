@@ -28,13 +28,11 @@
                 <div class="card border-secondary" style="width: 20rem;">
                     <div class="card-header">Артикул [[${product.article}]]</div>
                     <div class="card-body">
-                        <div class="img-list-container">
+                        <div class="img-list-container table-cell">
                             <a th:href="@{'/product/'+${product.productID}}">
-                                <img th:if="${product.getImage() == null}" th:src="@{/images/product/default-image.jpg}"
-                                     alt="image" href="oneProduct" th:href="@{'/product/'+${product.productID}}">
+                                <img th:if="${product.getImage() == null}" th:src="@{/images/product/default-image.jpg}">
                                 <img th:unless="${product.getImage() == null}"
-                                     th:src="@{'/images/product/' + ${product.getImage()}}" href="oneProduct"
-                                     th:href="@{'/product/'+${product.productID}}" alt="image">
+                                     th:src="@{'/images/product/' + ${product.getImage()}}">
                             </a>
                         </div>
                         <div class="text-container">

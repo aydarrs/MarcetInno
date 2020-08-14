@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ru.innopolis.demo.domain.Shop;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.domain.UserType;
@@ -48,7 +49,8 @@ public class ShopController {
     public String saveShop(Model model,
                            @RequestParam String shopAddress,
                            @RequestParam String shopName,
-                           @RequestParam Long userId) {
+                           @RequestParam Long userId,
+                           @RequestParam MultipartFile file) {
 
         Shop newShop = new Shop();
         newShop.setAddress(shopAddress);
@@ -57,6 +59,8 @@ public class ShopController {
         if (userId != null) {
             newShop.setUserId(userService.getUserById(userId));
         }
+        String image = shopService.copyImage(file, newShop.getShopID());
+        newShop.setImage(image);
 
         shopService.saveNewShop(newShop);
         return "redirect:/" + "shops/all";
@@ -74,7 +78,8 @@ public class ShopController {
                              @PathVariable Long shopId,
                              @RequestParam String shopAddress,
                              @RequestParam String shopName,
-                             @RequestParam Long userId) {
+                             @RequestParam Long userId,
+                             @RequestParam MultipartFile file) {
 
         model.addAttribute("shop", shopService.getShopById(shopId));
 
@@ -85,6 +90,11 @@ public class ShopController {
         if (userId != null) {
             updatedShop.setUserId(userService.getUserById(userId));
         }
+
+
+        String image = shopService.copyImage(file, shopId);
+        updatedShop.setImage(image);
+        System.out.println(updatedShop.getImage());
 
         shopService.changeShopById(shopId, updatedShop);
         return "redirect:/" + "shops/all";
