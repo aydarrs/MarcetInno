@@ -14,5 +14,6 @@
     <include file="db/insertNewShops.xml"/>
     <include file="db/insertNewShopProducts.xml"/>
     <include file="db/insertionForTests.xml"/>
+    <include file="db/addImageField.xml"/>
 
 </databaseChangeLog>

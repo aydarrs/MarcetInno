@@ -1,6 +1,7 @@
 package ru.innopolis.demo.service;
 
 import org.springframework.data.domain.Page;
+import org.springframework.web.multipart.MultipartFile;
 import ru.innopolis.demo.domain.Product;
 
 /**
@@ -37,4 +38,6 @@ public interface IProductService {
     Iterable<Product> findProductsByShopID(Long shopId);
 
     Page<Product> findProductsByShopID(Long shopID, int pageNo, int pageSize);
+
+    String copyImage(MultipartFile file, long shopID, String article);
 }

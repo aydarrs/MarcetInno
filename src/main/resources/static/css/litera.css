@@ -204,6 +204,7 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+  max-width: 100%;
 }
 
 svg {
@@ -899,7 +900,7 @@ pre code {
 }
 
 .offset-4 {
-  margin-left: 33.3333333333%;
+  margin-left: 23.3333333333%;
 }
 
 .offset-5 {
@@ -5110,6 +5111,14 @@ input[type="button"].btn-block {
   border-bottom-width: 0;
   border-bottom-right-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.product-image {
+  height: 300px;
+  width: 300px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 20px;
 }
 
 .card-body, td {
@@ -11037,4 +11046,20 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 
 .list-group {
   font-size: 0.930125rem;
+}
+
+.img-list-container {
+  height: 300px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.text-container {
+  height: 170px;
+  vertical-align: middle;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
 }

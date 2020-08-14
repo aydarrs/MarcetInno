@@ -6,9 +6,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import ru.innopolis.demo.domain.Product;
 import ru.innopolis.demo.repos.ProductRepository;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Optional;
 
 @Service
@@ -26,6 +31,23 @@ public class ProductService implements IProductService{
         Pageable paging = PageRequest.of(pageNo - 1, pageSize);
         Page<Product> page = productRepository.findProductsByShopShopIDOrderByProductID(paging, shopID);
         return page;
+    }
+
+    @Override
+    public String copyImage(MultipartFile file, long shopID, String article) {
+        String image = "default-image.jpg";
+        if (file != null) {
+            image = "shop-id-" + shopID + "/" + article + ".jpg";
+            try (BufferedOutputStream writer = new BufferedOutputStream(new FileOutputStream(
+                    new File("target/classes/static/images/product/" + image)
+            ))) {
+                byte[] bytes = file.getBytes();
+                writer.write(bytes);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return image;
     }
 
     @Override
