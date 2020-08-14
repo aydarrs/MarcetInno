@@ -43,9 +43,12 @@ public class ShopController {
 
     @GetMapping("/add/")
     public String addShop(Model model) {
-        model.addAttribute("users", userService.getAllUsersByUserType(UserType.SELLER.getRole()));
+        List<UserAccount> users = getFreeSellers();
+        model.addAttribute("users", users);
         return "/add_shop";
     }
+
+
 
     @PostMapping("/add/")
     public String saveShop(Model model,
@@ -72,21 +75,7 @@ public class ShopController {
     public String updateShop(Model model, @PathVariable Long shopId) {
         // Здесь мы формируем список владельцев не назначенных на магазины
         // ПОлучаем списки занятых магазинов и владельцев
-        List<UserAccount> users = (ArrayList<UserAccount>) userService.getAllUsersByUserType(UserType.SELLER.getRole());
-        List<Shop> shops = (ArrayList<Shop>) shopService.getBusyShops();
-        Set<Long> userIds = new HashSet<>();
-        for (Shop shop : shops) {
-            userIds.add(shop.getUserId().getUserId());
-        }
-        // Удаляем занятых владельцев из списка для передачи на View
-        Iterator iterator = users.iterator();
-        while (iterator.hasNext()) {
-            UserAccount user = (UserAccount) iterator.next();
-            Long userId = user.getUserId();
-            if (userIds.contains(userId)) {
-                iterator.remove();
-            }
-        }
+        List<UserAccount> users = getFreeSellers();
 
         model.addAttribute("users", users);
         model.addAttribute("shop", shopService.getShopById(shopId));
@@ -124,5 +113,26 @@ public class ShopController {
     public String deleteShop(Model model, @PathVariable Long shopId) {
         return "redirect:/" + "shops/all";
     }*/
+
+    private List<UserAccount> getFreeSellers() {
+        // Здесь мы формируем список владельцев не назначенных на магазины
+        // ПОлучаем списки занятых магазинов и владельцев
+        List<UserAccount> users = (ArrayList<UserAccount>) userService.getAllUsersByUserType(UserType.SELLER.getRole());
+        List<Shop> shops = (ArrayList<Shop>) shopService.getBusyShops();
+        Set<Long> userIds = new HashSet<>();
+        for (Shop shop : shops) {
+            userIds.add(shop.getUserId().getUserId());
+        }
+        // Удаляем занятых владельцев из списка для передачи на View
+        Iterator iterator = users.iterator();
+        while (iterator.hasNext()) {
+            UserAccount user = (UserAccount) iterator.next();
+            Long userId = user.getUserId();
+            if (userIds.contains(userId)) {
+                iterator.remove();
+            }
+        }
+        return users;
+    }
 
 }
