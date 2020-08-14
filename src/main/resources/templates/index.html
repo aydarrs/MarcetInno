@@ -62,6 +62,7 @@
         .title-main-page {
             padding: 0px 0px;
             position: relative;
+            width: 100%;
         }
 
         .title-bg-main-page {
@@ -123,6 +124,10 @@
             font-weight: 300;
         }
 
+        .laptop-img {
+            width: 15%;
+        }
+
         .flex-wrapper {
             display: flex;
             flex: 1 1 100%;
@@ -164,8 +169,9 @@
             background-color: rgb(255, 255, 255);
             box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px 0px;
             border-radius: 6px;
-            margin: 20px 0px;
+            margin: 20px 10px;
             overflow: hidden;
+            width: 23%;
         }
 
         .inline-wrapper {
@@ -186,7 +192,7 @@
         }
 
         .box-how-wrapper.box-content .box-how-icon-wrapper {
-            width: 105px;
+            padding-right: 20px;
             white-space: nowrap;
         }
 
@@ -196,12 +202,16 @@
 
         .box-how-wrapper.box-content span.text-primary {
             font-size: 26px;
-            padding-right: 20px;
+            padding-right: 0px;
         }
 
         .box-how-wrapper.box-content img {
-            width: 40px;
-            height: auto;
+            height: 70px;
+        }
+
+        .icons {
+            text-align: center;
+            padding: 0 0 10px;
         }
 
         p {
@@ -209,8 +219,8 @@
         }
 
         .box-how-wrapper.box-content p {
-            padding: 0px 20px;
-            max-width: calc(100% - 105px);
+            padding: 0px 0px;
+            max-width: calc(100% - 45px);
             margin-bottom: 0px;
         }
 
@@ -1114,83 +1124,78 @@
                     <a type="button" class="btn btn-primary input" href="/login.html">Вход</a>
                     <a type="button" class="btn btn-success regs" href="/register.html">Регистрация</a>
                 </div>
-                <section class="main-page-how-block">
-                    <div class="container-fluid container-fluid-md">
-                        <div class="title-howto-block title-main-page">
-                            <h1 class="text-bold text-center">Как <span class="text-narrow">это работает?</span></h1>
-                        </div>
-                        <div class="flex-wrapper">
-                            <div class="flex-md-6 flex-sm-12 sort-order-xs-2 sort-order-sm-2 sort-order-md-1">
-                                <img class="laptop-img" src="https://local.express/img/laptop-img.png">
-                            </div>
-                            <div class="flex-md-6 flex-sm-12 sort-order-xs-1 sort-order-sm-1 sort-order-md-2">
-                                <div class="box-content box-how-wrapper">
-                                    <div class="inline-wrapper">
-                                        <div class="box-how-icon-wrapper">
-                            <span class="text-primary">
-                                01.
-                            </span>
-                                            <img src="https://local.express/img/main-page/icon-search-purple.svg">
-                                        </div>
-                                        <p>
-                                            <span class="text-bold">Выберите</span> магазин
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="box-content box-how-wrapper">
-                                    <div class="inline-wrapper">
-                                        <div class="box-how-icon-wrapper">
-                            <span class="text-primary">
-                                02.
-                            </span>
-                                            <img src="https://local.express/img/main-page/icon-click-purple.svg">
-                                        </div>
-                                        <p>
-                                            <span class="text-bold">Выберите нужные Вам продукты</span> и оформите заказ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="box-content box-how-wrapper">
-                                    <div class="inline-wrapper">
-                                        <div class="box-how-icon-wrapper">
-                            <span class="text-primary">
-                                03.
-                            </span>
-                                            <img src="https://local.express/img/main-page/icon-cart-purple.svg">
-                                        </div>
-                                        <p>
-                                            Магазин <span class="text-bold">приготовит ваш заказ</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="box-content box-how-wrapper">
-                                    <div class="inline-wrapper">
-                                        <div class="box-how-icon-wrapper">
-                            <span class="text-primary">
-                                04.
-                            </span>
-                                            <img src="https://local.express/img/main-page/icon-truck-purple.svg">
-                                        </div>
-                                        <p>
-                                            <span class="text-bold">Наш водитель доставит его</span> прямо к Вам
-                                        </p>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <br>
-                <br>
             </div>
+        </div>
+        <div class="row" style="margin: 30px 0;">
+            <div class="title-howto-block title-main-page">
+                <div style="width: 40%; float: left;">
+                    <h1 class="text-bold " style="margin-top: 60px;">Как <span class="text-narrow">это работает?</span></h1>
+                </div>
+                <img class="laptop-img" src="https://local.express/img/laptop-img.png">
+            </div>
+
+            <div class="box-content box-how-wrapper">
+                <div class="icons">
+                    <img src="https://local.express/img/main-page/icon-search-purple.svg">
+                </div>
+                <div class="inline-wrapper">
+                    <div class="box-how-icon-wrapper">
+                            <span class="text-primary">1.</span>
+                    </div>
+                    <p>
+                        <span class="text-bold">Выберите</span> магазин
+                    </p>
+                </div>
+            </div>
+            <div class="box-content box-how-wrapper">
+                <div class="icons">
+                    <img src="https://local.express/img/main-page/icon-click-purple.svg">
+                </div>
+                <div class="inline-wrapper">
+                    <div class="box-how-icon-wrapper">
+                            <span class="text-primary">2.</span>
+                    </div>
+                    <p>
+                        <span class="text-bold">Выберите нужные Вам продукты</span> и оформите заказ
+                    </p>
+                </div>
+            </div>
+            <div class="box-content box-how-wrapper">
+                <div class="icons">
+                    <img src="https://local.express/img/main-page/icon-cart-purple.svg">
+                </div>
+                <div class="inline-wrapper">
+                    <div class="box-how-icon-wrapper">
+                            <span class="text-primary">3.</span>
+                    </div>
+                    <p>
+                        Магазин <span class="text-bold">приготовит ваш заказ</span>
+                    </p>
+                </div>
+            </div>
+            <div class="box-content box-how-wrapper">
+                <div class="icons">
+                    <img src="https://local.express/img/main-page/icon-truck-purple.svg">
+                </div>
+                <div class="inline-wrapper">
+                    <div class="box-how-icon-wrapper">
+                            <span class="text-primary">4.</span>
+                    </div>
+                    <p>
+                        <span class="text-bold">Наш водитель доставит его</span> прямо к Вам
+                    </p>
+
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="margin: 10px 0;">
         <div class="col-lg-8 col-md-7 col-sm-6">
             <th>
-                <h2>Список товаров</h2>
+                <h1 class="text-bold ">Список товаров</h1>
         </div>
     </div>
     <div class="card-columns">
