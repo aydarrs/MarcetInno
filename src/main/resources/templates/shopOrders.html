@@ -43,7 +43,9 @@
                     <td th:utext="${order.date}"></td>
                     <td th:utext="${order.product.getArticle()}"></td>
                     <td th:utext="${order.countProduct}"></td>
-                    <td th:utext="${order.paymentStatus.getTitle()}"></td>
+                    <td th:if="${order.paymentStatus.getTitle().equals('Оплачен')}" class="btn btn-success disabled" style="margin: 10px" th:utext="${order.paymentStatus.getTitle()}"></td>
+                    <td th:unless="${order.paymentStatus.getTitle().equals('Оплачен')}" class="btn btn-danger disabled" style="margin: 10px" th:utext="${order.paymentStatus.getTitle()}"></td>
+
                     <td sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_SELLER')">
                         <a th:href="@{'/courier/free?order_id=' + ${order.getOrderId()}}">Выбрать курьера</a>
                     </td>
