@@ -2,6 +2,7 @@ package ru.innopolis.demo.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -57,6 +58,10 @@ public class CourierController {
         orderService.saveChanged(order);
         log.info("Changed order status: " + order);
         model.addAttribute("orders", orderService.getAllOrders());
+        // Это для владельца магазина, чтобы его возвращало на свою страницу
+        if (SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal().toString().contains("SELLER"))
+            return "redirect:/seller/orders";
         return "redirect:/order/all";
     }
 

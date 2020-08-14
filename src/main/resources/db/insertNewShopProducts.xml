@@ -306,8 +306,8 @@
         <insert tableName="product">
             <column name="shop_id" value="7"/>
             <column name="article" value="659772-467"/>
-            <column name="product_name" value="Палочки"/>
-            <column name="description" value="Крабобвые замороженные, 220 гр."/>
+            <column name="product_name" value="Крабовые Палочки"/>
+            <column name="description" value="Замороженные, 220 гр."/>
             <column name="price" value="109"/>
             <column name="product_count" value="440"/>
         </insert>

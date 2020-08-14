@@ -28,6 +28,12 @@
             <input type="text" class="form-control" id="shopAddress" name="shopAddress" placeholder="Введите адрес"><br>
             <label for="shopName">Магазин</label><br>
             <input type="text" class="form-control" id="shopName" name="shopName" placeholder="Введите магазин"><br>
+            <label for="userId">Продавец</label><br>
+            <select class="form-control" id="userId" name="userId">
+                <option></option>
+                <option th:each="user : ${users}" th:value="${user.getUserId()}" th:text="${user.getUserName()}">
+                </option>
+            </select><br>
             <input class="btn btn-success" type="submit" value="Добавить">
         </form>
 

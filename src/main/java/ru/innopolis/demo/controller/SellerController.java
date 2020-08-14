@@ -8,11 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
+import ru.innopolis.demo.domain.OrderShop;
 import ru.innopolis.demo.domain.Product;
 import ru.innopolis.demo.domain.UserAccount;
 import ru.innopolis.demo.service.*;
 
 import java.io.*;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * ShopOwnerController.
@@ -118,6 +123,27 @@ public class SellerController {
         product.setProductID(productID);
         configureProduct(shopID, article, name, description, price, count, image, product);
         return getShopOwnerPage(model, shopID);
+    }
+
+    @GetMapping("/orders")
+    public String getShopOrdersPage(Model model) {
+        String userName = SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getName();
+        UserAccount user = userService.getUserByUserName(userName);
+        long userId = user.getUserId();
+        long shopId = shopService.getShopBySellerId(userId).getShopID();
+        List<Product> allProducts = (ArrayList<Product>) productService.findProductsByShopID(shopId);
+        List<OrderShop> orders = new LinkedList<>();
+        for (Product product : allProducts) {
+            List<OrderShop> foundedOrders = (ArrayList<OrderShop>) orderService.getOrdersByProductId(product.getProductID());
+            if (foundedOrders != null) {
+                orders.addAll(foundedOrders);
+            }
+        }
+        model.addAttribute("orders", orders);
+        model.addAttribute("shop", shopService.getShopById(shopId));
+        return "shopOrders";
     }
 
     private void configureProduct(@RequestParam long shopID,

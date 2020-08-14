@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.innopolis.demo.domain.Shop;
 import ru.innopolis.demo.domain.UserAccount;
-import ru.innopolis.demo.service.ShopService;
-import ru.innopolis.demo.service.ShopServiceManager;
+import ru.innopolis.demo.domain.UserType;
+import ru.innopolis.demo.service.*;
 
 @Controller
 @RequestMapping("/shops")
@@ -18,10 +18,12 @@ import ru.innopolis.demo.service.ShopServiceManager;
 public class ShopController {
 
     private ShopService shopService;
+    private UserService userService;
 
     @Autowired
-    public ShopController(ShopService shopService) {
+    public ShopController(ShopService shopService, UserService userService) {
         this.shopService = shopService;
+        this.userService = userService;
     }
 
     @GetMapping("/all")
@@ -37,18 +39,24 @@ public class ShopController {
     }
 
     @GetMapping("/add/")
-    public String addShop() {
+    public String addShop(Model model) {
+        model.addAttribute("users", userService.getAllUsersByUserType(UserType.SELLER.getRole()));
         return "/add_shop";
     }
 
     @PostMapping("/add/")
-    public String saveUser(Model model,
+    public String saveShop(Model model,
                            @RequestParam String shopAddress,
-                           @RequestParam String shopName) {
+                           @RequestParam String shopName,
+                           @RequestParam Long userId) {
 
         Shop newShop = new Shop();
         newShop.setAddress(shopAddress);
         newShop.setName(shopName);
+
+        if (userId != null) {
+            newShop.setUserId(userService.getUserById(userId));
+        }
 
         shopService.saveNewShop(newShop);
         return "redirect:/" + "shops/all";
@@ -56,6 +64,7 @@ public class ShopController {
 
     @GetMapping("/update/{shopId}")
     public String updateShop(Model model, @PathVariable Long shopId) {
+        model.addAttribute("users", userService.getAllUsersByUserType(UserType.SELLER.getRole()));
         model.addAttribute("shop", shopService.getShopById(shopId));
         return "update_shop";
     }
@@ -64,13 +73,18 @@ public class ShopController {
     public String changeShop(Model model,
                              @PathVariable Long shopId,
                              @RequestParam String shopAddress,
-                             @RequestParam String shopName) {
+                             @RequestParam String shopName,
+                             @RequestParam Long userId) {
 
         model.addAttribute("shop", shopService.getShopById(shopId));
 
         Shop updatedShop = new Shop();
         updatedShop.setAddress(shopAddress);
         updatedShop.setName(shopName);
+
+        if (userId != null) {
+            updatedShop.setUserId(userService.getUserById(userId));
+        }
 
         shopService.changeShopById(shopId, updatedShop);
         return "redirect:/" + "shops/all";

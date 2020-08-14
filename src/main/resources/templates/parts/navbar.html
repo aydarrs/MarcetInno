@@ -70,7 +70,7 @@
             </div>
             <div sec:authorize="hasRole('ROLE_SELLER')">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/order/all}">Заказы</a>
+                    <a class="nav-link" th:href="@{/seller/orders}">Заказы</a>
                 </li>
             </div>
             <div sec:authorize="hasRole('ROLE_SELLER')">

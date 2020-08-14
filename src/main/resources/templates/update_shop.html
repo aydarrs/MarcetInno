@@ -28,6 +28,15 @@
             <input type="text" class="form-control" id="shopAddress" name="shopAddress" th:value="${shop.getAddress()}"><br>
             <label for="shopName">Магазин</label><br>
             <input type="text" class="form-control" id="shopName" name="shopName" th:value="${shop.getName()}"><br>
+            <label for="userId">Продавец</label><br>
+            <select class="form-control" id="userId" name="userId">
+                <option th:if="${shop.getUserId() == null}"></option>
+                <option th:if="${shop.getUserId() == null}" th:each="user : ${users}" th:value="${user.getUserId()}" th:text="${user.getUserName()}">
+                </option>
+                <option th:if="${shop.getUserId() != null}" th:each="user : ${users}" th:value="${user.getUserId()}" th:text="${user.getUserName()}"
+                        th:selected="${shop.getUserId().getUserId() == user.getUserId()}">
+                </option>
+            </select><br>
             <input class="btn btn-success" type="submit" value="Сохранить">
         </form><br>
 
